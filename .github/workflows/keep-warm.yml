@@ -1,0 +1,33 @@
+name: Keep Supabase warm
+
+# Pings the Supabase REST API every ~5 days so the free-tier project
+# doesn't pause for inactivity (Supabase pauses projects after 7 idle days).
+#
+# Schedule: at 05:00 UTC (= 12:00 noon Asia/Bangkok) on days 1, 6, 11, 16,
+# 21, 26 of every month — i.e. approximately every 5 days, max gap 6 days.
+# GitHub cron uses UTC and doesn't support timezones natively.
+
+on:
+  schedule:
+    - cron: '0 5 */5 * *'
+  workflow_dispatch:        # also allow manual trigger from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        # The anon key is safe to embed: it's already shipped in the deployed
+        # landing page and admin.html — RLS controls what it can read/write.
+        env:
+          SUPABASE_URL:  https://zjrvhrfxbvrquloboyob.supabase.co
+          SUPABASE_ANON: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqcnZocmZ4YnZycXVsb2JveW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDI3NTAsImV4cCI6MjA5NTg3ODc1MH0.38dIKtuSMmYv-w5EEwllBDHcLvuqJgevW1JtDPQeLvI
+        run: |
+          set -e
+          code=$(curl -s -o /tmp/body -w "%{http_code}" \
+            -H "apikey: $SUPABASE_ANON" \
+            -H "Authorization: Bearer $SUPABASE_ANON" \
+            "$SUPABASE_URL/rest/v1/branches?select=id&limit=1")
+          echo "HTTP $code"
+          cat /tmp/body
+          test "$code" = "200"
