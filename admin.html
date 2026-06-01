@@ -199,9 +199,9 @@ async function enterAdmin(){
   authScreen.classList.add('hidden');
   adminApp.classList.remove('hidden');
   document.getElementById('meEmail').textContent = user.email;
-  // Check admin membership
-  const { data: adminRow } = await sb.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
-  const isAdmin = !!adminRow;
+  // Check admin membership via is_admin() RPC (avoids RLS recursion on admin_users)
+  const { data: isAdminFlag } = await sb.rpc('is_admin');
+  const isAdmin = !!isAdminFlag;
   if (!isAdmin) {
     document.getElementById('meRole').classList.remove('hidden');
     document.getElementById('bannerNoAdmin').classList.remove('hidden');

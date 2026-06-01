@@ -12,16 +12,22 @@ create table if not exists public.admin_users (
 
 alter table public.admin_users enable row level security;
 
-drop policy if exists "admins read admin_users" on public.admin_users;
-create policy "admins read admin_users"
-  on public.admin_users for select
-  using (auth.uid() in (select user_id from public.admin_users));
-
--- Helper: is the caller an admin?
+-- Helper: is the caller an admin?  (SECURITY DEFINER bypasses RLS to avoid recursion)
 create or replace function public.is_admin()
 returns boolean language sql security definer set search_path = public as $$
   select exists (select 1 from public.admin_users where user_id = auth.uid())
 $$;
+
+drop policy if exists "admins read admin_users" on public.admin_users;
+create policy "admins read admin_users"
+  on public.admin_users for select
+  using (public.is_admin());
+
+-- Each user can also check whether their own row exists (no recursion: filter on user_id = auth.uid())
+drop policy if exists "users see own admin row" on public.admin_users;
+create policy "users see own admin row"
+  on public.admin_users for select
+  using (auth.uid() = user_id);
 
 -- ----- Branches: admins write -----
 drop policy if exists "admins write branches" on public.branches;
