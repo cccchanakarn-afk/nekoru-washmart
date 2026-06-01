@@ -101,6 +101,7 @@
       <button class="tab" data-tab="contacts">📥 ข้อความติดต่อ</button>
       <button class="tab" data-tab="franchise_inquiries">🤝 แฟรนไชส์</button>
       <button class="tab" data-tab="career_applications">💼 สมัครงาน</button>
+      <button class="tab" data-tab="admin_users">🔐 แอดมิน</button>
     </nav>
   </header>
 
@@ -345,6 +346,12 @@ document.getElementById('btnAdd').addEventListener('click', () => openModal(null
 async function loadTab(name){
   currentTab = name;
   document.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  if (name === 'admin_users') {
+    document.getElementById('paneTitle').textContent = '🔐 แอดมิน';
+    document.getElementById('btnAdd').style.display = 'none';
+    await renderAdminsPane();
+    return;
+  }
   const def = TABS[name];
   document.getElementById('paneTitle').textContent = def.title;
   document.getElementById('btnAdd').style.display = def.readOnly ? 'none' : '';
@@ -357,6 +364,95 @@ async function loadTab(name){
   currentRows = data || [];
   document.getElementById('paneCount').textContent = `${currentRows.length} รายการ`;
   renderList();
+}
+
+// ============================================================
+// Admin management pane (custom, not schema-driven)
+// ============================================================
+async function renderAdminsPane(){
+  const body = document.getElementById('paneBody');
+  body.innerHTML = '<div class="text-center py-8 text-nink/50 text-sm">กำลังโหลด...</div>';
+  const { data: { user } } = await sb.auth.getUser();
+  const myId = user && user.id;
+  const { data: rows, error } = await sb.from('admin_users')
+    .select('user_id, email, added_at')
+    .order('added_at', { ascending: true });
+  if (error) {
+    body.innerHTML = `<div class="rounded-xl bg-[#ffe8eb] text-nred p-4 text-sm">โหลดไม่สำเร็จ: ${error.message}</div>`;
+    return;
+  }
+  document.getElementById('paneCount').textContent = `${(rows || []).length} แอดมิน`;
+  const list = (rows || []).map(r => {
+    const isSelf = r.user_id === myId;
+    const dateStr = r.added_at ? new Date(r.added_at).toLocaleString('th-TH', { dateStyle:'medium', timeStyle:'short' }) : '—';
+    const removeBtn = isSelf
+      ? '<span class="text-xs text-nink/50">ตัวคุณ</span>'
+      : `<button class="btn btn-danger py-1 px-3 text-xs" data-remove="${r.user_id}" data-email="${(r.email||'').replace(/"/g,'&quot;')}">ลบสิทธิ์</button>`;
+    return `<tr>
+      <td><b>${r.email || '—'}</b>${isSelf ? ' <span class="badge bg-[#e6f5fc] text-nblue ml-1">คุณ</span>' : ''}</td>
+      <td class="text-xs text-nink/60"><code>${r.user_id}</code></td>
+      <td class="text-xs">${dateStr}</td>
+      <td class="text-right">${removeBtn}</td>
+    </tr>`;
+  }).join('');
+  body.innerHTML = `
+    <div class="rounded-xl bg-[#f4fbff] border border-[#e6f3fa] p-4 mb-5">
+      <div class="text-sm font-bold mb-2">➕ เพิ่มแอดมินใหม่</div>
+      <div class="text-xs text-nink/60 mb-3 leading-relaxed">
+        ผู้ใช้คนใหม่ต้อง <b>สมัคร + ยืนยันอีเมล</b> ที่หน้านี้ก่อน
+        (แท็บ "สมัครแอดมินใหม่") แล้วค่อยมาเพิ่มที่นี่
+      </div>
+      <form id="addAdminForm" class="flex flex-wrap gap-2">
+        <input id="addAdminEmail" type="email" required class="field flex-1 min-w-[200px]" placeholder="email@example.com" />
+        <button type="submit" class="btn btn-primary">+ เพิ่ม</button>
+      </form>
+      <div id="addAdminStatus" class="hidden mt-3 rounded-lg p-2 text-xs font-bold"></div>
+    </div>
+    <table class="adm">
+      <thead><tr><th>อีเมล</th><th>User ID</th><th>เพิ่มเมื่อ</th><th class="text-right">—</th></tr></thead>
+      <tbody>${list || '<tr><td colspan="4" class="text-center text-nink/50 py-8">ยังไม่มีแอดมิน</td></tr>'}</tbody>
+    </table>`;
+  // Add handler
+  document.getElementById('addAdminForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('addAdminEmail');
+    const statusEl = document.getElementById('addAdminStatus');
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.disabled = true; const old = btn.textContent; btn.textContent = '...';
+    const { data, error } = await sb.rpc('add_admin_by_email', { target_email: emailInput.value });
+    btn.disabled = false; btn.textContent = old;
+    statusEl.classList.remove('hidden');
+    if (error) {
+      statusEl.className = 'mt-3 rounded-lg p-2 text-xs font-bold bg-[#ffe8eb] text-nred';
+      statusEl.textContent = '❌ ' + error.message;
+      return;
+    }
+    if (data === 'added') {
+      statusEl.className = 'mt-3 rounded-lg p-2 text-xs font-bold bg-[#e6f5fc] text-nblue';
+      statusEl.textContent = '✅ เพิ่มสำเร็จ — ' + emailInput.value;
+      emailInput.value = '';
+      setTimeout(() => loadTab('admin_users'), 600);
+    } else if (data === 'already_admin') {
+      statusEl.className = 'mt-3 rounded-lg p-2 text-xs font-bold bg-[#fff1e3] text-[#7a3500]';
+      statusEl.textContent = '⚠️ เป็นแอดมินอยู่แล้ว';
+    } else if (data === 'user_not_found') {
+      statusEl.className = 'mt-3 rounded-lg p-2 text-xs font-bold bg-[#fff1e3] text-[#7a3500]';
+      statusEl.textContent = '⚠️ ไม่พบผู้ใช้ — ให้เขาสมัคร + ยืนยันอีเมลที่ /admin.html ก่อน แล้วลองอีกครั้ง';
+    } else {
+      statusEl.className = 'mt-3 rounded-lg p-2 text-xs font-bold bg-[#ffe8eb] text-nred';
+      statusEl.textContent = 'ผลลัพธ์ไม่คาดคิด: ' + JSON.stringify(data);
+    }
+  });
+  // Remove handlers
+  body.querySelectorAll('[data-remove]').forEach(b => b.addEventListener('click', async () => {
+    const uid = b.dataset.remove;
+    const em  = b.dataset.email;
+    if (!confirm(`ลบสิทธิ์แอดมินของ ${em}?\n(บัญชี Supabase Auth ยังอยู่ แต่จะอ่าน/เขียนข้อมูลไม่ได้แล้ว)`)) return;
+    b.disabled = true; b.textContent = '...';
+    const { data, error } = await sb.rpc('remove_admin', { target_user_id: uid });
+    if (error) { alert('ลบไม่สำเร็จ: ' + error.message); b.disabled = false; b.textContent = 'ลบสิทธิ์'; return; }
+    loadTab('admin_users');
+  }));
 }
 
 function fmtCell(v, type){
