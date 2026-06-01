@@ -232,48 +232,59 @@ alter table public.career_applications  enable row level security;
 alter table public.faqs                 enable row level security;
 
 -- ----- Public READ for content tables (anyone can fetch published content) -----
+drop policy if exists "public read open branches" on public.branches;
 create policy "public read open branches"
   on public.branches for select
   using (status in ('open', 'coming_soon'));
 
+drop policy if exists "public read published articles" on public.articles;
 create policy "public read published articles"
   on public.articles for select
   using (published_at is not null and published_at <= now());
 
+drop policy if exists "public read active news" on public.news_events;
 create policy "public read active news"
   on public.news_events for select
   using (is_active = true);
 
+drop policy if exists "public read active faqs" on public.faqs;
 create policy "public read active faqs"
   on public.faqs for select
   using (is_active = true);
 
 -- ----- Public INSERT (anonymous form submissions) -----
+drop policy if exists "anyone can submit contact" on public.contacts;
 create policy "anyone can submit contact"
   on public.contacts for insert
   with check (true);
 
+drop policy if exists "anyone can subscribe newsletter" on public.newsletter_subscribers;
 create policy "anyone can subscribe newsletter"
   on public.newsletter_subscribers for insert
   with check (true);
 
+drop policy if exists "anyone can inquire franchise" on public.franchise_inquiries;
 create policy "anyone can inquire franchise"
   on public.franchise_inquiries for insert
   with check (true);
 
+drop policy if exists "anyone can apply career" on public.career_applications;
 create policy "anyone can apply career"
   on public.career_applications for insert
   with check (true);
 
 -- ----- Members: only the signed-in user sees their own row -----
+drop policy if exists "members see own row" on public.members;
 create policy "members see own row"
   on public.members for select
   using (auth.uid() = auth_user_id);
 
+drop policy if exists "members update own row" on public.members;
 create policy "members update own row"
   on public.members for update
   using (auth.uid() = auth_user_id);
 
+drop policy if exists "members see own points log" on public.member_points_log;
 create policy "members see own points log"
   on public.member_points_log for select
   using (

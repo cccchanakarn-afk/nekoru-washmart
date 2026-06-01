@@ -39,7 +39,14 @@
   }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="i18n-seq.js"></script>
+<script>
+  window.NEKORU_SUPABASE = {
+    url: 'https://zjrvhrfxbvrquloboyob.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqcnZocmZ4YnZycXVsb2JveW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDI3NTAsImV4cCI6MjA5NTg3ODc1MH0.38dIKtuSMmYv-w5EEwllBDHcLvuqJgevW1JtDPQeLvI',
+  };
+</script>
 <script>
   tailwind.config = {
     theme: {
@@ -1571,9 +1578,9 @@
     </div>
 
     <div class="lg:col-span-7">
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=1" class="card-light rounded-3xl bg-white p-6 md:p-8 border border-[#e6f3fa] shadow-card grid gap-4">
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden"><label>Don't fill this: <input name="bot-field" /></label></p>
+      <form id="contactForm" name="contact" method="POST" class="card-light rounded-3xl bg-white p-6 md:p-8 border border-[#e6f3fa] shadow-card grid gap-4">
+        <p class="hidden"><label>Don't fill this: <input name="bot-field" autocomplete="off" tabindex="-1" /></label></p>
+        <div id="contactStatus" class="hidden rounded-xl p-3 text-sm font-bold"></div>
         <div class="grid sm:grid-cols-2 gap-4">
           <label class="block">
             <span class="block text-sm font-bold mb-1.5" style="font-size: 16px">ชื่อ–นามสกุล</span>
@@ -2468,6 +2475,54 @@
     else if (t === '__deactivate_edit_mode') hidePanel();
   });
   window.parent.postMessage({type:'__edit_mode_available'}, '*');
+
+  // ============ Contact form → Supabase ============
+  (function wireContactForm(){
+    const cfg = window.NEKORU_SUPABASE;
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('contactStatus');
+    if (!cfg || !form || !window.supabase) return;
+    const sb = window.supabase.createClient(cfg.url, cfg.anonKey);
+    const subjectMap = {
+      'สอบถามทั่วไป': 'general',
+      'ปัญหาการใช้งานเครื่อง': 'machine_issue',
+      'เสนอแฟรนไชส์ / เปิดสาขา': 'franchise',
+      'ร่วมงาน / สมัครงาน': 'careers',
+      'ติชม / ข้อเสนอแนะ': 'feedback',
+    };
+    function showStatus(kind, msg){
+      statusEl.className = 'rounded-xl p-3 text-sm font-bold ' +
+        (kind === 'ok' ? 'bg-[#e6f5fc] text-nblue border border-[#b9e2f3]'
+                       : 'bg-[#ffe8eb] text-nred border border-[#ffc1c8]');
+      statusEl.textContent = msg;
+      statusEl.classList.remove('hidden');
+    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (form.elements['bot-field'] && form.elements['bot-field'].value) return; // honeypot
+      const btn = form.querySelector('button[type="submit"]');
+      const oldText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'กำลังส่ง...';
+      const fd = new FormData(form);
+      const { error } = await sb.from('contacts').insert({
+        name:    (fd.get('name') || '').toString().trim(),
+        phone:   (fd.get('phone') || '').toString().trim(),
+        subject: subjectMap[fd.get('subject')] || 'general',
+        message: (fd.get('message') || '').toString().trim(),
+        consent: !!fd.get('consent'),
+        user_agent: navigator.userAgent.slice(0, 500),
+      });
+      btn.disabled = false;
+      btn.textContent = oldText;
+      if (error) {
+        showStatus('err', '❌ ส่งไม่สำเร็จ: ' + error.message);
+      } else {
+        form.reset();
+        showStatus('ok', '✅ ส่งข้อความเรียบร้อย! ทีมงานจะติดต่อกลับโดยเร็ว');
+      }
+    });
+  })();
 </script>
 </body>
 </html>
