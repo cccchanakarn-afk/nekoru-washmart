@@ -194,19 +194,30 @@ document.getElementById('signOut').addEventListener('click', async () => {
 });
 
 async function enterAdmin(){
+  // Force-refresh session so the JWT is current
+  try { await sb.auth.refreshSession(); } catch(e){}
   const { data: { user } } = await sb.auth.getUser();
   if (!user) return;
   authScreen.classList.add('hidden');
   adminApp.classList.remove('hidden');
   document.getElementById('meEmail').textContent = user.email;
-  // Check admin membership via is_admin() RPC (avoids RLS recursion on admin_users)
-  const { data: isAdminFlag } = await sb.rpc('is_admin');
-  const isAdmin = !!isAdminFlag;
+
+  // Try TWO independent admin checks; trust whichever says yes.
+  const rpcRes  = await sb.rpc('is_admin');
+  const rowRes  = await sb.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
+  const byRpc   = rpcRes.data === true;
+  const byRow   = !!rowRes.data;
+  const isAdmin = byRpc || byRow;
+  console.log('[Nekoru admin check]', { userId: user.id, byRpc, byRow, rpcRes, rowRes });
   if (!isAdmin) {
     document.getElementById('meRole').classList.remove('hidden');
     document.getElementById('bannerNoAdmin').classList.remove('hidden');
     document.getElementById('bootstrapSql').textContent =
       `insert into public.admin_users (user_id, email)\nvalues ('${user.id}', '${user.email}')\non conflict do nothing;`;
+  } else {
+    // Make sure stale UI from a previous (non-admin) session is cleared
+    document.getElementById('meRole').classList.add('hidden');
+    document.getElementById('bannerNoAdmin').classList.add('hidden');
   }
   loadTab('branches');
 }
