@@ -1,0 +1,22 @@
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Design bundle (handoff artifact, not part of the site)
+_design_bundle/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Netlify
+.netlify/

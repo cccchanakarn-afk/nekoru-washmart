@@ -1,0 +1,2473 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nekoru Washmart — ร้านสะดวกซักเนโกะรุ · ซัก-อบในเครื่องเดียว 24 ชั่วโมง</title>
+<link rel="icon" href="assets/nekoru-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  @font-face {
+    font-family: 'LINE Seed Sans TH';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@7/fonts/LINESeedSansTH/LINESeedSansTH_W_Rg.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINE Seed Sans TH';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@7/fonts/LINESeedSansTH/LINESeedSansTH_W_Bd.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINE Seed Sans TH';
+    font-style: normal;
+    font-weight: 800;
+    src: url('https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@7/fonts/LINESeedSansTH/LINESeedSansTH_W_XBd.woff2') format('woff2');
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'LINE Seed Sans TH';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://cdn.jsdelivr.net/gh/lazywasabi/thai-web-fonts@7/fonts/LINESeedSansTH/LINESeedSansTH_W_Th.woff2') format('woff2');
+    font-display: swap;
+  }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="i18n-seq.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          nblue:    '#31a7de',
+          nsky:     '#70cbff',
+          northo:   '#ff7300',
+          nred:     '#e63946',
+          ncream:   '#fff8ee',
+          npaper:   '#f4fbff',
+          nink:     '#0e2c40',
+        },
+        fontFamily: {
+          display: ['LINE Seed Sans TH', 'Fredoka', 'system-ui', 'sans-serif'],
+          th:      ['LINE Seed Sans TH', 'Prompt', 'system-ui', 'sans-serif'],
+          sans:    ['LINE Seed Sans TH', 'Sarabun', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          soft:  '0 14px 30px -16px rgba(14,44,64,.18)',
+          card:  '0 1px 0 0 rgba(14,44,64,.05), 0 24px 48px -28px rgba(14,44,64,.18)',
+          pop:   '0 20px 40px -20px rgba(255,115,0,.45)',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  :root{
+    --nblue:#31a7de; --nsky:#70cbff; --northo:#ff7300;
+    --nred:#e63946; --nink:#0e2c40; --npaper:#f4fbff;
+  }
+  html, body { font-family: 'LINE Seed Sans TH','Sarabun','Prompt',system-ui,sans-serif; color:var(--nink); background:#fff; }
+  h1,h2,h3,h4,.font-display { font-family:'LINE Seed Sans TH','Fredoka','Prompt',system-ui,sans-serif; letter-spacing:-.01em; }
+  .th-display { font-family:'LINE Seed Sans TH','Prompt',system-ui,sans-serif; font-weight:800; letter-spacing:-.01em; }
+  ::selection { background:#ff7300; color:#fff; }
+  html { scroll-behavior:smooth; }
+  ::-webkit-scrollbar { width:10px; height:10px; }
+  ::-webkit-scrollbar-track { background:#eaf6fc; }
+  ::-webkit-scrollbar-thumb { background:#b9e2f3; border-radius:999px; }
+  ::-webkit-scrollbar-thumb:hover { background:#70cbff; }
+
+  .dots {
+    background-image: radial-gradient(rgba(49,167,222,.22) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+  }
+  .stripe { display:none; }
+
+  .pill { display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .85rem; border-radius:9999px;
+          background:#fff; border:1.5px solid #cfeaf7; color:#0e2c40; font-weight:600; font-size:.78rem; letter-spacing:.02em; }
+  .pill-orange { background:#fff1e3; border-color:#ffd6b3; color:#cf5a00; }
+  .pill-blue   { background:#e6f5fc; border-color:#b9e2f3; color:#0e2c40; }
+  .pill-red    { background:#ffe8eb; border-color:#ffc1c8; color:#a8202e; }
+
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+         padding:.95rem 1.4rem; border-radius:9999px; font-weight:700; font-family:'Prompt',sans-serif;
+         transition:transform .15s ease, box-shadow .15s ease, background .15s ease; white-space:nowrap; }
+  .btn:active { transform:translateY(1px); }
+  .btn-primary { background:#ff7300; color:#fff; box-shadow:0 14px 28px -14px rgba(255,115,0,.6); }
+  .btn-primary:hover { background:#e96900; }
+  .btn-blue { background:#31a7de; color:#fff; box-shadow:0 14px 28px -14px rgba(49,167,222,.6); }
+  .btn-blue:hover { background:#1f93cb; }
+  .btn-ghost { background:#fff; color:#0e2c40; border:1.5px solid #cfeaf7; }
+  .btn-ghost:hover { border-color:#70cbff; }
+  .btn-dark { background:#0e2c40; color:#fff; }
+  .btn-dark:hover { background:#16415e; }
+
+  .squiggle, .squiggle-blue { background:none; padding-bottom:0; }
+
+  @keyframes drumspin { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+  .drum-spin { animation: drumspin 8s linear infinite; transform-origin:50% 50%; }
+  @keyframes wiggle { 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(3deg)} }
+  .wiggle { animation: wiggle 4s ease-in-out infinite; transform-origin:50% 90%; }
+  @keyframes bobble { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .bobble { animation: bobble 3s ease-in-out infinite; }
+  @keyframes blink { 0%,92%,100%{transform:scaleY(1)} 95%{transform:scaleY(.1)} }
+  .blink { animation: blink 4s ease-in-out infinite; transform-origin:center; transform-box:fill-box; }
+  @keyframes tail-sway { 0%,100%{transform:rotate(-6deg)} 50%{transform:rotate(8deg)} }
+  .tail-sway { animation: tail-sway 3s ease-in-out infinite; transform-origin: 30% 90%; transform-box:fill-box; }
+  @keyframes float-bub { 0%{transform:translateY(0); opacity:0} 30%{opacity:1} 100%{transform:translateY(-60px); opacity:0} }
+  .bubblet { animation: float-bub 3.5s ease-in infinite; }
+
+  /* Bubble burst overlay on page load */
+  #bubbleBurst{ position:fixed; inset:0; z-index:90; pointer-events:none; overflow:hidden; }
+  #bubbleBurst.done{ display:none; }
+  .burst-b{
+    position:absolute; bottom:-80px; border-radius:9999px;
+    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.95) 0 14%, rgba(255,255,255,.45) 20%, rgba(112,203,255,.55) 55%, rgba(49,167,222,.55) 100%);
+    border:1.5px solid rgba(255,255,255,.85);
+    box-shadow: inset 0 0 6px rgba(255,255,255,.6), 0 6px 20px rgba(49,167,222,.18);
+    opacity:0;
+    animation: burst-rise var(--d, 4s) cubic-bezier(.2,.65,.4,1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes burst-rise{
+    0%   { transform: translateY(0) translateX(0) scale(.4); opacity:0; }
+    8%   { opacity:.9; }
+    60%  { opacity:.9; }
+    85%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1); opacity:.9; }
+    92%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.35); opacity:.6; }
+    100% { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.6); opacity:0; }
+  }
+
+  .marquee { overflow:hidden; }
+  .marquee-track { display:flex; gap:3rem; width:max-content; animation: scrolly 28s linear infinite; }
+  @keyframes scrolly { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  details.faq summary { list-style:none; cursor:pointer; }
+  details.faq summary::-webkit-details-marker { display:none; }
+  details.faq[open] .chev { transform: rotate(45deg); }
+  .chev { transition: transform .25s ease; }
+
+  .field { width:100%; padding:.85rem 1rem; border-radius:14px; border:1.5px solid #cfeaf7;
+           background:#fff; font:400 1rem/1.4 'Sarabun',sans-serif; color:#0e2c40;
+           transition:border .15s ease, box-shadow .15s ease; }
+  .field:focus { outline:none; border-color:#31a7de; box-shadow: 0 0 0 4px #d6eefb; }
+
+  .mobile-menu { transition: transform .3s ease, opacity .3s ease; }
+  .mobile-menu.hidden-m { transform: translateY(-8px); opacity:0; pointer-events:none; }
+
+  .price-row:nth-child(odd){ background:#f4fbff; }
+
+  /* Theme variants — driven by data-theme on body */
+  body[data-theme="warm"]     .hero-grad { background: linear-gradient(180deg,#ffe9d3 0%,#fff5ea 50%,#fff 100%); }
+  body[data-theme="dark"]     { background:#0b1f2e; color:#eaf6fc; }
+  body[data-theme="dark"] header{ background: rgba(11,31,46,.85)!important; border-color:rgba(255,255,255,.08)!important; }
+  body[data-theme="dark"] header a, body[data-theme="dark"] header span{ color:#eaf6fc; }
+  body[data-theme="dark"] .hero-grad{ background: linear-gradient(180deg,#0b1f2e 0%,#0a1a26 100%); }
+  body[data-theme="dark"] .npaper-bg{ background:#0a1a26!important; }
+  body[data-theme="dark"] .card-light{ background:#10293c!important; border-color:rgba(255,255,255,.08)!important; color:#eaf6fc!important; }
+  body[data-theme="dark"] .card-light *{ color:inherit; }
+  body[data-theme="dark"] .text-nink{ color:#eaf6fc!important; }
+  body[data-theme="dark"] .text-nink\\/70{ color:rgba(234,246,252,.7)!important; }
+  body[data-theme="dark"] .text-nink\\/60{ color:rgba(234,246,252,.6)!important; }
+  body[data-theme="dark"] .border-\\[\\#e6f3fa\\]{ border-color:rgba(255,255,255,.08)!important; }
+  body[data-theme="dark"] .bg-white{ background:#10293c!important; }
+  body[data-theme="dark"] .bg-npaper{ background:#0a1a26!important; }
+
+  /* Calculator */
+  .seg button{ flex:1; padding:.7rem .5rem; font-weight:700; font-family:'Prompt',sans-serif; border-radius:14px; border:1.5px solid #cfeaf7; background:#fff; color:#0e2c40; }
+  .seg button.active{ background:#31a7de; color:#fff; border-color:#31a7de; }
+
+  /* video frame */
+  .video-frame { aspect-ratio: 16/9; background:linear-gradient(135deg,#0e2c40 0%,#16415e 100%); position:relative; overflow:hidden; }
+</style>
+</head>
+<body class="bg-white text-nink" data-theme="sky">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-nink text-white text-xs">
+  <div class="max-w-7xl mx-auto px-5 py-2 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <span class="inline-flex items-center gap-1.5">
+</span>
+      <span class="hidden sm:inline opacity-70">|</span>
+      <span class="hidden sm:inline">😺 ร้านสะดวกซักเนโกะรุ</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="tel:021234567" class="hover:text-nsky">โทร 097-565-9556</a>
+      <span class="opacity-70">|</span>
+      <a href="#careers" class="hover:text-nsky">
+</a>
+      <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="hover:text-nsky">LINE @453izcgt</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[#e6f3fa]">
+  <nav class="max-w-7xl mx-auto px-5 h-[76px] flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2.5">
+      <img src="assets/nekoru-logo.png" alt="Nekoru Washmart" class="h-16 w-16 md:h-[72px] md:w-[72px] object-contain shrink-0"/>
+      <span class="leading-tight hidden sm:block">
+        <span class="block font-display font-extrabold text-[18px] text-nblue">
+</span>
+        <span class="block text-[10px] font-bold tracking-[.18em] text-nred -mt-0.5">
+</span>
+      </span>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-1 text-[15px] font-medium">
+      <li><a href="#home" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.home">หน้าหลัก</a></li>
+      <li><a href="#branches" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.services">บริการของเรา</a></li>
+      <li><a href="#articles" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.articles">บทความ</a></li>
+      <li><a href="#news" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>
+      <li><a href="#franchise" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>
+      <li><a href="#careers" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.careers">ร่วมงาน</a></li>
+      <li><a href="#contact" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.contactnav">ติดต่อ</a></li>
+      <li><a href="#faq" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <!-- Language switcher -->
+      <div class="relative" id="langSwitcher">
+        <button id="langBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-[#cfeaf7] hover:bg-npaper text-sm font-bold text-nblue transition" aria-haspopup="true" aria-expanded="false" aria-label="Change language">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18"/><path d="M12 3a14 14 0 0 0 0 18"/></svg>
+          <span id="langLabel">ไทย</span>
+          <svg class="w-3 h-3 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div id="langMenu" class="hidden absolute right-0 mt-2 w-44 bg-white rounded-2xl shadow-card border border-[#e6f3fa] py-1.5 z-50">
+          <button type="button" data-lang-pick="th" class="lang-opt w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium hover:bg-npaper text-left">
+            <span class="flex items-center gap-2"><span class="text-base">🇹🇭</span> ภาษาไทย</span>
+            <svg class="lang-check w-4 h-4 text-nblue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+          </button>
+          <button type="button" data-lang-pick="en" class="lang-opt w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium hover:bg-npaper text-left">
+            <span class="flex items-center gap-2"><span class="text-base">🇬🇧</span> English</span>
+            <svg class="lang-check w-4 h-4 text-nblue hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>
+          </button>
+        </div>
+      </div>
+      <a href="#loyalty" class="hidden md:inline-flex btn btn-blue text-sm py-2.5 px-4">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M3 8l4 3 5-6 5 6 4-3-2 11H5z"/><path d="M5 19h14"/></svg>
+        <span data-i18n="nav.member">สมาชิก Nekoru</span>
+      </a>
+      <a href="#branches" class="hidden md:inline-flex btn btn-primary text-sm py-2.5 px-4" data-i18n="nav.contact">ติดต่อเรา</a>
+      <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-[#cfeaf7]" aria-label="Toggle menu">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="mobile-menu hidden-m lg:hidden bg-white border-t border-[#e6f3fa]">
+    <ul class="px-5 py-3 grid gap-1 text-[15px] font-medium">
+      <li><a href="#home"     class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.home">หน้าหลัก</a></li>
+      <li><a href="#branches" class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.branches">สาขา</a></li>
+      <li><a href="#articles" class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.articles">บทความ</a></li>
+      <li><a href="#news"     class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>
+      <li><a href="#franchise"class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>
+      <li><a href="#careers"  class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.careersfull">ร่วมงานกับเรา</a></li>
+      <li><a href="#contact"  class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.contactfull">ติดต่อเรา</a></li>
+      <li><a href="#faq"      class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.faq">FAQ</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ Bubble burst on landing ============ -->
+<div id="bubbleBurst" aria-hidden="true"></div>
+<script>
+  (function(){
+    const layer = document.getElementById('bubbleBurst');
+    if (!layer) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layer.classList.add('done'); return; }
+    const N = 38;
+    let html = '';
+    for (let i = 0; i < N; i++) {
+      const size = 14 + Math.random() * 70;
+      const left = Math.random() * 100;
+      const drift = (Math.random() * 220 - 110).toFixed(0);
+      const rise = (80 + Math.random() * 30).toFixed(0);
+      const dur = (3.2 + Math.random() * 2.6).toFixed(2);
+      const delay = (Math.random() * 1.2).toFixed(2);
+      html += `<div class="burst-b" style="left:${left}%;width:${size}px;height:${size}px;--drift:${drift}px;--rise:${rise}vh;--d:${dur}s;--delay:${delay}s"></div>`;
+    }
+    layer.innerHTML = html;
+    setTimeout(() => layer.classList.add('done'), 6500);
+  })();
+</script>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="relative overflow-hidden">
+  <div class="hero-grad absolute inset-0 -z-10" style="background:linear-gradient(180deg,#e6f5fc 0%,#f4fbff 50%,#fff 100%)"></div>
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-nsky/30 blur-3xl"></div>
+    <div class="absolute top-40 right-[-120px] w-[460px] h-[460px] rounded-full bg-northo/10 blur-3xl"></div>
+    <div class="absolute inset-0 dots opacity-40"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-5 pt-12 md:pt-16 pb-20 md:pb-24 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7">
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="pill pill-orange">⏰ เปิด 24 ชั่วโมง</span>
+        <span class="pill pill-blue">🧺 ซัก-อบ จบใน 60 นาที!</span>
+        <span class="pill pill-red">😺 มีแม่บ้านบริการพับฟรี
+</span>
+      </div>
+      <h1 class="th-display text-[44px] sm:text-[58px] lg:text-[78px] leading-[0.96]">
+        ผ้าหอมสะอาด <br/>
+        <span class="text-nblue">พร้อมใส่</span><br/>
+        <span class="squiggle">ใน 60 นาที</span>
+      </h1>
+      <p class="mt-6 text-lg text-nink/70 max-w-xl">เนโกะรุ ร้านสะดวกซักหยอดเหรียญแบบซัก-อบในเครื่องเดียว
+เปิดบริการตลอด 24 ชั่วโมง ฟรีน้ำยาซัก &amp; น้ำยาปรับผ้านุ่ม
+พร้อมระบบ อบโอโซนฆ่าเชื้อ 99.9% ทุกการใช้งาน
+มีพี่แม่บ้านคอยบริการ พับฟรี</p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#branches" class="btn btn-primary">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          หาสาขาใกล้คุณ
+        </a>
+        <a href="#calculator" class="btn btn-ghost">
+          คำนวณค่าซัก
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+        <div>
+          <div class="font-display font-extrabold text-3xl md:text-4xl text-nblue">1<span class="text-northo">+1</span></div>
+          <div class="text-sm text-nink/60">สาขาแรก &amp; เร็วๆนี้</div>
+        </div>
+        <div class="border-l border-dashed border-[#b9e2f3] pl-4">
+          <div class="font-display font-extrabold text-3xl md:text-4xl text-northo">5,000</div>
+          <div class="text-sm text-nink/60">ครัวเรือนที่ใช้บริการ</div>
+        </div>
+        <div class="border-l border-dashed border-[#b9e2f3] pl-4">
+          <div class="font-display font-extrabold text-3xl md:text-4xl text-nink">4.9★</div>
+          <div class="text-sm text-nink/60">รีวิวบน Google</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cat mascot illustration -->
+    <div class="lg:col-span-5">
+      <div class="relative mx-auto w-full max-w-[480px] aspect-square">
+        <div class="absolute inset-2 rounded-[42%_58%_46%_54%/45%_48%_52%_55%] bg-nsky/40"></div>
+        <div class="absolute inset-6 rounded-[58%_42%_55%_45%/52%_55%_45%_48%] bg-white shadow-card"></div>
+
+        <!-- Cat mascot (uploaded illustration) -->
+        <img src="assets/nekoru-hero-cat.png" alt="Nekoru cat mascot" class="absolute inset-0 w-full h-full object-contain p-4" style="filter: drop-shadow(0 12px 24px rgba(14,44,64,.12));"/>
+
+        <!-- Decorative washer ring backdrop -->
+        <svg viewBox="0 0 400 400" class="absolute inset-0 w-full h-full -z-0 hidden" aria-hidden="true">
+          <!-- shadow -->
+          <ellipse cx="200" cy="372" rx="120" ry="12" fill="#0e2c40" opacity=".12"/>
+
+          <!-- Outer washer ring -->
+          <circle cx="200" cy="200" r="160" fill="#fff" stroke="#31a7de" stroke-width="14"/>
+          <!-- handle -->
+          <rect x="346" y="180" width="34" height="40" rx="10" fill="none" stroke="#31a7de" stroke-width="10"/>
+
+          <!-- Drum interior background -->
+          <circle cx="200" cy="200" r="138" fill="#dff1fb"/>
+
+          <!-- spinning bubbles ring -->
+          <g class="drum-spin" style="transform-box: fill-box; transform-origin: 200px 200px;">
+            <circle cx="200" cy="80"  r="10" fill="#fff" opacity=".95"/>
+            <circle cx="280" cy="120" r="6"  fill="#fff" opacity=".85"/>
+            <circle cx="320" cy="200" r="8"  fill="#fff" opacity=".9"/>
+            <circle cx="280" cy="280" r="5"  fill="#fff" opacity=".8"/>
+            <circle cx="120" cy="280" r="7"  fill="#fff" opacity=".85"/>
+            <circle cx="80"  cy="200" r="9"  fill="#fff" opacity=".9"/>
+            <circle cx="120" cy="120" r="6"  fill="#fff" opacity=".8"/>
+          </g>
+
+          <!-- Tail behind cat -->
+          <path class="tail-sway" d="M260 270 q40 -10 56 10 q12 16 -8 28 q-18 10 -32 -4" fill="#ff7300" stroke="#cf5a00" stroke-width="3"/>
+
+          <!-- Laundry basket -->
+          <path d="M150 240 h100 l-10 50 a14 14 0 0 1 -14 12 h-52 a14 14 0 0 1 -14 -12 z" fill="#fff" stroke="#31a7de" stroke-width="4"/>
+          <path d="M150 240 h100" stroke="#31a7de" stroke-width="4"/>
+          <!-- foam in basket -->
+          <path d="M155 240 q10 -28 35 -22 q14 -18 38 -8 q24 -4 32 18 q14 4 12 16 z" fill="#fff" stroke="#31a7de" stroke-width="3"/>
+          <circle cx="200" cy="218" r="8" fill="#fff" stroke="#31a7de" stroke-width="2"/>
+          <circle cx="225" cy="226" r="5" fill="#fff" stroke="#31a7de" stroke-width="2"/>
+
+          <!-- Cat body -->
+          <path d="M115 215 q-15 -45 30 -55 q18 -35 55 -25 q35 -20 60 5 q35 5 28 50 q12 30 -15 50 q-20 20 -78 18 q-55 0 -80 -18 q-15 -8 0 -25 z" fill="#ff7300" stroke="#cf5a00" stroke-width="3.5"/>
+          <!-- belly highlight -->
+          <ellipse cx="200" cy="240" rx="48" ry="22" fill="#ffd2a8" opacity=".7"/>
+          <!-- spots -->
+          <ellipse cx="155" cy="200" rx="10" ry="7" fill="#ffd2a8" opacity=".9"/>
+          <ellipse cx="245" cy="195" rx="8" ry="6" fill="#ffd2a8" opacity=".9"/>
+
+          <!-- Ears -->
+          <path d="M138 158 l8 -36 22 14 z" fill="#ff7300" stroke="#cf5a00" stroke-width="3"/>
+          <path d="M232 158 l-8 -36 -22 14 z" fill="#ff7300" stroke="#cf5a00" stroke-width="3"/>
+          <path d="M144 154 l4 -22 14 8 z" fill="#ffb37a"/>
+          <path d="M226 154 l-4 -22 -14 8 z" fill="#ffb37a"/>
+
+          <!-- Face: head -->
+          <ellipse cx="185" cy="190" rx="60" ry="50" fill="#ff7300" stroke="#cf5a00" stroke-width="3.5"/>
+          <ellipse cx="185" cy="200" rx="46" ry="32" fill="#ffd2a8" opacity=".7"/>
+
+          <!-- Eyes (closed happy) -->
+          <path class="blink" d="M163 186 q8 -10 18 0" fill="none" stroke="#0e2c40" stroke-width="4" stroke-linecap="round"/>
+          <path class="blink" d="M195 186 q8 -10 18 0" fill="none" stroke="#0e2c40" stroke-width="4" stroke-linecap="round" style="animation-delay:.1s"/>
+
+          <!-- Cheeks -->
+          <circle cx="160" cy="208" r="6" fill="#e63946" opacity=".55"/>
+          <circle cx="218" cy="208" r="6" fill="#e63946" opacity=".55"/>
+          <!-- Nose + mouth -->
+          <path d="M188 204 l4 6 -4 4 -4 -4 z" fill="#e63946"/>
+          <path d="M180 214 q8 8 16 0" fill="none" stroke="#0e2c40" stroke-width="3" stroke-linecap="round"/>
+          <!-- Whiskers -->
+          <path d="M150 210 q-18 -2 -30 -8" fill="none" stroke="#0e2c40" stroke-width="2" stroke-linecap="round"/>
+          <path d="M150 215 q-18 4 -30 4"  fill="none" stroke="#0e2c40" stroke-width="2" stroke-linecap="round"/>
+          <path d="M222 210 q18 -2 30 -8" fill="none" stroke="#0e2c40" stroke-width="2" stroke-linecap="round"/>
+          <path d="M222 215 q18 4 30 4"  fill="none" stroke="#0e2c40" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Paws -->
+          <ellipse cx="135" cy="246" rx="14" ry="10" fill="#ff7300" stroke="#cf5a00" stroke-width="3"/>
+          <ellipse cx="265" cy="246" rx="14" ry="10" fill="#ff7300" stroke="#cf5a00" stroke-width="3"/>
+        </svg>
+
+        <!-- Floating chips -->
+        <div class="absolute -left-3 top-12 bg-white rounded-2xl shadow-card px-3.5 py-2.5 flex items-center gap-2 wiggle">
+          <span class="w-9 h-9 rounded-xl bg-northo/15 grid place-items-center">
+            <svg class="w-5 h-5 text-northo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <div class="text-xs leading-tight">
+            <div class="font-bold text-nink">เสร็จใน 60 นาที</div>
+            <div class="text-nink/60">ร้านสะดวกซัก
+
+</div>
+          </div>
+        </div>
+        <div class="absolute -right-2 top-44 bg-white rounded-2xl shadow-card px-3.5 py-2.5 flex items-center gap-2 wiggle" style="animation-delay:-1.5s">
+          <span class="w-9 h-9 rounded-xl bg-nblue/15 grid place-items-center">
+            <svg class="w-5 h-5 text-nblue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+          </span>
+          <div class="text-xs leading-tight">
+            <div class="font-bold text-nink">อบโอโซนฆ่าเชื้อ 99.9%</div>
+            <div class="text-nink/60">สะอาด ผ้าไม่มีกลิ่นอับ</div>
+          </div>
+        </div>
+        <div class="absolute -left-1 bottom-8 bg-white rounded-2xl shadow-card px-3.5 py-2.5 flex items-center gap-2 wiggle" style="animation-delay:-2.7s">
+          <span class="w-9 h-9 rounded-xl bg-nred/15 grid place-items-center">
+            <svg class="w-5 h-5 text-nred" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 12 4 4 8-8"/></svg>
+          </span>
+          <div class="text-xs leading-tight">
+            <div class="font-bold text-nink">ฟรีน้ำยาซัก-ปรับนุ่ม</div>
+            <div class="text-nink/60">ประหยัดเงิน !</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="bg-white py-6 border-y border-[#e6f3fa]">
+  <div class="marquee">
+    <div class="marquee-track text-nink/55 font-display font-bold text-lg whitespace-nowrap">
+      <span><span class="mr-2">🫧</span>ซัก-อบในเครื่องเดียว</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">💧</span>อบโอโซนฆ่าเชื้อ 99.9%</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">🧺</span>ฟรีน้ำยาซัก &amp; ปรับผ้านุ่ม</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">✨</span>เปิด 24 ชั่วโมง</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">🌸</span>มีแม่บ้านบริการพับฟรี</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">😺</span>Wi-Fi ฟรี</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">💙</span>CCTV 24 ชม.</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">💧</span>ซัก-อบในเครื่องเดียว</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">🧺</span>อบโอโซนฆ่าเชื้อ 99.9%</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">✨</span>ฟรีน้ำยาซัก &amp; ปรับผ้านุ่ม</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">🌸</span>เปิด 24 ชั่วโมง</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">😺</span>มีแม่บ้านบริการพับฟรี</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">💙</span>Wi-Fi ฟรี</span><span class="text-nblue/30">·</span>
+      <span><span class="mr-2">🫧</span>CCTV 24 ชม.</span><span class="text-nblue/30">·</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features" class="py-20 md:py-28 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="max-w-2xl mb-12">
+      <span class="pill pill-blue" style="font-size: 15px">Why Us</span>
+      <h2 class="mt-4 th-display text-4xl md:text-5xl">
+        ใช้เวลากับคนที่รัก<br/><span class="squiggle-blue">ให้เรื่องซักเป็นงานของเรา</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <article class="card-light relative rounded-3xl bg-gradient-to-br from-northo to-[#ffa552] text-white p-7 md:p-9 overflow-hidden border border-[#ffd6b3] hover:shadow-card transition lg:col-span-2">
+        <h3 class="th-display leading-[0.95] text-5xl md:text-6xl">Drop Off</h3>
+        <div class="mt-3 flex items-baseline gap-2 flex-wrap"><span class="pill bg-white/20 border-white/30 text-white text-[10px]">บริการพิเศษ</span><span class="th-display text-xl">ดรอปผ้าไว้ แล้วไปทำงานได้เลย</span></div>
+        <p class="mt-4 text-sm leading-relaxed text-white/90" style="font-size: 16px">สบายที่สุด! แวะมาดรอปตะกร้าผ้า ที่เหลือให้แม่บ้านดูแล —
+ก่อนทำงานมาดรอปผ้า เลิกงานแวะมารับ ไม่ต้องซักเอง
+บริการพับฟรี 08:00–18:00 (แม่บ้านหยุดวันพุธ)
+ใช้บริการด้วยตนเองได้ตลอด 24 ชั่วโมง</p>
+        <div class="absolute -right-8 -bottom-10 w-40 h-40 rounded-full bg-white/15"></div>
+        <div class="absolute -right-2 -top-6 w-24 h-24 rounded-full bg-white/10"></div>
+      </article>
+      <article class="card-light relative rounded-3xl bg-npaper p-6 overflow-hidden border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="w-14 h-14 rounded-2xl bg-nblue grid place-items-center text-white mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <h3 class="th-display text-xl">เปิด 24 ชั่วโมง</h3>
+        <p class="mt-2 text-sm text-nink/70 leading-relaxed">ดูแลความปลอดภัยด้วย CCTV 24 ชั่วโมง แวะมาเมื่อไหร่ก็อุ่นใจ</p>
+        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-nblue/10"></div>
+      </article>
+      <article class="card-light relative rounded-3xl bg-npaper p-6 overflow-hidden border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="w-14 h-14 rounded-2xl bg-northo grid place-items-center text-white mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="13" r="4.5"/></svg>
+        </div>
+        <h3 class="th-display text-xl">ซัก-อบ ในเครื่องเดียว</h3>
+        <p class="mt-2 text-sm text-nink/70 leading-relaxed">ซักเสร็จอบต่อทันที ผ้าแห้งหอมพร้อมใส่ </p>
+        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-northo/10"></div>
+      </article>
+      <article class="card-light relative rounded-3xl bg-npaper p-6 overflow-hidden border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="w-14 h-14 rounded-2xl bg-nred grid place-items-center text-white mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+        </div>
+        <h3 class="th-display text-xl">อบโอโซนฆ่าเชื้อ 99.9%</h3>
+        <p class="mt-2 text-sm text-nink/70 leading-relaxed">พร้อมระบบอบโอโซน ทำลายเชื้อโรค แบคทีเรีย ลดการเกิดภูมิแพ้</p>
+        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-nred/10" style="background-color: rgb(233, 215, 215)"></div>
+      </article>
+      <article class="card-light relative rounded-3xl bg-npaper p-6 overflow-hidden border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="w-14 h-14 rounded-2xl bg-nink grid place-items-center text-white mb-5">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7c0-2 2-4 4-4 0 4 4 6 4 10 0 3-2 4-4 4-2 0-4-2-4-4 0-2 1-3 1-3"/><path d="M14 5c2 1 4 3 4 6 0 5-3 8-7 8"/></svg>
+        </div>
+        <h3 class="th-display text-xl">ฟรี! น้ำยาซัก-ปรับนุ่ม</h3>
+        <p class="mt-2 text-sm text-nink/70 leading-relaxed">ประหยัดเงิน</p>
+        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-nink/10"></div>
+      </article>
+    </div>
+
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+      <div class="flex items-center gap-3 p-4 rounded-2xl border border-dashed border-[#b9e2f3]">
+        <span class="w-9 h-9 rounded-xl bg-white grid place-items-center text-nblue text-lg">😺</span>
+        <span>มีแม่บ้านบริการพับฟรี 08:00–18:00 *แม่บ้านหยุดทุกวันพุธ</span>
+      </div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl border border-dashed border-[#b9e2f3]">
+        <span class="w-9 h-9 rounded-xl bg-white grid place-items-center text-northo text-lg">📶</span>
+        <span>Wi-Fi ฟรี นั่งรอสบายๆ</span>
+      </div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl border border-dashed border-[#b9e2f3]">
+        <span class="w-9 h-9 rounded-xl bg-white grid place-items-center text-nred text-lg">📹</span>
+        <span><b>CCTV 24 ชม.</b> </span>
+      </div>
+      <div class="flex items-center gap-3 p-4 rounded-2xl border border-dashed border-[#b9e2f3]">
+        <span class="w-9 h-9 rounded-xl bg-white grid place-items-center text-nink text-lg">💳</span>
+        <span><b>เหรียญ &amp; สแกนจ่าย QR</b> PromptPay</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS + VIDEO ============ -->
+<section id="how" class="py-20 md:py-28 npaper-bg bg-gradient-to-b from-[#f4fbff] to-white relative">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-5">
+        <span class="pill pill-orange" style="font-size: 15px">วิธีใช้งาน</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">ใช้ง่ายๆ <span class="squiggle">4 ขั้นตอน</span></h2>
+        <p class="mt-3 text-nink/70 max-w-md">เพียง 4 ขั้นตอน ผ้าก็สะอาดแห้งหอม พร้อมใส่</p>
+
+        <ol class="mt-8 grid gap-3">
+          <li class="card-light bg-white rounded-2xl p-4 flex items-center gap-4 border border-[#e6f3fa]">
+            <span class="th-display text-3xl text-nblue/40 w-12 text-center" style="color: rgba(0, 175, 255, 0.4)">01</span>
+            <div>
+              <div class="th-display text-base">กดปุ่มล้างถังซัก ฟรี</div>
+              <div class="text-xs text-nink/60" style="font-size: 14px">ฆ่าเชื้อโรคด้วยระบบอบโอโซนทุกการใช้งาน</div>
+            </div>
+          </li>
+          <li class="card-light bg-white rounded-2xl p-4 flex items-center gap-4 border border-[#e6f3fa]">
+            <span class="th-display text-3xl text-northo/40 w-12 text-center">02</span>
+            <div>
+              <div class="th-display text-base">ใส่ผ้าปิดฝาให้สนิท</div>
+              <div class="text-xs text-nink/60"></div>
+            </div>
+          </li>
+          <li class="card-light bg-white rounded-2xl p-4 flex items-center gap-4 border border-[#e6f3fa]">
+            <span class="th-display text-3xl text-nred/40 w-12 text-center">03</span>
+            <div>
+              <div class="th-display text-base">เลือกโปรแกรมการซัก-อบ</div>
+              <div class="text-xs text-nink/60" style="font-size: 14px">ตามความเหมาะสมของปริมาณผ้า</div>
+            </div>
+          </li>
+          <li class="card-light bg-white rounded-2xl p-4 flex items-center gap-4 border border-[#e6f3fa]">
+            <span class="th-display text-3xl text-nink/30 w-12 text-center" style="color: rgb(147, 200, 140)">04</span>
+            <div>
+              <div class="th-display text-base">หยอดเหรียญ / โอนผ่านโมบายแบงก์กิ้ง</div>
+              <div class="text-xs text-nink/60" style="font-size: 14px">แจ้งสลิปการโอนผ่านแชท Line OA ของทางร้าน</div>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Video -->
+      <div class="lg:col-span-7">
+        <div class="card-light rounded-3xl bg-white border border-[#e6f3fa] overflow-hidden shadow-card">
+          <div class="video-frame relative">
+            <!-- decorative cat scene -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 300 200" class="w-3/5 h-auto">
+                <rect x="40" y="40" width="220" height="130" rx="20" fill="#fff" stroke="#70cbff" stroke-width="6"/>
+                <circle cx="150" cy="115" r="48" fill="#70cbff" />
+                <circle cx="150" cy="115" r="36" fill="#fff"/>
+                <g class="drum-spin" style="transform-box:fill-box; transform-origin:150px 115px">
+                  <circle cx="150" cy="90" r="5" fill="#ff7300"/>
+                  <circle cx="170" cy="120" r="4" fill="#31a7de"/>
+                  <circle cx="135" cy="130" r="3" fill="#e63946"/>
+                </g>
+                <circle cx="80" cy="65" r="5" fill="#ff7300"/>
+                <circle cx="230" cy="65" r="5" fill="#ff7300"/>
+              </svg>
+            </div>
+            <button id="playBtn" class="absolute inset-0 grid place-items-center group" aria-label="เล่นวิดีโอ">
+              <span class="w-20 h-20 rounded-full bg-white/90 group-hover:bg-white grid place-items-center shadow-2xl transition">
+                <svg class="w-9 h-9 text-northo translate-x-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </button>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+              <div class="text-white">
+                <div class="text-xs opacity-80">วิดีโอแนะนำ · 1:24</div>
+                <div class="font-display font-bold text-lg">วิธีใช้เครื่องซัก-อบ Nekoru</div>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-[10px] bg-white/20 backdrop-blur text-white px-2 py-1 rounded-full font-bold">HD</span>
+                <span class="text-[10px] bg-white/20 backdrop-blur text-white px-2 py-1 rounded-full font-bold">CC ไทย</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 grid sm:grid-cols-3 gap-3">
+            <button class="text-left p-3 rounded-xl bg-npaper hover:bg-[#e6f5fc]">
+              <div class="text-xs text-nink/50">บทที่ 1 · 0:18</div>
+              <div class="font-display font-bold text-sm">ใส่ผ้าและเลือกโหมด</div>
+            </button>
+            <button class="text-left p-3 rounded-xl bg-npaper hover:bg-[#e6f5fc]">
+              <div class="text-xs text-nink/50">บทที่ 2 · 0:42</div>
+              <div class="font-display font-bold text-sm">หยอดเหรียญ / QR</div>
+            </button>
+            <button class="text-left p-3 rounded-xl bg-npaper hover:bg-[#e6f5fc]">
+              <div class="text-xs text-nink/50">บทที่ 3 · 1:05</div>
+              <div class="font-display font-bold text-sm">พร้อมรับผ้าของคุณ</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="calculator" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-12 gap-10 items-start">
+    <div class="lg:col-span-5">
+      <span class="pill pill-blue" style="font-size: 15px">คำนวณค่าซัก</span>
+      <h2 class="mt-4 th-display text-4xl md:text-5xl">รู้ราคา <span class="squiggle-blue">ก่อนมา</span></h2>
+      <p class="mt-4 text-nink/70 max-w-md">บอกประเภทผ้าของคุณ เพื่อให้เราช่วยเลือกขนาดเครื่องและโปรแกรมที่เหมาะสม</p>
+
+      <!-- Floating machine icons (outside result box) -->
+      <div class="mt-6 flex items-end gap-3 select-none pointer-events-none" aria-hidden="true">
+        <img id="recWasher" src="assets/washer-icon.png" alt="" class="h-48 md:h-64 w-auto drop-shadow-[0_14px_24px_rgba(14,44,64,.18)] transition-opacity"/>
+        <img id="recDryer"  src="assets/dryer-icon.png"  alt="" class="h-44 md:h-60 w-auto drop-shadow-[0_14px_24px_rgba(14,44,64,.18)] transition-opacity"/>
+      </div>
+
+      <div class="mt-6 p-5 rounded-3xl bg-ncream border border-[#ffd6b3]">
+        <div class="th-display text-lg">💡 เคล็ดลับ</div>
+        <ul class="mt-2 text-sm text-nink/75 space-y-1.5 list-disc pl-5">
+          <li>เลือกขนาดเครื่องและโปรแกรมให้เหมาะกับปริมาณผ้าของคุณ </li>
+          <li>ตรวจสิ่งของที่อาจตกค้างอยู่ในเสื้อผ้าก่อนนำผ้าใส่เครื่อง</li>
+          <li>ไม่ต้องเตรียมผงซักหรือน้ำยาเอง และไม่อนุญาตให้เทน้ำยาเองในเครื่อง</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <div class="card-light rounded-3xl bg-white border border-[#e6f3fa] shadow-card p-6 md:p-8">
+        <div class="grid gap-5">
+          <div>
+            <label class="th-display text-sm">เลือกประเภทบริการ</label>
+            <div class="seg flex gap-2 mt-2" id="segMode">
+              <button data-mode="washdry" class="active">ซัก + อบ</button>
+              <button data-mode="wash">ซักอย่างเดียว</button>
+              <button data-mode="dry">อบอย่างเดียว</button>
+            </div>
+          </div>
+          <div>
+            <label class="th-display text-sm">เลือกขนาดเครื่อง</label>
+            <div class="seg flex gap-2 mt-2" id="segSize">
+              <button data-size="M" class="active">ไซส์ M (17 kg.)</button>
+              <button data-size="L">ไซส์ L (27 kg.)</button>
+            </div>
+          </div>
+          <div>
+            <label class="th-display text-sm">น้ำหนักผ้าโดยประมาณ <span id="weightLabel" class="text-northo">12 กก.</span></label>
+            <input id="weightSlider" type="range" min="3" max="27" step="1" value="12" class="w-full mt-3 accent-northo"/>
+            <div class="flex justify-between text-xs text-nink/50 mt-1">
+              <span>3 กก.</span>
+              <span>15 กก.</span>
+              <span>27 กก. (ผ้าห่มนวม)</span>
+            </div>
+          </div>
+          <div id="tempBlock">
+            <label class="th-display text-sm">เลือกอุณหภูมิการอบ</label>
+            <div class="seg flex gap-2 mt-2" id="segTemp">
+              <button data-temp="50">ต่ำ (50°C)</button>
+              <button data-temp="70" class="active">กลาง (70°C) มาตรฐาน</button>
+              <button data-temp="80">สูง (80°C)</button>
+            </div>
+          </div>
+          <div>
+            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-[#cfeaf7] cursor-pointer hover:border-nblue">
+              <input id="optExtra" type="checkbox" class="mt-1 accent-nblue"/>
+              <div>
+                <div class="th-display text-sm">อบเพิ่มครั้งละ 8 นาที +10฿</div>
+                <div class="text-xs text-nink/60" style="font-size: 14px">สำหรับผ้าหนาเป็นพิเศษ</div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Result -->
+          <div class="rounded-2xl bg-gradient-to-br from-nblue to-nsky text-white p-5 mt-2 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-12 w-44 h-44 rounded-full bg-white/10"></div>
+            <div class="relative z-10">
+              <div class="text-xs opacity-80" style="font-size: 14px">เครื่องที่แนะนำ</div>
+              <div id="recMachine" class="font-display font-bold text-2xl">Size M Medium (17 kg.)</div>
+            </div>
+            <div class="relative z-10 mt-3 flex items-end justify-between">
+              <div>
+                <div class="text-xs opacity-80" style="font-size: 14px">ราคาประมาณ</div>
+                <div class="th-display text-5xl"><span id="recPrice">130</span> <span class="text-xl">บาท</span></div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs opacity-80" style="font-size: 14px">ใช้เวลา</div>
+                <div class="font-display font-bold text-xl"><span id="recTime">60</span> นาที</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#branches" class="btn btn-primary justify-self-start">หาสาขาเพื่อมาใช้บริการ →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="py-20 md:py-28 bg-npaper">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="pill pill-blue" style="font-size: 15px">ตารางราคา</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">ค่าบริการ</h2>
+        <p class="mt-3 text-nink/70">ฟรีน้ำยาซัก ปรับผ้านุ่ม และบริการพับ</p>
+      </div>
+    </div>
+
+    <div class="rounded-3xl border border-[#e6f3fa] bg-white shadow-card overflow-hidden">
+      <div class="grid grid-cols-12 bg-nink text-white text-sm th-display px-5 py-4 gap-2">
+        <div class="col-span-3" style="font-size: 16px">ขนาดเครื่อง</div>
+        <div class="col-span-1 text-center" style="font-size: 16px">น้ำหนัก</div>
+        <div class="col-span-1 text-center" style="font-size: 16px">ซัก</div>
+        <div class="col-span-3 text-center leading-tight" style="font-size: 16px">ซัก+อบ<br/><span class="text-[11px] opacity-70 font-normal" style="font-size: 14px">(ขนาดมาตรฐาน)</span></div>
+        <div class="col-span-2 text-center leading-tight" style="font-size: 16px">ซัก+อบ<br/><span class="text-[11px] opacity-70 font-normal">(ผ้าน้อย)</span></div>
+        <div class="col-span-2 text-center" style="font-size: 16px">อบเพิ่ม</div>
+      </div>
+      <div class="grid grid-cols-12 px-5 py-5 items-center price-row gap-2">
+        <div class="col-span-3 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-nblue/15 grid place-items-center text-nblue th-display">M</span>
+          <div><div class="font-bold">เครื่องกลาง</div><div class="text-xs text-nink/60" style="font-size: 14px">ผ้าใส่ทั่วไป</div></div>
+        </div>
+        <div class="col-span-1 text-center text-sm" style="font-size: 16px">17 kg.</div>
+        <div class="col-span-1 text-center"><span class="th-display text-base">฿70</span></div>
+        <div class="col-span-3 text-center"><span class="th-display text-lg text-northo">฿110</span></div>
+        <div class="col-span-2 text-center"><span class="th-display text-base">฿100</span></div>
+        <div class="col-span-2 text-center"><span class="th-display text-base">+฿10</span> <span class="text-xs text-nink/60 block" style="font-size: 6px">/ 8 นาที</span></div>
+      </div>
+      <div class="grid grid-cols-12 px-5 py-5 items-center price-row relative gap-2">
+        <span class="absolute -top-2 left-5 text-[10px] font-bold bg-nred text-white px-2 py-0.5 rounded-full">ยอดนิยม</span>
+        <div class="col-span-3 flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-nblue/15 grid place-items-center text-nblue th-display">L</span>
+          <div><div class="font-bold">เครื่องใหญ่</div><div class="text-xs text-nink/60" style="font-size: 14px">ผ้าห่ม ผ้าปูที่นอน</div></div>
+        </div>
+        <div class="col-span-1 text-center text-sm" style="font-size: 16px">27 kg.</div>
+        <div class="col-span-1 text-center"><span class="th-display text-base">฿110</span></div>
+        <div class="col-span-3 text-center"><span class="th-display text-lg text-northo">฿160</span></div>
+        <div class="col-span-2 text-center"><span class="th-display text-base">฿150</span></div>
+        <div class="col-span-2 text-center"><span class="th-display text-base">+฿10</span> <span class="text-xs text-nink/60 block" style="font-size: 13px">/ 6 นาที</span></div>
+      </div>
+      <div class="px-5 py-4 bg-npaper text-xs text-nink/70 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <span>✦ น้ำยาซัก-ปรับผ้านุ่ม ฟรี!</span>
+        <span>✦ เครื่อง 17 kg. อบเพิ่ม 10 บาท = 8 นาที</span>
+        <span>✦ เลือกอุณหภูมิการอบได้</span>
+        <span>✦ ล้างถังด้วยระบบอบโอโซนฆ่าเชื้อ ฟรีทุกรอบ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRANCHES + Maps ============ -->
+<section id="branches" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden">
+  <div class="absolute -top-20 -left-20 w-[360px] h-[360px] rounded-full bg-nblue/30 blur-3xl"></div>
+  <div class="absolute -bottom-40 -right-20 w-[420px] h-[420px] rounded-full bg-northo/20 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-5 relative">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="pill pill-blue" style="font-size: 15px">สาขา</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">สาขาแรก เปิดให้บริการแล้ว</h2>
+        <p class="mt-3 text-white/70">เปิดบริการสาขาแรกแล้ว เร็วๆนี้พบเราที่สาขาที่ 2 และเปิดรับสมัครแฟรนไชส์ในอนาคต</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button id="locateBtn" class="btn btn-primary">📍 ค้นหาด้วยตำแหน่งฉัน</button>
+        <button class="btn btn-ghost">ดูทั้งหมด →</button>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6">
+      <!-- Google Maps embed -->
+      <div class="lg:col-span-7 relative rounded-3xl overflow-hidden border border-white/10 min-h-[460px] bg-[#0a2235]">
+        <iframe
+          title="Nekoru Branch Map"
+          class="absolute inset-0 w-full h-full"
+          src="https://maps.google.com/maps?q=Nakhon+Ratchasima&t=&z=11&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          style="filter:invert(.92) hue-rotate(180deg) saturate(.7);">
+        </iframe>
+        <div class="absolute top-4 left-4 right-4 flex flex-wrap items-center gap-2">
+          <input type="text" placeholder="ค้นหาสาขา / ถนน / เขต" class="field py-2 px-3 text-sm flex-1 max-w-md text-nink"/>
+          <button class="btn btn-primary py-2 px-4 text-sm">ค้นหา</button>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 bg-white/95 text-nink rounded-2xl p-4 flex flex-wrap items-center gap-4 backdrop-blur">
+          <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-northo"></span>โคราช</div>
+          <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-nred"></span>จอหอ </div>
+          <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-nblue"></span>ต่างจังหวัด</div>
+          <span class="text-xs text-nink/60 ml-auto">📍 1 สาขาที่เปิดให้บริการ</span>
+        </div>
+      </div>
+
+      <!-- Branch list -->
+      <div class="lg:col-span-5 grid gap-4">
+        <article class="rounded-2xl bg-white text-nink p-5 flex gap-4 items-start">
+          <span class="shrink-0 w-12 h-12 rounded-xl bg-northo grid place-items-center text-white">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </span>
+          <div class="flex-1">
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="th-display text-lg">สาขาแรก — Nekoru Washmart</h3>
+              <span class="pill pill-orange text-[10px] py-1 px-2">เปิดอยู่</span>
+            </div>
+            <p class="text-sm text-nink/60 mt-1">สาขาบ้านกล้วย จอหอ เปิดให้บริการตลอด 24 ชั่วโมง
+ติดเซเว่น - มีที่จอดรถ - Free-wifi  
+· มีแม่บ้านบริการ 08:00–18:00</p>
+            <div class="flex flex-wrap items-center gap-3 mt-2 text-xs text-nink/70">
+              <span>🚗 ที่จอดรถ</span><span>😺 มีแม่บ้าน</span><span>📶 Wi-Fi</span><span>📹 CCTV</span>
+            </div>
+            <a href="https://maps.app.goo.gl/mRoWMWZua2StcYee7" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-nblue hover:text-northo">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              เปิดแผนที่ Google Maps →
+            </a>
+          </div>
+        </article>
+        <a href="#" class="block text-center py-4 rounded-2xl border border-dashed border-white/20 hover:bg-white/5 th-display text-white/80">เร็วๆนี้ — สาขาที่ 2 ✦ เปิดรับแฟรนไชส์</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOYALTY ============ -->
+<section id="loyalty" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="card-light rounded-[36px] bg-gradient-to-br from-northo to-[#ffa552] text-white relative overflow-hidden border border-[#ffd6b3]">
+      <div class="absolute -right-20 -bottom-24 w-[420px] h-[420px] rounded-full bg-white/15"></div>
+      <div class="absolute -left-12 -top-16 w-48 h-48 rounded-full bg-white/10"></div>
+      <img src="assets/cat-cheer.png" alt="" aria-hidden="true" class="absolute right-2 md:right-6 bottom-4 md:bottom-6 w-28 sm:w-36 md:w-48 lg:w-56 h-auto pointer-events-none select-none z-10 drop-shadow-[0_10px_20px_rgba(0,0,0,.18)]"/>
+      <div class="grid lg:grid-cols-12 gap-8 p-8 md:p-14 relative">
+        <div class="lg:col-span-7">
+          <span class="pill bg-white/20 border-white/30 text-white" style="font-size: 15px">😺 Nekoru Member Club</span>
+          <h2 class="mt-4 th-display text-4xl md:text-5xl">ยิ่งซักเยอะ ยิ่งคุ้ม</h2>
+          <p class="mt-4 text-white/90 max-w-lg">สมัครสมาชิกผ่าน LINE OA ของเนโกะรุ วอชมาร์ท ทุกการใช้บริการ
+(เฉพาะโปรแกรมซัก-อบมาตรฐาน) = รับ 1 แต้ม สะสมแต้มเพื่อรับส่วนลด
+และดีลพิเศษ สำหรับสมาชิกเท่านั้น *</p>
+
+          <!-- Tier ladder -->
+          <div class="mt-8 grid sm:grid-cols-3 gap-3">
+            <!-- Kitten — cream -->
+            <div class="rounded-2xl bg-[#fff8ee] border border-[#ffe6c2] p-5 text-[#7a4a14] shadow-soft">
+              <div class="text-4xl">😺</div>
+              <div class="th-display text-xl mt-2">Kitten</div>
+              <div class="text-xs opacity-80">เริ่มต้น 0–10 แต้ม</div>
+              <div class="text-xs mt-2 opacity-90">• แลกเจลบอลได้</div>
+            </div>
+
+            <!-- Kitty — yellow -->
+            <div class="rounded-2xl bg-[#fef3c7] border-2 border-[#fbbf24] p-5 text-[#7a4a14] shadow-soft">
+              <div class="text-4xl">🐈</div>
+              <div class="th-display text-xl mt-2">Kitty</div>
+              <div class="text-xs opacity-80">11–15 แต้ม</div>
+              <div class="text-xs mt-2 opacity-90">• ซักฟรี (17 Kg.) 1 ครั้ง</div>
+            </div>
+
+            <!-- Tiger — orange -->
+            <div class="rounded-2xl bg-[#ffedd5] border-2 border-[#fb923c] p-5 text-[#6b2f06] shadow-soft">
+              <div class="text-4xl">🐯</div>
+              <div class="th-display text-xl mt-2">Tiger</div>
+              <div class="text-xs opacity-80">16–25 แต้ม</div>
+              <div class="text-xs mt-2 opacity-90">• ซักฟรี (27 Kg.) 1 ครั้ง<br/>• ส่วนลดวันเกิด</div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="btn bg-white text-[#06c755] hover:bg-white/95">สมัครสมาชิกฟรีทาง LINE</a>
+          </div>
+        </div>
+
+        <!-- Member card mock -->
+        <div class="lg:col-span-5">
+          <div class="aspect-[1.6/1] rounded-3xl bg-nink relative overflow-hidden shadow-2xl rotate-1">
+            <div class="absolute -top-12 -right-12 w-44 h-44 rounded-full bg-northo/30 blur-2xl"></div>
+            <div class="absolute -bottom-12 -left-12 w-44 h-44 rounded-full bg-nblue/30 blur-2xl"></div>
+            <div class="relative p-6 h-full flex flex-col justify-between text-white">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="text-[10px] uppercase tracking-[.25em] opacity-70">สมาชิกเนโกะรุ</div>
+                  <div class="th-display text-2xl mt-1">😺 ระดับ Tiger</div>
+                </div>
+                <img src="assets/nekoru-logo.png" class="w-12 h-12 object-contain" alt=""/>
+              </div>
+              <div>
+                <div class="text-xs opacity-70">รหัสสมาชิก</div>
+                <div class="font-mono text-lg tracking-wider">NK · 2026 · 8888 · 8888</div>
+                <div class="mt-3 flex items-end justify-between">
+                  <div>
+                    <div class="text-xs opacity-70">แต้มสะสม</div>
+                    <div class="th-display text-3xl">1,248 <span class="text-sm opacity-70">pts</span></div>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-xs opacity-70">ประหยัด</div>
+                    <div class="th-display text-2xl text-northo">฿2,460</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-3 text-center text-white/80 text-xs" style="font-size: 16px">สมาชิก — แลกของรางวัลได้ โดยแสดงบัตรกับทีมงานทุกครั้ง *</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTICLES ============ -->
+<section id="articles" class="py-20 md:py-28 bg-npaper">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="pill pill-blue" style="font-size: 15px">บทความ</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">เคล็ดลับดูแลผ้า <span class="squiggle-blue">
+ให้ใส่ได้นาน</span></h2>
+      </div>
+      <a href="#" class="btn btn-ghost">ดูบทความทั้งหมด →</a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="card-light group rounded-3xl overflow-hidden bg-white border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="aspect-[4/3] bg-gradient-to-br from-nblue to-nsky relative overflow-hidden">
+          <div class="absolute inset-0 dots opacity-30"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <span class="pill pill-blue">การดูแลผ้า</span>
+            <span class="text-white th-display text-7xl leading-none opacity-90">01</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="text-xs text-nink/50">8 พ.ค. 2569 · อ่าน 4 นาที</div>
+          <h3 class="mt-2 th-display text-xl group-hover:text-nblue transition">7 เคล็ดลับซักผ้าขาวให้ขาวสะอาดเหมือนใหม่</h3>
+          <p class="mt-2 text-sm text-nink/70">ผ้าขาวเหลือง? เปื้อนแล้วซักไม่ออก? เทคนิคจากประสบการณ์ 10+ ปีที่ทำได้จริง</p>
+        </div>
+      </article>
+      <article class="card-light group rounded-3xl overflow-hidden bg-white border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="aspect-[4/3] bg-gradient-to-br from-northo to-[#ffb37a] relative overflow-hidden">
+          <div class="absolute inset-0 stripe opacity-25"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <span class="pill pill-orange">วิธีใช้งานเครื่อง</span>
+            <span class="text-white th-display text-7xl leading-none opacity-90">02</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="text-xs text-nink/50">2 พ.ค. 2569 · อ่าน 3 นาที</div>
+          <h3 class="mt-2 th-display text-xl group-hover:text-northo transition">เลือกอุณหภูมิน้ำอย่างไรให้ผ้าไม่หด ไม่สี ไม่ตก</h3>
+          <p class="mt-2 text-sm text-nink/70">น้ำเย็น น้ำอุ่น น้ำร้อน ใช้เมื่อไหร่ดี? ตารางอ้างอิงประเภทผ้าที่คุณควรรู้</p>
+        </div>
+      </article>
+      <article class="card-light group rounded-3xl overflow-hidden bg-white border border-[#e6f3fa] hover:shadow-card transition">
+        <div class="aspect-[4/3] bg-gradient-to-br from-nred to-[#ff8c98] relative overflow-hidden">
+          <div class="absolute inset-0 dots opacity-30"></div>
+          <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <span class="pill pill-red">การแก้ปัญหา</span>
+            <span class="text-white th-display text-7xl leading-none opacity-90">03</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="text-xs text-nink/50">26 เม.ย. 2569 · อ่าน 5 นาที</div>
+          <h3 class="mt-2 th-display text-xl group-hover:text-nred transition">คราบเครื่องเทศ น้ำมัน หมึก แก้ยังไงให้ออกแน่</h3>
+          <p class="mt-2 text-sm text-nink/70">รวม 12 คราบยอดฮิต กับวิธีจัดการตามหลักวิทยาศาสตร์ผ้า ปลอดภัยทั้งกับเสื้อและกับผิว</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS / EVENTS ============ -->
+<section id="news" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="pill pill-orange" style="font-size: 15px">ข่าวสาร &amp; กิจกรรม</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">โปรโมชั่นเดือนนี้</h2>
+      </div>
+      <a href="#" class="btn btn-ghost">กิจกรรมทั้งหมด →</a>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6">
+      <article class="card-light lg:col-span-7 rounded-3xl overflow-hidden bg-white border border-[#e6f3fa] shadow-card relative">
+        <div class="grid md:grid-cols-2">
+          <div class="p-8 md:p-10 flex flex-col justify-between">
+            <div>
+              <span class="pill pill-red">🔥 จำกัดเวลา</span>
+              <h3 class="mt-4 th-display text-3xl md:text-4xl leading-tight">ซัก-อบ ใหญ่พิเศษ<br/><span class="text-northo">ลด 30%</span> ตลอดเดือน</h3>
+              <p class="mt-3 text-nink/70 text-sm">เฉพาะเครื่อง L &amp; XL ใช้ได้ทุกสาขา ทุกวัน 22:00 - 06:00 ไม่จำกัดจำนวนครั้ง</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 mt-6">
+              <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="btn btn-primary">รับคูปองทาง LINE</a>
+              <span class="text-xs text-nink/50">เริ่ม 1–31 พ.ค. 2569</span>
+            </div>
+          </div>
+          <div class="relative bg-gradient-to-br from-northo to-[#ffb37a] p-8 grid place-items-center min-h-[280px]">
+            <div class="absolute inset-0 stripe opacity-15"></div>
+            <div class="relative text-center text-white">
+              <div class="th-display text-[110px] leading-none">30%</div>
+              <div class="font-display font-bold uppercase tracking-[.2em] text-sm">โปรกลางคืน</div>
+              <div class="mt-3 text-sm opacity-90">ใช้รหัส <b class="bg-white/20 rounded px-2">NIGHT30</b></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="lg:col-span-5 grid gap-4">
+        <article class="card-light rounded-2xl bg-white p-5 flex gap-4 items-start border border-[#e6f3fa]">
+          <span class="shrink-0 w-14 h-14 rounded-2xl bg-nblue/15 grid place-items-center text-nblue text-2xl">🎉</span>
+          <div>
+            <div class="text-xs text-nink/50">18 พ.ค. 2569</div>
+            <h4 class="mt-1 th-display text-lg">เปิดสาขาใหม่ — บางใหญ่ ซิตี้</h4>
+            <p class="text-sm text-nink/70 mt-1">ฉลอง 2 สัปดาห์แรก ซักฟรี! เพียงเช็กอินผ่าน LINE</p>
+          </div>
+        </article>
+        <article class="card-light rounded-2xl bg-white p-5 flex gap-4 items-start border border-[#e6f3fa]">
+          <span class="shrink-0 w-14 h-14 rounded-2xl bg-northo/15 grid place-items-center text-northo text-2xl">💝</span>
+          <div>
+            <div class="text-xs text-nink/50">10 พ.ค. 2569</div>
+            <h4 class="mt-1 th-display text-lg">วันแม่ — ซักผ้าให้แม่ฟรี</h4>
+            <p class="text-sm text-nink/70 mt-1">นำเสื้อแม่มาซักได้ฟรี 1 รอบ ทุกสาขา 12 ส.ค. นี้</p>
+          </div>
+        </article>
+        <article class="card-light rounded-2xl bg-white p-5 flex gap-4 items-start border border-[#e6f3fa]">
+          <span class="shrink-0 w-14 h-14 rounded-2xl bg-nred/15 grid place-items-center text-nred text-2xl">⚡</span>
+          <div>
+            <div class="text-xs text-nink/50">2 พ.ค. 2569</div>
+            <h4 class="mt-1 th-display text-lg">อัปเกรดเครื่อง ECO+ ทุกสาขา</h4>
+            <p class="text-sm text-nink/70 mt-1">ประหยัดน้ำ 28% ลดค่าไฟ 22% ราคาเท่าเดิม</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRANCHISE ============ -->
+<section id="franchise" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden">
+  <div class="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-northo/15 blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-5 relative grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-6">
+      <span class="pill pill-orange" style="font-size: 15px">แฟรนไชส์</span>
+      <h2 class="mt-4 th-display text-4xl md:text-5xl">เป็นเจ้าของ Nekoru<br/>เริ่มต้นแค่ <span class="text-northo">฿1.2M</span></h2>
+      <p class="mt-4 text-white/70 max-w-xl">รายได้เฉลี่ย 80,000–150,000/เดือนต่อสาขา คืนทุน 2.5–3.5 ปี ทีมงานช่วยเลือกทำเล ติดตั้ง อบรม การตลาด ครบวงจร</p>
+
+      <div class="mt-8 grid grid-cols-3 gap-4">
+        <div>
+          <div class="th-display text-3xl text-northo">5+</div>
+          <div class="text-xs text-white/70">ปีของแบรนด์</div>
+        </div>
+        <div class="border-l border-white/15 pl-4">
+          <div class="th-display text-3xl text-nsky">เร็วๆนี้</div>
+          <div class="text-xs text-white/70">เปิดรับแฟรนไชส์</div>
+        </div>
+        <div class="border-l border-white/15 pl-4">
+          <div class="th-display text-3xl text-white">95%</div>
+          <div class="text-xs text-white/70">อัตราคืนทุน</div>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="btn btn-primary">ขอข้อมูลแฟรนไชส์</a>
+        <a href="#" class="btn bg-white/10 text-white border border-white/20">ดาวน์โหลด Pitch Deck</a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-5">
+          <div class="th-display text-northo text-sm">PACKAGE S</div>
+          <div class="th-display text-2xl mt-1">฿1.2M</div>
+          <div class="text-xs text-white/70 mt-1">4 เครื่อง · 30 ตร.ม.</div>
+          <ul class="mt-4 text-sm space-y-1.5 text-white/85">
+            <li>• เครื่องซัก-อบ 4 ตู้</li>
+            <li>• ตกแต่งร้าน</li>
+            <li>• ระบบ POS + QR</li>
+            <li>• อบรม 7 วัน</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white text-nink p-5 ring-2 ring-northo">
+          <div class="th-display text-northo text-sm">PACKAGE M ⭐</div>
+          <div class="th-display text-2xl mt-1">฿1.9M</div>
+          <div class="text-xs text-nink/60 mt-1">8 เครื่อง · 50 ตร.ม.</div>
+          <ul class="mt-4 text-sm space-y-1.5 text-nink/80">
+            <li>• เครื่องซัก-อบ 8 ตู้</li>
+            <li>• โซน Café นั่งรอ</li>
+            <li>• ระบบสมาชิก</li>
+            <li>• การตลาด 6 เดือน</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white/5 border border-white/10 p-5 col-span-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="th-display text-northo text-sm">PACKAGE L</div>
+              <div class="th-display text-2xl mt-1">฿2.8M</div>
+              <div class="text-xs text-white/70 mt-1">12 เครื่อง · 80 ตร.ม. · พร้อม Café</div>
+            </div>
+            <div class="text-6xl">😺</div>
+          </div>
+          <ul class="mt-3 text-sm space-y-1.5 text-white/85 grid sm:grid-cols-2 gap-x-4">
+            <li>• เครื่องซัก-อบ 12 ตู้</li>
+            <li>• Café + ขนมหวาน</li>
+            <li>• โซน Co-working</li>
+            <li>• ผู้จัดการ Premium 24 ชม.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="card-light rounded-[36px] bg-nblue text-white relative overflow-hidden p-8 md:p-12">
+      <div class="absolute -right-20 -bottom-24 w-[420px] h-[420px] rounded-full bg-nsky/40"></div>
+      <div class="absolute -left-12 -top-16 w-48 h-48 rounded-full bg-white/10"></div>
+      <div class="relative grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="pill pill-orange" style="font-size: 15px">รีวิวจากลูกค้า</span>
+          <h2 class="mt-3 th-display text-3xl md:text-4xl leading-tight">"มาใช้ทุกอาทิตย์ ผ้าหอมมาก พี่แม่บ้านน่ารักสุดๆ"</h2>
+          <div class="mt-5 flex items-center gap-3">
+            <span class="w-12 h-12 rounded-full bg-white/20 grid place-items-center font-bold">นุช</span>
+            <div>
+              <div class="font-bold">คุณนุช — สาขาบ้านกล้วย</div>
+              <div class="text-xs text-white/70">ลูกค้าประจำ 2 ปี · ★★★★★</div>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="rounded-2xl bg-white text-nink p-5">
+            <div class="text-northo text-lg">★★★★★</div>
+            <p class="mt-2 text-sm">เครื่องใหญ่ดี ผ้านวมผืนใหญ่เอาอยู่ ราคาคุ้มค่า คุ้มที่จ่าย</p>
+            <div class="mt-3 text-xs text-nink/60">— คุณแม่ตูน</div>
+          </div>
+          <div class="rounded-2xl bg-white text-nink p-5 mt-6">
+            <div class="text-northo text-lg">★★★★★</div>
+            <p class="mt-2 text-sm">ไปตอนตี 2 กล้องวงจรปิดเยอะมาก รู้สึกปลอดภัย</p>
+            <div class="mt-3 text-xs text-nink/60">— คุณเจมส์</div>
+          </div>
+          <div class="rounded-2xl bg-white text-nink p-5 -mt-2">
+            <div class="text-northo text-lg">★★★★★</div>
+            <p class="mt-2 text-sm">ผ้าห่มตัวโปรดหอมมากกก ขอบคุณนะ</p>
+            <div class="mt-3 text-xs text-nink/60">— คุณป้าแหวน</div>
+          </div>
+          <div class="rounded-2xl bg-white text-nink p-5 mt-4">
+            <div class="text-northo text-lg">★★★★★</div>
+            <p class="mt-2 text-sm">ระบบอบโอโซนฆ่าเชื้อ 99% ดีมาก ลูกชายดูจะแพ้น้อยลง</p>
+            <div class="mt-3 text-xs text-nink/60">— คุณแม่บี</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-20 md:py-28 bg-gradient-to-b from-white to-[#f4fbff]">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="max-w-2xl mb-10">
+      <span class="pill pill-blue" style="font-size: 15px">FAQ</span>
+      <h2 class="mt-4 th-display text-4xl md:text-5xl">คำถามที่<span class="squiggle">พบบ่อย</span></h2>
+      <p class="mt-3 text-nink/70">เลือกหมวดหมู่ที่ต้องการ — ถ้าไม่เจอ <a href="#contact" class="text-nblue font-bold underline">ติดต่อเรา</a></p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-6">
+      <aside class="lg:col-span-4">
+        <div class="lg:sticky lg:top-[88px] grid gap-2" id="faqCats">
+          <button data-cat="usage" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-nblue shadow-card flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-nblue/15 grid place-items-center text-nblue text-lg">🧺</span>
+            <span class="flex-1">
+              <span class="block th-display">การใช้งานเครื่อง</span>
+              <span class="block text-xs text-nink/60">วิธีหยอดเหรียญ เลือกโปรแกรม</span>
+            </span>
+            <span class="text-xs text-nink/50">5</span>
+          </button>
+          <button data-cat="problems" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-nred/15 grid place-items-center text-nred text-lg">⚠️</span>
+            <span class="flex-1">
+              <span class="block th-display">ปัญหาเครื่องซักอบ</span>
+              <span class="block text-xs text-nink/60">เครื่องไม่ทำงาน เหรียญติด</span>
+            </span>
+            <span class="text-xs text-nink/50">5</span>
+          </button>
+          <button data-cat="fabric" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-northo/15 grid place-items-center text-northo text-lg">👕</span>
+            <span class="flex-1">
+              <span class="block th-display">การดูแลผ้า</span>
+              <span class="block text-xs text-nink/60">แยกผ้า อุณหภูมิ การอบ</span>
+            </span>
+            <span class="text-xs text-nink/50">5</span>
+          </button>
+          <button data-cat="trouble" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-nink/15 grid place-items-center text-nink text-lg">🔧</span>
+            <span class="flex-1">
+              <span class="block th-display">การแก้ปัญหาเบื้องต้น</span>
+              <span class="block text-xs text-nink/60">คราบฝังลึก ผ้าตก ผ้าหด</span>
+            </span>
+            <span class="text-xs text-nink/50">5</span>
+          </button>
+          <button data-cat="branch" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
+            <span class="w-11 h-11 rounded-xl bg-nsky/30 grid place-items-center text-nblue text-lg">📍</span>
+            <span class="flex-1">
+              <span class="block th-display">สาขาและบริการ</span>
+              <span class="block text-xs text-nink/60">เวลาเปิด แม่บ้าน ที่จอดรถ</span>
+            </span>
+            <span class="text-xs text-nink/50">5</span>
+          </button>
+
+          <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="mt-3 p-5 rounded-2xl bg-nink text-white">
+            <div class="th-display">ไม่เจอคำตอบ?</div>
+            <div class="text-sm text-white/70 mt-1">ทักเราใน LINE ได้ทันที</div>
+            <div class="mt-3 inline-flex items-center gap-2 font-bold text-nsky">@453izcgt →</div>
+          </a>
+        </div>
+      </aside>
+
+      <div class="lg:col-span-8">
+        <div data-pane="usage" class="faq-pane grid gap-3">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">🧺 การใช้งานเครื่อง (FAQ)
+
+</h3>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ซักและอบในเครื่องเดียวได้ไหม? ใช้เวลานานแค่ไหน?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ได้ครับ เครื่องของเนโกะรุเป็นแบบซัก-อบในตัวเดียว ใช้เวลาประมาณ 45-60 นาที ขึ้นอยู่กับโปรแกรมและปริมาณผ้า</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ใส่ผ้าได้มากแค่ไหน? ต้องเตรียมน้ำยาซักเองไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ใส่ได้ตามขนาดเครื่อง 8–28 กก. ดูเส้น MAX ที่ฝาเครื่อง <b>ไม่ต้องเตรียมผงซักหรือน้ำยาเอง</b> เพราะเนโกะรุแถมฟรีในทุกรอบ ระบบจะจ่ายให้อัตโนมัติตามน้ำหนักผ้า</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">จ่ายด้วยเหรียญได้ไหม หรือมีช่องทางชำระเงินอะไรบ้าง?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">รับเหรียญ 5 และ 10 บาท หรือสแกน QR PromptPay / TrueMoney Wallet ก็ได้ ถ้าไม่มีเหรียญ ติดต่อแม่บ้านหรือใช้ตู้แลกเหรียญหน้าร้านได้</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">เลือกอุณหภูมิการอบให้เหมาะกับผ้าอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">น้ำเย็น (30°C) สำหรับผ้าสี ผ้ายีนส์ / น้ำอุ่น (40–60°C) สำหรับผ้าใส่ทั่วไป / น้ำร้อน (60–95°C) สำหรับผ้าขาว ผ้าเด็ก ผ้าปูที่นอน เพื่อฆ่าเชื้อ</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ซักท็อปเปอร์และชุดผ้าปูที่นอนได้ไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ซักได้สบาย ขนาด 3.5 ฟุต ซักเครื่อง 17 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด<br/>ขนาด 5–6 ฟุต ซักเครื่อง 27 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด<br/><span class="text-nink/60">**อย่างไรก็ตาม แม่บ้านจะช่วยประเมินขนาด และความหนาของท็อปเปอร์ที่หน้าร้านอีกครั้ง**</span></div>
+          </details>
+        </div>
+
+        <div data-pane="problems" class="faq-pane grid gap-3 hidden">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">⚠️ ปัญหาเครื่องซักอบ</h3>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">หยอดเหรียญแล้วเครื่องไม่เริ่มทำงาน ทำอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">1) ลองปิดฝาเครื่องให้สนิท 2) กดปุ่ม Start ค้าง 2 วินาที 3) ถ้าไม่หาย ติดต่อแม่บ้านหน้าร้าน หรือโทร 02-123-4567 ตลอด 24 ชม. เราจะคืนเงินเต็มจำนวน</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">เหรียญติดในตู้ เครื่องไม่นับเหรียญ?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">อย่าใช้แรงงัด ถ่ายรูปเครื่องและเหรียญที่ติด แจ้งทาง LINE @nekoru ทีมงานจะคืนเงินผ่าน PromptPay ภายใน 1 ชม. ในเวลาทำการ</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">เครื่องอบแล้วผ้ายังไม่แห้งสนิท?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ส่วนใหญ่เกิดจากใส่ผ้าเกินความจุ หรือผ้าหนา (ผ้าห่ม กางเกงยีนส์) เลือก "อบเพิ่ม 10 นาที" 10 บาทได้เลย หรือใช้เครื่องขนาดใหญ่ขึ้น 1 ระดับ</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ฝาเครื่องเปิดไม่ออก รอบซักเสร็จแล้ว?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">เครื่องมีระบบนิรภัย ต้องรอ 1–2 นาทีหลังหยุดหมุน ถังจะคลายล็อกอัตโนมัติ ถ้าเกิน 5 นาทียังล็อก กดปุ่ม Reset หน้าเครื่อง หรือเรียกแม่บ้านได้เลย</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">น้ำรั่ว มีกลิ่นไหม้ ทำอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">กดปุ่มฉุกเฉินสีแดงที่ผนังเพื่อตัดไฟ และโทร 02-123-4567 ทันที อย่าพยายามเปิดฝาหรือสัมผัสเครื่อง ทีมช่างจะถึงสาขาภายใน 30 นาที</div>
+          </details>
+        </div>
+
+        <div data-pane="fabric" class="faq-pane grid gap-3 hidden">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">👕 การดูแลผ้า</h3>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">แยกผ้าก่อนซักจำเป็นแค่ไหน?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">จำเป็นมาก! แยก 3 กอง: ผ้าขาว, ผ้าสีอ่อน, ผ้าสีเข้ม/ยีนส์ใหม่ ป้องกันสีตก และแยกผ้าหนา (ผ้าห่ม) ออกจากผ้าบาง เพื่อให้แห้งทั่วถึงเท่ากัน</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้าทอ ผ้าไหม ผ้าขนสัตว์ ซักได้ไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ซักได้ครับ ใช้โปรแกรม "Delicate" + น้ำเย็น 30°C + ใส่ถุงตาข่ายซักผ้า งดอบด้วยความร้อน ใช้โหมดอบลมเย็น (Air Dry) แทน เพื่อคงรูปทรงและความนุ่ม</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้าเด็กทารก ซักรวมกับผ้าผู้ใหญ่ได้ไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ไม่แนะนำค่ะ ควรซักแยก ใช้น้ำร้อน 60°C ขึ้นไป + เลือกโปรแกรม "Baby Care" + อบโอโซน เพื่อฆ่าเชื้อโรค ไรฝุ่น ปลอดภัยกับผิวบอบบาง</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้าห่มนวม หมอน ใส่เครื่องไหน?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ผ้าห่มนวม Queen/King ใช้เครื่อง L (27 กก.) สำหรับผ้าห่มผืนใหญ่ / Single ใช้เครื่อง M (22 กก.) หมอนยัดขนเป็ดควรซักทีละ 1–2 ใบเท่านั้น ใช้น้ำอุ่นและอบลมเย็นนานหน่อย</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้ามีสัญลักษณ์ "Dry Clean Only" ซักที่นี่ได้ไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ไม่แนะนำให้ซักด้วยน้ำค่ะ ควรนำไปซักแห้งกับร้านที่เชี่ยวชาญ สาขาบางเขน, ทองหล่อ, ลาดพร้าว มีบริการ "Drop-off ซักแห้ง" คิดราคาตามชิ้น</div>
+          </details>
+        </div>
+
+        <div data-pane="trouble" class="faq-pane grid gap-3 hidden">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">🔧 การแก้ปัญหาเบื้องต้น</h3>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">คราบฝังลึก คราบกาแฟ น้ำมัน ทำอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">แช่น้ำสบู่อ่อนๆ 15–20 นาทีก่อน แล้วค่อยลงเครื่อง เลือกโปรแกรม "Heavy Wash" + น้ำอุ่น 60°C ถ้าเป็นคราบสด จะออกง่ายกว่าคราบแห้ง</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้าหด ผ้าเสียทรงหลังอบ ป้องกันได้ไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">อ่านป้ายผ้า ผ้าฝ้าย 100% และผ้าขนสัตว์ มีโอกาสหด ควรเลือกโหมดอบลมเย็น หรือลดอุณหภูมิอบลง ใส่ถุงซักรักษารูปทรง สำหรับเสื้อยืดและบรา</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้าสีตก ทำให้ผ้าขาวเปื้อน แก้ยังไง?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ห้ามอบทันที! ความร้อนจะทำให้สีติดถาวร แช่ผ้าขาวกับน้ำยาดึงสี 30 นาที แล้วซักซ้ำด้วยน้ำเย็น พี่แม่บ้านมีน้ำยาดึงสีฉุกเฉินให้ยืม</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ผ้ามีกลิ่นอับหลังอบ จัดการอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">เกิดจากใส่ผ้ามากเกินไป อบไม่ทั่ว แนะนำให้แบ่งซักเป็น 2 รอบ + เลือกโปรแกรม "Anti-Bacteria" หรือใช้บริการอบโอโซนที่เนโกะรุมีฟรีในทุกรอบ</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ลืมเก็บกระดาษในกระเป๋า ผ้าเป็นเศษเล็กๆทั้งตัว?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ใช้ผ้าขนหนูเปียกเช็ดเก็บเศษทิชชู่ออก แล้วใส่เครื่องอบรอบเพิ่ม โดยใส่ผ้าขนหนูแห้งร่วมด้วย เศษกระดาษจะติดที่ผ้าขนหนู ครั้งหน้าเช็กกระเป๋าก่อนซักนะคะ</div>
+          </details>
+        </div>
+
+        <div data-pane="branch" class="faq-pane grid gap-3 hidden">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">📍 สาขาและบริการ</h3>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">สาขาเปิด-ปิดกี่โมง? วันหยุดเปิดไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ทุกสาขาเปิด 24 ชั่วโมง ทุกวัน ไม่มีวันหยุด รวมทั้งวันหยุดนักขัตฤกษ์และเทศกาล เพราะเรารู้ว่าผ้าต้องซักได้ตลอด</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">แม่บ้านอยู่ประจำทุกสาขาตลอดเวลาไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">แม่บ้านประจำสาขา 06:00–22:00 ทุกวัน นอกเวลานี้มีระบบ Call Center 24 ชม. โทร 02-123-4567 และมีสาขา Premium ที่เลี้ยงแม่บ้าน 24 ชม. (ดูเครื่องหมาย ⭐ ในรายชื่อสาขา)</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ค่าจอดรถ คิดเงินไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ฟรีค่ะ ทุกสาขามีที่จอดรถสำหรับลูกค้า 5–20 คันตามขนาดสาขา ในขณะใช้บริการเท่านั้น ไม่อนุญาตให้จอดข้ามคืนหรือฝากรถ</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">มีบริการรับ-ส่งผ้าถึงบ้านไหม?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">มีค่ะ บริการ "Nekoru Delivery" รับ-ส่งฟรีในรัศมี 3 กม. จากสาขาที่ร่วมรายการ ขั้นต่ำ 199 บาท จองผ่าน LINE @nekoru</div>
+          </details>
+          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">ระบบสมาชิก สะสมแต้ม ส่วนลดอย่างไร?</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ลงทะเบียนผ่าน LINE @nekoru ใช้บริการ 10 บาท = 1 แต้ม 3 ระดับสมาชิก: Kitten / Cat / Maneki ดูรายละเอียดที่ <a href="#loyalty" class="text-nblue underline">ส่วน Member Club</a></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section id="careers" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5">
+    <div class="card-light rounded-[36px] overflow-hidden border border-[#e6f3fa] bg-npaper grid lg:grid-cols-12">
+      <div class="lg:col-span-7 p-8 md:p-14">
+        <span class="pill pill-orange" style="font-size: 15px">ร่วมงานกับเรา</span>
+        <h2 class="mt-4 th-display text-4xl md:text-5xl">มาเป็น<br/>ทีมเนโกะรุ 😺</h2>
+        <p class="mt-4 text-nink/70 max-w-xl">เรากำลังขยายอีก 30 สาขาในปีนี้ มองหาแม่บ้าน หัวหน้าสาขา ช่างเทคนิค ที่ใจรักบริการ พร้อมสวัสดิการดี ประกันสังคม ประกันสุขภาพ และโบนัสประจำปี</p>
+
+        <div class="mt-8 grid sm:grid-cols-3 gap-3">
+          <div class="card-light rounded-2xl bg-white p-5 border border-[#e6f3fa]">
+            <div class="text-xs text-nink/50">ตำแหน่ง</div>
+            <div class="th-display text-lg mt-1">แม่บ้านประจำสาขา</div>
+            <div class="mt-2 text-xs text-nink/60">ทั่วกรุงเทพและปริมณฑล</div>
+            <div class="mt-3 text-northo font-bold">15,000–20,000 บาท</div>
+          </div>
+          <div class="card-light rounded-2xl bg-white p-5 border border-[#e6f3fa]">
+            <div class="text-xs text-nink/50">ตำแหน่ง</div>
+            <div class="th-display text-lg mt-1">ช่างเทคนิคซ่อมเครื่อง</div>
+            <div class="mt-2 text-xs text-nink/60">ทำงานเป็นทีม 4 คน</div>
+            <div class="mt-3 text-northo font-bold">25,000–35,000 บาท</div>
+          </div>
+          <div class="card-light rounded-2xl bg-white p-5 border border-[#e6f3fa]">
+            <div class="text-xs text-nink/50">ตำแหน่ง</div>
+            <div class="th-display text-lg mt-1">หัวหน้าสาขา (Area)</div>
+            <div class="mt-2 text-xs text-nink/60">ดูแล 6–8 สาขา</div>
+            <div class="mt-3 text-northo font-bold">35,000–55,000 บาท</div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact" class="btn btn-primary">สมัครงาน</a>
+          <a href="#" class="btn btn-ghost">ดูตำแหน่งทั้งหมด (12)</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative bg-nblue text-white p-8 md:p-12 overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-nsky/40"></div>
+        <div class="absolute -bottom-16 -left-12 w-56 h-56 rounded-full bg-white/10"></div>
+        <div class="relative">
+          <h3 class="th-display text-2xl">สวัสดิการดีๆ</h3>
+          <ul class="mt-5 space-y-3 text-sm">
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>ประกันสังคม + ประกันสุขภาพกลุ่ม</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>โบนัสประจำปี 1–3 เดือน</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>ปรับเงินเดือนทุก 6 เดือน</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>เงินช่วยเหลือเครื่องแต่งกาย</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>วันหยุดประจำสัปดาห์ + ประเพณี</span></li>
+            <li class="flex items-start gap-3"><span class="mt-0.5">✦</span><span>ฝึกอบรมก่อนเริ่มงาน 7 วัน</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-20 md:py-28 bg-npaper">
+  <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-5">
+      <span class="pill pill-blue" style="font-size: 15px">ติดต่อเรา</span>
+      <h2 class="mt-4 th-display text-4xl md:text-5xl">มีคำถาม? <br/>ทักเราได้ตลอด</h2>
+      <p class="mt-4 text-nink/70">ทีมงานจะติดต่อกลับให้เร็วที่สุด</p>
+
+      <div class="mt-8 grid gap-3">
+        <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="card-light flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#e6f3fa] hover:border-nblue transition">
+          <span class="w-12 h-12 rounded-xl bg-[#06c755] grid place-items-center text-white font-bold">L</span>
+          <div class="flex-1"><div class="th-display" style="font-size: 20px">LINE Official</div><div class="text-sm text-nink/60" style="font-size: 16px">@453izcgt · คลิกเพื่อแอดเพื่อน</div></div>
+          <span class="text-nblue">→</span>
+        </a>
+        <a href="tel:021234567" class="card-light flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#e6f3fa] hover:border-nblue transition">
+          <span class="w-12 h-12 rounded-xl bg-northo grid place-items-center text-white">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          </span>
+          <div class="flex-1"><div class="th-display" style="font-size: 20px">097-565-9556</div><div class="text-sm text-nink/60" style="font-size: 16px">8.00–18.00 จะติดต่อกลับอย่างเร็วที่สุด</div></div>
+          <span class="text-nblue">→</span>
+        </a>
+        <a href="mailto:wegomeow.8@gmail.com" class="card-light flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#e6f3fa] hover:border-nblue transition">
+          <span class="w-12 h-12 rounded-xl bg-nblue grid place-items-center text-white">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <div class="flex-1"><div class="th-display" style="font-size: 20px">wegomeow.8@gmail.com</div><div class="text-sm text-nink/60" style="font-size: 2px">ติดต่องาน, แฟรนไชส์</div></div>
+          <span class="text-nblue">→</span>
+        </a>
+
+        <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="mt-1 p-4 rounded-3xl bg-white border border-[#e6f3fa] shadow-card flex items-center gap-4 hover:border-[#06c755] transition">
+          <img src="assets/line-qr-new.png" alt="LINE QR @453izcgt" class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-contain bg-white shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="th-display text-lg leading-tight">สแกน หรือคลิกเพื่อแอด LINE</div>
+            <div class="text-xs text-nink/70 mt-1 leading-snug">เปิดกล้องสแกนคิวอาร์โค้ด หรือคลิกที่กล่องนี้</div>
+            <div class="mt-2 inline-flex items-center gap-2 text-sm font-bold text-[#06c755]">
+              <span class="w-6 h-6 rounded-md bg-[#06c755] text-white grid place-items-center text-xs">L</span>
+              @453izcgt
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?sent=1" class="card-light rounded-3xl bg-white p-6 md:p-8 border border-[#e6f3fa] shadow-card grid gap-4">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden"><label>Don't fill this: <input name="bot-field" /></label></p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="block text-sm font-bold mb-1.5" style="font-size: 16px">ชื่อ–นามสกุล</span>
+            <input name="name" class="field" placeholder="คุณ..." required />
+          </label>
+          <label class="block">
+            <span class="block text-sm font-bold mb-1.5" style="font-size: 16px">เบอร์โทร / LINE ID</span>
+            <input name="phone" class="field" placeholder="08x-xxx-xxxx" required />
+          </label>
+        </div>
+        <label class="block">
+          <span class="block text-sm font-bold mb-1.5" style="font-size: 16px">หัวข้อ</span>
+          <select name="subject" class="field" required>
+            <option>สอบถามทั่วไป</option>
+            <option>ปัญหาการใช้งานเครื่อง</option>
+            <option>เสนอแฟรนไชส์ / เปิดสาขา</option>
+            <option>ร่วมงาน / สมัครงาน</option>
+            <option>ติชม / ข้อเสนอแนะ</option>
+          </select>
+        </label>
+        <label class="block">
+          <span class="block text-sm font-bold mb-1.5" style="font-size: 16px">ข้อความ</span>
+          <textarea name="message" class="field" rows="5" placeholder="รายละเอียด..." required></textarea>
+        </label>
+        <label class="flex items-start gap-2 text-sm text-nink/70">
+          <input type="checkbox" name="consent" required class="mt-1.5" />
+          <span>ฉันยอมรับ <a href="#" class="text-nblue underline">นโยบายข้อมูลส่วนบุคคล</a> และยินยอมให้ติดต่อกลับ</span>
+        </label>
+        <div class="flex flex-wrap items-center gap-3">
+          <button type="submit" class="btn btn-primary">ส่งข้อความ</button>
+          <span class="text-sm text-nink/60" style="font-size: 16px">หรือทักใน LINE OA ก็ได้นะคะ</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-nink text-white pt-16 pb-8 relative overflow-hidden">
+  <div class="absolute -top-20 left-1/3 w-[600px] h-[600px] rounded-full bg-nblue/20 blur-3xl"></div>
+  <div class="max-w-7xl mx-auto px-5 relative" style="font-size: 1px">
+    <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
+      <div class="md:col-span-4">
+        <div class="flex items-center gap-2.5" style="font-size: 20px">
+          <img src="assets/nekoru-logo.png" alt="Nekoru" class="w-20 h-20 md:w-24 md:h-24 object-contain shrink-0"/>
+          <div class="leading-tight">
+            <div class="font-display font-extrabold text-xl text-nsky" style="font-size: 30px">Nekoru</div>
+            <div class="text-[11px] tracking-[.2em] text-northo font-bold" style="font-size: 15px; color: rgb(255, 0, 0)">WASHMART · 24H</div>
+          </div>
+        </div>
+        <p class="mt-4 text-white/70 text-sm max-w-sm" style="font-size: 16px">เนโกะรุ วอชมาร์ท - ร้านสะดวกซักแบบครบวงจร เปิด 24 ชม. ทุกวัน ผ้าหอมสะอาด พร้อมใส่ 🧺</p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 grid place-items-center hover:bg-white/20" aria-label="Facebook">f</a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 grid place-items-center hover:bg-white/20" aria-label="Instagram">IG</a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 grid place-items-center hover:bg-white/20" aria-label="LINE">L</a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 grid place-items-center hover:bg-white/20" aria-label="TikTok">T</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="th-display mb-3">เมนู</div>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="#home" class="hover:text-white">หน้าหลัก</a></li>
+          <li><a href="#branches" class="hover:text-white">สาขา</a></li>
+          <li><a href="#articles" class="hover:text-white">บทความ</a></li>
+          <li><a href="#news" class="hover:text-white">ข่าวสาร &amp; กิจกรรม</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <div class="th-display mb-3">ลูกค้าสัมพันธ์</div>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="#contact" class="hover:text-white">ติดต่อเรา</a></li>
+          <li><a href="#careers" class="hover:text-white">ร่วมงาน</a></li>
+          <li><a href="#franchise" class="hover:text-white">แฟรนไชส์</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <div class="th-display mb-3">รับโปรมชั่นให</div>
+        <p class="text-sm text-white/70">สมัครสมาชิกรับสิทธิพิเศษมากมาย</p>
+        <form class="mt-3 flex gap-2">
+          <input class="field flex-1 bg-white/5 border-white/15 text-white placeholder:text-white/40" placeholder="email@example.com" />
+          <button type="button" class="btn btn-primary">สมัคร</button>
+        </form>
+        <div class="mt-4 text-xs text-white/50">บริษัท ปั่นเงินปั่นทองไม่ จำกัด · เลขที่ทะเบียน 0105563000000</div>
+      </div>
+    </div>
+
+    <div class="pt-6 flex flex-wrap items-center justify-between gap-4 text-sm text-white/50">
+      <div>© 2025 บริษัท ปั่นเงินปั่นทองไม่ จำกัด สงวนลิขสิทธิ์</div>
+      <div class="flex gap-5">
+        <a href="#" class="hover:text-white">เงื่อนไขการใช้บริการ</a>
+        <a href="#" class="hover:text-white">นโยบายความเป็นส่วนตัว</a>
+        <a href="#" class="hover:text-white">นโยบายคุกกี้</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TWEAKS PANEL ============ -->
+<div id="tweaksPanel" class="hidden fixed bottom-5 right-5 z-[60] w-[320px] rounded-2xl bg-white border border-[#cfeaf7] shadow-2xl p-4 text-sm text-nink" role="dialog" aria-label="Tweaks">
+  <div class="flex items-center justify-between mb-3">
+    <div class="th-display">Tweaks</div>
+    <button id="tweaksClose" class="w-7 h-7 rounded-full bg-[#f4fbff] hover:bg-[#e6f5fc]">×</button>
+  </div>
+  <div class="grid gap-3">
+    <div class="grid gap-1">
+      <span class="text-xs font-bold text-nink/70">โทนสี</span>
+      <div class="grid grid-cols-3 gap-2" id="twTheme">
+        <button data-theme="sky"  class="h-12 rounded-xl border-2 border-nink overflow-hidden bg-gradient-to-br from-nblue to-nsky text-white text-xs font-bold">ฟ้า-ขาว</button>
+        <button data-theme="warm" class="h-12 rounded-xl border-2 border-transparent overflow-hidden bg-gradient-to-br from-northo to-[#ffb37a] text-white text-xs font-bold">ส้มเด่น</button>
+        <button data-theme="dark" class="h-12 rounded-xl border-2 border-transparent overflow-hidden bg-gradient-to-br from-nink to-northo text-white text-xs font-bold">มืดดำ-ส้ม</button>
+      </div>
+    </div>
+    <div class="grid gap-1">
+      <span class="text-xs font-bold text-nink/70">ปุ่ม CTA หลัก</span>
+      <div class="grid grid-cols-3 gap-2" id="twCta">
+        <button data-cta="orange" class="h-10 rounded-xl bg-northo text-white font-bold border-2 border-nink">ส้ม</button>
+        <button data-cta="blue"   class="h-10 rounded-xl bg-nblue text-white font-bold border-2 border-transparent">ฟ้า</button>
+        <button data-cta="red"    class="h-10 rounded-xl bg-nred text-white font-bold border-2 border-transparent">แดง</button>
+      </div>
+    </div>
+    <label class="flex items-center gap-2"><input id="twWiggle" type="checkbox" checked class="accent-northo"/> <span>เปิดอนิเมชัน mascot</span></label>
+  </div>
+</div>
+
+<script>
+  // ============ Mobile menu ============
+  const mb = document.getElementById('menuBtn');
+  const mm = document.getElementById('mobileMenu');
+  mb.addEventListener('click', () => mm.classList.toggle('hidden-m'));
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden-m')));
+
+  // ============ Language switcher ============
+  // ============ Language switcher (full-page) ============
+  // Thai → English dictionary. Walks text nodes and swaps on language change.
+  const TH2EN = {
+    // Top bar
+    'เปิด 24 ชั่วโมง · 365 วัน': 'Open 24/7 · 365 days',
+    '😺 อบโอโซนฆ่าเชื้อ ฟรีน้ำยาซัก-ปรับผ้านุ่ม': '😺 Ozone sterilisation · Free detergent & softener',
+    'โทร 02-123-4567': 'Call 097-565-9556',
+    'ร่วมงานกับเรา': 'Careers',
+    // Nav
+    'หน้าหลัก': 'Home',
+    'บริการของเรา': 'Our Services',
+    'สาขา': 'Branches',
+    'บทความ': 'Articles',
+    'ข่าวสาร & กิจกรรม': 'News & Events',
+    'ข่าวสาร &amp; กิจกรรม': 'News & Events',
+    'แฟรนไชส์': 'Franchise',
+    'ร่วมงาน': 'Careers',
+    'ติดต่อ': 'Contact',
+    'ติดต่อเรา': 'Contact Us',
+    'สมาชิก Nekoru': 'Nekoru Member',
+    // Hero
+    '⏰ เปิด 24 ชั่วโมง': '⏰ Open 24 hours',
+    '🧺 ซัก-อบ จบใน 60 นาที ไม่ต้องย้ายผ้า!': '🧺 Wash + Dry in 60 mins, no swap!',
+    '😺 มีแม่บ้านบริการพับฟรี': '😺 Attendant folds for free',
+    'ผ้าหอมสะอาด': 'Clean & Fresh',
+    'พร้อมใส่': 'Ready to wear',
+    'ใน 60 นาที': 'in 60 minutes',
+    'หาสาขาใกล้คุณ': 'Find a branch',
+    'คำนวณค่าซัก': 'Estimate price',
+    'สาขาแรก & สาขาใหม่เร็วๆนี้': 'First branch & more soon',
+    'ครัวเรือนที่ใช้บริการ': 'households served',
+    'รีวิวบน Google': 'Google reviews',
+    'เสร็จใน 60 นาที': 'Done in 60 mins',
+    'ไม่ต้องย้ายผ้า': 'No swapping clothes',
+    'อบโอโซนฆ่าเชื้อ 99.9%': 'Ozone sterilises 99.9%',
+    'สะอาด ผ้าไม่มีกลิ่นอับ': 'Clean, no musty smell',
+    'ฟรีน้ำยาซัก-ปรับนุ่ม': 'Free detergent + softener',
+    'หอมฟุ้งยาวนาน': 'Long-lasting fragrance',
+    // Marquee
+    'ซัก-อบในเครื่องเดียว': 'Wash + dry in one machine',
+    'ฟรีน้ำยาซัก & ปรับผ้านุ่ม': 'Free detergent & softener',
+    'ฟรีน้ำยาซัก &amp; ปรับผ้านุ่ม': 'Free detergent & softener',
+    'เปิด 24 ชั่วโมง': 'Open 24 hours',
+    'มีแม่บ้านบริการพับฟรี': 'Attendant folds free',
+    'Wi-Fi ฟรี': 'Free Wi-Fi',
+    'CCTV 24 ชม.': 'CCTV 24h',
+    // Features
+    'Why us?': 'Why us?',
+    'ใช้เวลากับคนที่รัก': 'Spend time with loved ones',
+    'ให้เรื่องซักเป็นงานของเรา': 'leave the laundry to us',
+    'แวะมาเมื่อไหร่ก็สว่าง': 'Always bright when you stop by',
+    'CCTV 24 ชั่วโมง': 'CCTV 24 hours',
+    'ปลอดภัยทั้งคนและผ้า': 'Safe for you and your clothes',
+    'ซัก-อบ ในเครื่องเดียว': 'Wash + Dry in one machine',
+    'ซักเสร็จอบต่อทันที': 'Dries automatically after wash',
+    'ผ้าแห้งหอมพร้อมใส่': 'Dry, fresh, ready to wear',
+    'ไม่ต้องรอย้ายผ้า': 'No swapping needed',
+    'พร้อมระบบอบโอโซน': 'With ozone drying system',
+    'ทำลายเชื้อโรค แบคทีเรีย ไรฝุ่น ลดการเกิดภูมิแพ้': 'Kills germs, bacteria, dust mites — reduces allergies',
+    'ฟรี! น้ำยาซัก-ปรับนุ่ม': 'Free! Detergent + softener',
+    'ลดค่าใช้จ่าย ไม่ต้องใส่เพิ่ม': 'Save money, no need to add',
+    'หอมฟุ้งติดผ้า': 'Long-lasting scent',
+    'มีแม่บ้านบริการพับฟรี\n08:00–18:00 หยุดทุกวันพุธ': 'Attendant folds free 08:00–18:00 (closed Wed)',
+    'Wi-Fi ฟรี นั่งรอสบายๆ': 'Free Wi-Fi, comfy waiting',
+    'นั่งรอสบายๆ': 'comfy waiting',
+    'CCTV 24 ชม.': '24h CCTV',
+    'เหรียญ & สแกนจ่าย QR PromptPay': 'Coins & PromptPay QR',
+    'เหรียญ &amp; สแกนจ่าย QR': 'Coins & PromptPay QR',
+    // How it works
+    'วิธีใช้งาน': 'How it works',
+    'ใช้ง่ายๆ': 'Just',
+    '4 ขั้นตอน': '4 easy steps',
+    'เพียง 4 ขั้นตอน ผ้าก็สะอาดแห้งหอม ไม่ต้องตาก': 'Just 4 steps — clean, dry, fragrant. No need to hang.',
+    'กดปุ่มล้างถังซัก ฟรี': 'Press to clean drum (free)',
+    'ฆ่าเชื้อโรคด้วยระบบอบโอโซน ทุกการใช้งาน': 'Ozone sterilises every time',
+    'ใส่ผ้าปิดฝาให้สนิท': 'Load clothes, close door',
+    'เลือกโปรแกรมการซัก': 'Choose wash programme',
+    'ตามความเหมาะสมของปริมาณผ้า': 'Match the load size',
+    'หยอดเหรียญ / โอนชำระ': 'Insert coin / transfer',
+    'แจ้งสลิปการโอนผ่านแชท Line OA ของทางร้าน': 'Send slip via our LINE OA',
+    // Video labels
+    'วิดีโอแนะนำ · 1:24': 'Intro video · 1:24',
+    'วิธีใช้เครื่องซัก-อบ Nekoru': 'How to use Nekoru wash-dryer',
+    'บทที่ 1 · 0:18': 'Chapter 1 · 0:18',
+    'ใส่ผ้าและเลือกโหมด': 'Load & select mode',
+    'บทที่ 2 · 0:42': 'Chapter 2 · 0:42',
+    'หยอดเหรียญ / QR': 'Coin / QR',
+    'บทที่ 3 · 1:05': 'Chapter 3 · 1:05',
+    'พร้อมรับผ้าของคุณ': 'Pick up your laundry',
+    // Calculator
+    'รู้ราคา': 'Know the price',
+    'ก่อนมา': 'before you come',
+    '💡 คำแนะนำ': '💡 Tips',
+    'เลือกขนาดเครื่องให้เหมาะสมกับปริมาณผ้า จะแห้งและหอมขึ้น': 'Pick the right size for better drying & fragrance',
+    'เลือกประเภทบริการ': 'Select service',
+    'ซัก + อบ': 'Wash + Dry',
+    'ซักอย่างเดียว': 'Wash only',
+    'อบอย่างเดียว': 'Dry only',
+    'เลือกขนาดเครื่อง': 'Select machine size',
+    'ไซส์ M (17 kg.)': 'Size M (17 kg.)',
+    'ไซส์ L (27 kg.)': 'Size L (27 kg.)',
+    'น้ำหนักผ้าโดยประมาณ': 'Approx. weight',
+    '3 กก.': '3 kg',
+    '15 กก.': '15 kg',
+    '27 กก. (ผ้าห่มนวม)': '27 kg (duvet)',
+    'เลือกอุณหภูมิการอบ': 'Drying temperature',
+    'ต่ำ (50°C)': 'Low (50°C)',
+    'กลาง (70°C) มาตรฐาน': 'Med (70°C) standard',
+    'สูง (80°C)': 'High (80°C)',
+    'อบเพิ่มครั้งละ 8 นาที +10฿': 'Extra dry 8 min +฿10',
+    'สำหรับผ้าหนาเป็นพิเศษ': 'For thick laundry',
+    'เครื่องที่แนะนำ': 'Recommended',
+    'เครื่องกลาง M (17 kg.)': 'Medium M (17 kg.)',
+    'เครื่องใหญ่ L (27 kg.)': 'Large L (27 kg.)',
+    'ราคาประมาณ': 'Approx. price',
+    'บาท': 'THB',
+    'ใช้เวลา': 'Time',
+    'นาที': 'min',
+    'หาสาขาเพื่อมาใช้บริการ →': 'Find a branch →',
+    // Pricing
+    'ตารางราคา': 'Pricing',
+    'ราคาเดียว': 'One price',
+    'ทุกสาขา': 'all branches',
+    'ฟรีทุกน้ำยา พร้อมบริการพับฟรี': 'All detergents free + free folding',
+    'ขนาดเครื่อง': 'Machine size',
+    'น้ำหนัก': 'Weight',
+    'ซัก': 'Wash',
+    'ซัก+อบ': 'Wash+Dry',
+    '(ขนาดมาตรฐาน)': '(standard)',
+    '(ผ้าน้อย)': '(small load)',
+    'อบเพิ่ม': 'Extra dry',
+    'เครื่องกลาง': 'Medium',
+    'ผ้าครอบครัว 3–4 คน': 'Family of 3–4',
+    'เครื่องใหญ่': 'Large',
+    'ผ้าห่ม ผ้าปูที่นอน': 'Blankets & bedding',
+    'ยอดนิยม': 'Popular',
+    '/ 8 นาที': '/ 8 min',
+    '/ 6 นาที': '/ 6 min',
+    '✦ น้ำยาซัก-ปรับผ้านุ่ม ฟรี!': '✦ Free detergent & softener',
+    '✦ เครื่อง 17 kg. อบเพิ่ม 10 บาท = 8 นาที': '✦ 17 kg machine: +฿10 = 8 min extra dry',
+    '✦ เลือกอุณหภูมิการอบได้': '✦ Choose drying temperature',
+    '✦ ล้างถังด้วยระบบอบโอโซนฆ่าเชื้อ ฟรีทุกรอบ': '✦ Free ozone drum-cleaning every cycle',
+    // Branches
+    'สาขาแรก เปิดให้บริการแล้ว': 'First branch now open',
+    'เปิดบริการสาขาแรกแล้ว เร็วๆนี้พบเราที่สาขาที่ 2 และเปิดรับสมัครแฟรนไชส์ในอนาคต': 'Our first branch is open. Branch 2 and franchise openings coming soon.',
+    '📍 ค้นหาด้วยตำแหน่งฉัน': '📍 Find near me',
+    'ดูทั้งหมด →': 'See all →',
+    'ค้นหาสาขา / ถนน / เขต': 'Search branch / road / area',
+    'ค้นหา': 'Search',
+    'กรุงเทพชั้นใน': 'Inner Bangkok',
+    'กรุงเทพชั้นกลาง': 'Mid Bangkok',
+    'ปริมณฑล': 'Greater Bangkok',
+    '📍 1 สาขาที่เปิดให้บริการ': '📍 1 branch open',
+    'สาขาแรก — Nekoru Washmart': 'First branch — Nekoru Washmart',
+    'เปิดอยู่': 'Open now',
+    'เปิดให้บริการตลอด 24 ชั่วโมง · มีแม่บ้านบริการ 08:00–18:00': 'Open 24/7 · Attendant 08:00–18:00',
+    '🚗 ที่จอดรถ': '🚗 Parking',
+    '😺 มีแม่บ้าน': '😺 Attendant',
+    '📶 Wi-Fi': '📶 Wi-Fi',
+    '📹 CCTV': '📹 CCTV',
+    'เปิดแผนที่ Google Maps →': 'Open in Google Maps →',
+    'เร็วๆนี้ — สาขาที่ 2 ✦ เปิดรับแฟรนไชส์': 'Coming soon — Branch 2 ✦ Franchise opening',
+    // Member club
+    '😺 Nekoru Member Club': '😺 Nekoru Member Club',
+    'ซักเยอะ': 'Wash more,',
+    'ยิ่งคุ้ม ยิ่งฟรี!': 'save more, get free!',
+    'Kitten': 'Kitten',
+    'เริ่มต้น 0–10 แต้ม': 'Starter 0–10 pts',
+    '• แลกเจลบอลได้': '• Redeem laundry beads',
+    'Kitty': 'Kitty',
+    '11–15 แต้ม': '11–15 pts',
+    '• ซักฟรี (17 Kg.) 1 ครั้ง': '• 1 free wash (17 kg)',
+    'Tiger': 'Tiger',
+    '16–25 แต้ม': '16–25 pts',
+    'สมัครสมาชิกฟรีทาง LINE': 'Join free via LINE',
+    // Articles
+    'เคล็ดลับดูแลผ้า': 'Laundry care tips',
+    'ให้ใส่ได้นาน': 'to last longer',
+    'ดูบทความทั้งหมด →': 'See all articles →',
+    'การดูแลผ้า': 'Fabric care',
+    'การแก้ปัญหา': 'Troubleshooting',
+    'วิธีใช้งานเครื่อง': 'Machine usage',
+    '7 เคล็ดลับซักผ้าขาวให้ขาวสะอาดเหมือนใหม่': '7 tips for keeping whites bright',
+    'ผ้าขาวเหลือง? เปื้อนแล้วซักไม่ออก? เทคนิคจากประสบการณ์ 10+ ปีที่ทำได้จริง': 'Yellow whites? Stains won\'t budge? 10+ years of proven tips',
+    'เลือกอุณหภูมิน้ำอย่างไรให้ผ้าไม่หด ไม่สี ไม่ตก': 'Pick the right water temperature',
+    'น้ำเย็น น้ำอุ่น น้ำร้อน ใช้เมื่อไหร่ดี? ตารางอ้างอิงประเภทผ้าที่คุณควรรู้': 'Cold, warm or hot? A reference table for every fabric',
+    'คราบเครื่องเทศ น้ำมัน หมึก แก้ยังไงให้ออกแน่': 'Spice, oil, ink stains — proven removal methods',
+    'รวม 12 คราบยอดฮิต กับวิธีจัดการตามหลักวิทยาศาสตร์ผ้า ปลอดภัยทั้งกับเสื้อและกับผิว': '12 common stains + science-backed treatments safe for fabric and skin',
+    // News
+    'โปรโมชั่นเดือนนี้': 'This month\'s promotions',
+    'กิจกรรมทั้งหมด →': 'All events →',
+    '🔥 จำกัดเวลา': '🔥 Limited time',
+    'ซัก-อบ ใหญ่พิเศษ': 'Extra-large wash + dry',
+    'ลด 30%': '30% off',
+    'ตลอดเดือน': 'all month',
+    'เฉพาะเครื่อง L & XL ใช้ได้ทุกสาขา ทุกวัน 22:00 - 06:00 ไม่จำกัดจำนวนครั้ง': 'L & XL machines, all branches, 22:00–06:00 daily, unlimited',
+    'รับคูปองทาง LINE': 'Get coupon on LINE',
+    'เริ่ม 1–31 พ.ค. 2569': 'May 1–31, 2026',
+    'ใช้รหัส': 'Use code',
+    'เปิดสาขาใหม่ — บางใหญ่ ซิตี้': 'New branch — Bang Yai City',
+    'ฉลอง 2 สัปดาห์แรก ซักฟรี! เพียงเช็กอินผ่าน LINE': 'First 2 weeks: free wash! Just check in on LINE',
+    'วันแม่ — ซักผ้าให้แม่ฟรี': 'Mother\'s Day — Free wash for mums',
+    'นำเสื้อแม่มาซักได้ฟรี 1 รอบ ทุกสาขา 12 ส.ค. นี้': 'Bring mum\'s clothes for a free wash, all branches Aug 12',
+    'อัปเกรดเครื่อง ECO+ ทุกสาขา': 'ECO+ upgrades at all branches',
+    'ประหยัดน้ำ 28% ลดค่าไฟ 22% ราคาเท่าเดิม': '28% less water, 22% less power — same price',
+    // Franchise
+    'เป็นเจ้าของ Nekoru': 'Own a Nekoru',
+    'เริ่มต้นแค่': 'starting from',
+    'รายได้เฉลี่ย 80,000–150,000/เดือนต่อสาขา คืนทุน 2.5–3.5 ปี ทีมงานช่วยเลือกทำเล ติดตั้ง อบรม การตลาด ครบวงจร': 'Average ฿80,000–150,000/month per branch · ROI 2.5–3.5 yrs · Full-service: location, install, training, marketing',
+    'ปีของแบรนด์': 'years of brand',
+    'เร็วๆนี้': 'Coming soon',
+    'เปิดรับแฟรนไชส์': 'Franchise opening',
+    'อัตราคืนทุน': 'ROI rate',
+    'ขอข้อมูลแฟรนไชส์': 'Request franchise info',
+    'ดาวน์โหลด Pitch Deck': 'Download pitch deck',
+    'เครื่องซัก-อบ 4 ตู้': '4 wash-dryer units',
+    'เครื่องซัก-อบ 8 ตู้': '8 wash-dryer units',
+    'เครื่องซัก-อบ 12 ตู้': '12 wash-dryer units',
+    'ตกแต่งร้าน': 'Shop fit-out',
+    'ระบบ POS + QR': 'POS + QR system',
+    'อบรม 7 วัน': '7-day training',
+    'โซน Café นั่งรอ': 'Café waiting zone',
+    'ระบบสมาชิก': 'Member system',
+    'การตลาด 6 เดือน': '6-mo marketing',
+    'Café + ขนมหวาน': 'Café + desserts',
+    'โซน Co-working': 'Co-working zone',
+    'Premium 24h Manager': 'Premium 24h manager',
+    // Testimonial
+    'รีวิวจากลูกค้า': 'Customer reviews',
+    '"ใช้ทุกอาทิตย์ค่ะ ผ้าหอม แมวที่บ้านชอบนอนทับเลย พี่แม่บ้านน่ารักมาก"': '"I come every week — clothes smell great, my cat loves sleeping on them. The attendant is so kind!"',
+    'คุณนุช — สาขาอ่อนนุช 17': 'Khun Nuch — On Nut 17 branch',
+    'ลูกค้าประจำ 2 ปี · ★★★★★': '2-year regular · ★★★★★',
+    'เครื่องใหญ่ผ้านวมยัดได้สบาย': 'Big machine fits duvets easily',
+    'ผ้าหอมมากกก': 'Smells amazing!!',
+    '— คุณแม่ตูน': '— Khun Mae Tun',
+    'ตี 2 ก็ใช้ได้ ปลอดภัย กล้องเยอะดี': 'Open at 2 AM — safe, plenty of cameras',
+    'ไปกะดึกหลังเลิกงานได้': 'Good for late nights after work',
+    '— คุณเจมส์': '— Khun James',
+    'น้องแม่บ้านสอนวิธีหยอดเหรียญ': 'Attendant taught me how to insert coins',
+    'ดีมาก ช่วยพับให้ด้วย': 'so nice, even folded for me',
+    '— คุณป้าแหวน': '— Khun Pa Waen',
+    'ผ้าเด็กซักด้วยน้ำร้อน + อบโอโซน หมดห่วงเรื่องไรฝุ่น ลูกไม่แพ้แล้ว': 'Baby clothes washed hot + ozone — no more dust mites, no allergies',
+    '— คุณแม่บี': '— Khun Mae B',
+    // FAQ
+    'FAQ': 'FAQ',
+    'คำถามที่': 'Frequently asked',
+    'พบบ่อย': 'questions',
+    'เลือกหมวดหมู่ที่ต้องการ — ถ้าไม่เจอ': 'Pick a category — if not found,',
+    'การใช้งานเครื่อง': 'Machine usage',
+    'วิธีหยอดเหรียญ เลือกโปรแกรม': 'Inserting coins, picking programmes',
+    'ปัญหาเครื่องซักอบ': 'Machine problems',
+    'เครื่องไม่ทำงาน เหรียญติด': 'Machine not running, coin stuck',
+    'แยกผ้า อุณหภูมิ การอบ': 'Sorting, temperature, drying',
+    'การแก้ปัญหาเบื้องต้น': 'Basic troubleshooting',
+    'คราบฝังลึก ผ้าตก ผ้าหด': 'Set stains, colour run, shrinkage',
+    'สาขาและบริการ': 'Branches & service',
+    'เวลาเปิด แม่บ้าน ที่จอดรถ': 'Hours, attendants, parking',
+    'ไม่เจอคำตอบ?': 'Can\'t find an answer?',
+    'ทักเราใน LINE ได้ทันที': 'Message us on LINE',
+    // Careers
+    'มาเป็น': 'Join the',
+    'ทีมเนโกะรุ 😺': 'Nekoru team 😺',
+    'เรากำลังขยายอีก 30 สาขาในปีนี้ มองหาแม่บ้าน หัวหน้าสาขา ช่างเทคนิค ที่ใจรักบริการ พร้อมสวัสดิการดี ประกันสังคม ประกันสุขภาพ และโบนัสประจำปี':
+      'We\'re opening 30 more branches this year — hiring attendants, branch managers and technicians with great benefits, social security, health insurance and annual bonus.',
+    'ตำแหน่ง': 'Position',
+    'แม่บ้านประจำสาขา': 'Branch attendant',
+    'ทั่วกรุงเทพและปริมณฑล': 'Bangkok & vicinity',
+    'ช่างเทคนิคซ่อมเครื่อง': 'Service technician',
+    'ทำงานเป็นทีม 4 คน': 'Team of 4',
+    'หัวหน้าสาขา (Area)': 'Area manager',
+    'ดูแล 6–8 สาขา': '6–8 branches',
+    'สมัครงาน': 'Apply now',
+    'ดูตำแหน่งทั้งหมด (12)': 'See all roles (12)',
+    'สวัสดิการดีๆ': 'Great benefits',
+    'ประกันสังคม': 'Social security',
+    'เบี้ยขยัน': 'Attendance bonus',
+    'ปรับเงินเดือนทุ': 'Regular raises',
+    'เงินช่วยเหลือเครื่องแต่งกาย': 'Uniform allowance',
+    // Contact
+    'มีคำถาม?': 'Got questions?',
+    'ทักเราได้ตลอด': 'We\'re always here',
+    'ทีมงานจะติดต่อกลับให้เร็วที่สุด': 'Our team will reply ASAP',
+    'LINE Official': 'LINE Official',
+    '@453izcgt · คลิกเพื่อแอดเพื่อน': '@453izcgt · click to add',
+    '8.00–18.00 จะติดต่อกลับอย่างเร็วที่สุด': '8 AM–6 PM, fastest response',
+    'ติดต่องาน, แฟรนไชส์': 'Business & franchise enquiries',
+    'สแกน หรือคลิกเพื่อแอด LINE': 'Scan or tap to add on LINE',
+    'เปิดกล้องสแกนคิวอาร์โค้ด หรือคลิกที่กล่องนี้': 'Open camera to scan QR or tap this card',
+    'ชื่อ–นามสกุล': 'Full name',
+    'คุณ...': 'Your name...',
+    'เบอร์โทร / LINE ID': 'Phone / LINE ID',
+    'หัวข้อ': 'Subject',
+    'สอบถามทั่วไป': 'General enquiry',
+    'ปัญหาการใช้งานเครื่อง': 'Machine issue',
+    'เสนอแฟรนไชส์ / เปิดสาขา': 'Franchise / branch enquiry',
+    'ร่วมงาน / สมัครงาน': 'Careers / apply',
+    'ติชม / ข้อเสนอแนะ': 'Feedback',
+    'ข้อความ': 'Message',
+    'รายละเอียด...': 'Details...',
+    'ฉันยอมรับ': 'I accept the',
+    'นโยบายข้อมูลส่วนบุคคล': 'privacy policy',
+    'และยินยอมให้ติดต่อกลับ': 'and consent to being contacted',
+    'ส่งข้อความ': 'Send message',
+    'หรือทักใน LINE OA ก็ได้นะคะ': 'Or just message us on LINE OA',
+    // Footer
+    'ร้านสะดวกซักเนโกะรุ ซัก-อบในเครื่องเดียว เปิด 24 ชั่วโมง พร้อมแม่บ้านดูแลทุกสาขา ผ้าหอม สะอาด ใช้ง่าย':
+      'Nekoru self-service laundry — wash + dry in one machine, open 24/7, attendants at every branch. Fresh, clean, easy.',
+    'เมนู': 'Menu',
+    'ลูกค้าสัมพันธ์': 'Customer care',
+    'รับโปรโมชั่นใหม่ๆ': 'Get our promotions',
+    'รับคูปองส่วนลด 30 บาทสำหรับสมาชิกใหม่ และโปรพิเศษทุกเดือน': 'Get a ฿30 coupon for new members + monthly specials',
+    'สมัคร': 'Subscribe',
+    'บริษัท เนโกะรุ วอชมาร์ท จำกัด · เลขที่ทะเบียน 0105563000000': 'Nekoru Washmart Co., Ltd. · Reg. 0105563000000',
+    'เงื่อนไขการใช้บริการ': 'Terms of service',
+    'นโยบายความเป็นส่วนตัว': 'Privacy policy',
+    // Common section pills
+    'ทำไมต้องเนโกะรุ': 'Why Nekoru',
+    'บริการพิเศษ': 'Special service',
+    'แวะมาดรอป แล้วไปทำงาน': 'Drop off, get on with your day',
+    'Drop off': 'Drop off',
+    'สบายที่สุด! แวะมาดรอปตะกร้าผ้า ที่เหลือให้แม่บ้านดูแล — ก่อนทำงานมาดรอปผ้า เลิกงานแวะมารับ ไม่ต้องซักเอง พับให้ฟรี':
+      'The easy way! Drop off your laundry basket and our attendant takes care of the rest — drop it before work, pick up after. No need to wash yourself, folding is free.',
+    'นอกเวลาทำการแม่บ้าน 08:00–18:00 (หยุดทุกวันพุธ) ใช้บริการด้วยตนเองได้ตลอด 24 ชั่วโมง':
+      '.',
+
+    // ===== Added: top bar / misc =====
+    '😺 ร้านสะดวกซักเนโกะรุ': '😺 Nekoru self-service laundry',
+    'โทร 097-565-9556': 'Call 097-565-9556',
+    'สาขาแรก & เร็วๆนี้': 'First branch & more soon',
+    'CC ไทย': 'CC ENG',
+    '12 กก.': '12 kg',
+    'สมัครสมาชิกรับสิทธิพิเศษมากมาย': 'Register our membership for the most privilege',
+    // ===== Added: branch card =====
+    'สาขาบ้านกล้วย จอหอ เปิดให้บริการตลอด 24 ชั่วโมง ติดเซเว่น - มีที่จอดรถ - Free-wifi · มีแม่บ้านบริการ 08:00–18:00':
+      'Ban Kluai Joho branch — open 24/7 · Next to 7-Eleven · Parking · Free Wi-Fi · Attendant 08:00–18:00',
+    // ===== Added: member club =====
+    '• ซักฟรี (27 Kg.) 1 ครั้ง': '• 1 free wash (27 kg)',
+    '• ส่วนลดวันเกิด': '• Birthday discount',
+    'แต้มสะสม': 'Points',
+    'ประหยัด': 'Save',
+    'ส่วน Member Club': 'Member Club section',
+    // ===== Added: article / news dates =====
+    '8 พ.ค. 2569 · อ่าน 4 นาที': 'May 8, 2026 · 4 min read',
+    '2 พ.ค. 2569 · อ่าน 3 นาที': 'May 2, 2026 · 3 min read',
+    '26 เม.ย. 2569 · อ่าน 5 นาที': 'Apr 26, 2026 · 5 min read',
+    '18 พ.ค. 2569': 'May 18, 2026',
+    '10 พ.ค. 2569': 'May 10, 2026',
+    '2 พ.ค. 2569': 'May 2, 2026',
+    // ===== Added: franchise packages =====
+    '4 เครื่อง · 30 ตร.ม.': '4 machines · 30 sqm',
+    '• เครื่องซัก-อบ 4 ตู้': '• 4 wash-dryer units',
+    '• ตกแต่งร้าน': '• Shop fit-out',
+    '• ระบบ POS + QR': '• POS + QR system',
+    '• อบรม 7 วัน': '• 7-day training',
+    '8 เครื่อง · 50 ตร.ม.': '8 machines · 50 sqm',
+    '• เครื่องซัก-อบ 8 ตู้': '• 8 wash-dryer units',
+    '• โซน Café นั่งรอ': '• Café waiting zone',
+    '• ระบบสมาชิก': '• Member system',
+    '• การตลาด 6 เดือน': '• 6-mo marketing',
+    '12 เครื่อง · 80 ตร.ม. · พร้อม Café': '12 machines · 80 sqm · with Café',
+    '• เครื่องซัก-อบ 12 ตู้': '• 12 wash-dryer units',
+    '• Café + ขนมหวาน': '• Café + desserts',
+    '• โซน Co-working': '• Co-working zone',
+    // ===== Added: testimonial =====
+    'นุช': 'Nuch',
+    // ===== Added: calculator tooltips =====
+    'ใส่ได้ตามขนาดเครื่อง 8–28 กก. ดูเส้น MAX ที่ฝาเครื่อง': 'Fits machine capacity 8–28 kg — check the MAX line on the door',
+    'ไม่ต้องเตรียมผงซักหรือน้ำยาเอง': 'No need to bring your own detergent or softener',
+    'เพราะเนโกะรุแถมฟรีในทุกรอบ ระบบจะจ่ายให้อัตโนมัติตามน้ำหนักผ้า': 'Nekoru adds them free every cycle — dispensed automatically by load weight',
+    'รับเหรียญ 5 และ 10 บาท หรือสแกน QR PromptPay / TrueMoney Wallet ก็ได้ ถ้าไม่มีเหรียญ ติดต่อแม่บ้านหรือใช้ตู้แลกเหรียญหน้าร้านได้': 'Accepts ฿5 and ฿10 coins, or scan PromptPay / TrueMoney Wallet QR. No coins? Ask the attendant or use the coin-exchange machine out front.',
+    'น้ำเย็น (30°C) สำหรับผ้าสี ผ้ายีนส์ / น้ำอุ่น (40–60°C) สำหรับผ้าใส่ทั่วไป / น้ำร้อน (60–95°C) สำหรับผ้าขาว ผ้าเด็ก ผ้าปูที่นอน เพื่อฆ่าเชื้อ': 'Cold (30°C) for colours & jeans / Warm (40–60°C) for everyday wear / Hot (60–95°C) for whites, baby clothes & bedding to sterilise',
+    'ซักได้สบาย ขนาด 3.5 ฟุต ซักเครื่อง 17 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด': 'Easily fits a 3.5-ft bed: 17 kg machine / 1 topper / 1 bedding set',
+    'ขนาด 5–6 ฟุต ซักเครื่อง 27 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด': 'For 5–6 ft beds: 27 kg machine / 1 topper / 1 bedding set',
+    '**อย่างไรก็ตาม แม่บ้านจะช่วยประเมินขนาด และความหนาของท็อปเปอร์ที่หน้าร้านอีกครั้ง**': '**The attendant will reassess the topper size and thickness in-store.**',
+    // ===== Added: FAQ category headers =====
+    '⚠️ ปัญหาเครื่องซักอบ': '⚠️ Machine problems',
+    '👕 การดูแลผ้า': '👕 Fabric care',
+    '🔧 การแก้ปัญหาเบื้องต้น': '🔧 Basic troubleshooting',
+    '📍 สาขาและบริการ': '📍 Branches & service',
+    // ===== Added: FAQ — machine problems =====
+    'หยอดเหรียญแล้วเครื่องไม่เริ่มทำงาน ทำอย่างไร?': 'I inserted a coin but the machine won\'t start — what do I do?',
+    '1) ลองปิดฝาเครื่องให้สนิท 2) กดปุ่ม Start ค้าง 2 วินาที 3) ถ้าไม่หาย ติดต่อแม่บ้านหน้าร้าน หรือโทร 02-123-4567 ตลอด 24 ชม. เราจะคืนเงินเต็มจำนวน': '1) Make sure the door is fully closed 2) Hold Start for 2 seconds 3) Still stuck? Ask the in-store attendant or call 02-123-4567 (24h) — we\'ll refund in full.',
+    'เหรียญติดในตู้ เครื่องไม่นับเหรียญ?': 'Coin stuck — the machine isn\'t counting it?',
+    'อย่าใช้แรงงัด ถ่ายรูปเครื่องและเหรียญที่ติด แจ้งทาง LINE @nekoru ทีมงานจะคืนเงินผ่าน PromptPay ภายใน 1 ชม. ในเวลาทำการ': 'Don\'t force it. Photograph the machine and the stuck coin and message LINE @nekoru — we\'ll refund via PromptPay within 1 hour during business hours.',
+    'เครื่องอบแล้วผ้ายังไม่แห้งสนิท?': 'Clothes still damp after drying?',
+    'ส่วนใหญ่เกิดจากใส่ผ้าเกินความจุ หรือผ้าหนา (ผ้าห่ม กางเกงยีนส์) เลือก "อบเพิ่ม 10 นาที" 10 บาทได้เลย หรือใช้เครื่องขนาดใหญ่ขึ้น 1 ระดับ': 'Usually from overloading or thick items (blankets, jeans). Choose "Extra dry 10 min" for ฿10, or move up one machine size.',
+    'ฝาเครื่องเปิดไม่ออก รอบซักเสร็จแล้ว?': 'Door won\'t open after the cycle finishes?',
+    'เครื่องมีระบบนิรภัย ต้องรอ 1–2 นาทีหลังหยุดหมุน ถังจะคลายล็อกอัตโนมัติ ถ้าเกิน 5 นาทียังล็อก กดปุ่ม Reset หน้าเครื่อง หรือเรียกแม่บ้านได้เลย': 'A safety lock holds for 1–2 minutes after the drum stops, then releases automatically. If it\'s still locked after 5 minutes, press Reset on the front or call an attendant.',
+    'น้ำรั่ว มีกลิ่นไหม้ ทำอย่างไร?': 'Water leak or burning smell — what should I do?',
+    'กดปุ่มฉุกเฉินสีแดงที่ผนังเพื่อตัดไฟ และโทร 02-123-4567 ทันที อย่าพยายามเปิดฝาหรือสัมผัสเครื่อง ทีมช่างจะถึงสาขาภายใน 30 นาที': 'Press the red emergency button on the wall to cut power and call 02-123-4567 immediately. Don\'t open the door or touch the machine — our technician arrives within 30 minutes.',
+    // ===== Added: FAQ — fabric care =====
+    'แยกผ้าก่อนซักจำเป็นแค่ไหน?': 'How important is sorting laundry before washing?',
+    'จำเป็นมาก! แยก 3 กอง: ผ้าขาว, ผ้าสีอ่อน, ผ้าสีเข้ม/ยีนส์ใหม่ ป้องกันสีตก และแยกผ้าหนา (ผ้าห่ม) ออกจากผ้าบาง เพื่อให้แห้งทั่วถึงเท่ากัน': 'Very important! Sort into 3 piles: whites, light colours, dark/new denim to prevent colour bleed — and separate thick items (blankets) from thin ones for even drying.',
+    'ผ้าทอ ผ้าไหม ผ้าขนสัตว์ ซักได้ไหม?': 'Can I wash woven, silk or wool fabrics?',
+    'ซักได้ครับ ใช้โปรแกรม "Delicate" + น้ำเย็น 30°C + ใส่ถุงตาข่ายซักผ้า งดอบด้วยความร้อน ใช้โหมดอบลมเย็น (Air Dry) แทน เพื่อคงรูปทรงและความนุ่ม': 'Yes — use the "Delicate" programme + cold 30°C + a mesh laundry bag. Skip heat drying; use Air Dry instead to keep shape and softness.',
+    'ผ้าเด็กทารก ซักรวมกับผ้าผู้ใหญ่ได้ไหม?': 'Can I wash baby clothes with adult laundry?',
+    'ไม่แนะนำค่ะ ควรซักแยก ใช้น้ำร้อน 60°C ขึ้นไป + เลือกโปรแกรม "Baby Care" + อบโอโซน เพื่อฆ่าเชื้อโรค ไรฝุ่น ปลอดภัยกับผิวบอบบาง': 'Not recommended — wash separately with hot water 60°C+ and the "Baby Care" programme + ozone drying to kill germs and dust mites, safe for delicate skin.',
+    'ผ้าห่มนวม หมอน ใส่เครื่องไหน?': 'Which machine for duvets and pillows?',
+    'ผ้าห่มนวม Queen/King ใช้เครื่อง L (27 กก.) สำหรับผ้าห่มผืนใหญ่ / Single ใช้เครื่อง M (22 กก.) หมอนยัดขนเป็ดควรซักทีละ 1–2 ใบเท่านั้น ใช้น้ำอุ่นและอบลมเย็นนานหน่อย': 'Queen/King duvets: machine L (27 kg). Single: machine M (22 kg). Wash down pillows just 1–2 at a time — use warm water and a longer cool-air dry.',
+    'ผ้ามีสัญลักษณ์ "Dry Clean Only" ซักที่นี่ได้ไหม?': 'Can I wash "Dry Clean Only" items here?',
+    'ไม่แนะนำให้ซักด้วยน้ำค่ะ ควรนำไปซักแห้งกับร้านที่เชี่ยวชาญ สาขาบางเขน, ทองหล่อ, ลาดพร้าว มีบริการ "Drop-off ซักแห้ง" คิดราคาตามชิ้น': 'Not recommended to wash with water — take them to a dry-clean specialist. Our Bang Khen, Thonglor and Lat Phrao branches offer "Dry-clean drop-off" priced per item.',
+    // ===== Added: FAQ — troubleshooting =====
+    'คราบฝังลึก คราบกาแฟ น้ำมัน ทำอย่างไร?': 'Deep-set stains, coffee, oil — how to handle?',
+    'แช่น้ำสบู่อ่อนๆ 15–20 นาทีก่อน แล้วค่อยลงเครื่อง เลือกโปรแกรม "Heavy Wash" + น้ำอุ่น 60°C ถ้าเป็นคราบสด จะออกง่ายกว่าคราบแห้ง': 'Soak in mild soapy water 15–20 minutes first, then wash on "Heavy Wash" + warm 60°C. Fresh stains lift far more easily than dried ones.',
+    'ผ้าหด ผ้าเสียทรงหลังอบ ป้องกันได้ไหม?': 'Can I prevent shrinking and misshaping after drying?',
+    'อ่านป้ายผ้า ผ้าฝ้าย 100% และผ้าขนสัตว์ มีโอกาสหด ควรเลือกโหมดอบลมเย็น หรือลดอุณหภูมิอบลง ใส่ถุงซักรักษารูปทรง สำหรับเสื้อยืดและบรา': 'Read the care label — 100% cotton and wool can shrink. Use cool-air drying or a lower temperature, and a laundry bag to hold shape for tees and bras.',
+    'ผ้าสีตก ทำให้ผ้าขาวเปื้อน แก้ยังไง?': 'Colour ran onto my whites — how do I fix it?',
+    'ห้ามอบทันที! ความร้อนจะทำให้สีติดถาวร แช่ผ้าขาวกับน้ำยาดึงสี 30 นาที แล้วซักซ้ำด้วยน้ำเย็น พี่แม่บ้านมีน้ำยาดึงสีฉุกเฉินให้ยืม': 'Don\'t dry it! Heat sets the colour permanently. Soak the whites in colour-run remover for 30 minutes, then rewash cold. The attendant can lend you emergency colour-run remover.',
+    'ผ้ามีกลิ่นอับหลังอบ จัดการอย่างไร?': 'Musty smell after drying — what now?',
+    'เกิดจากใส่ผ้ามากเกินไป อบไม่ทั่ว แนะนำให้แบ่งซักเป็น 2 รอบ + เลือกโปรแกรม "Anti-Bacteria" หรือใช้บริการอบโอโซนที่เนโกะรุมีฟรีในทุกรอบ': 'Caused by overloading and uneven drying. Split into 2 loads and use the "Anti-Bacteria" programme, or Nekoru\'s free ozone drying every cycle.',
+    'ลืมเก็บกระดาษในกระเป๋า ผ้าเป็นเศษเล็กๆทั้งตัว?': 'Left tissue in a pocket — clothes covered in little bits?',
+    'ใช้ผ้าขนหนูเปียกเช็ดเก็บเศษทิชชู่ออก แล้วใส่เครื่องอบรอบเพิ่ม โดยใส่ผ้าขนหนูแห้งร่วมด้วย เศษกระดาษจะติดที่ผ้าขนหนู ครั้งหน้าเช็กกระเป๋าก่อนซักนะคะ': 'Wipe off the bits with a damp towel, then run an extra dry cycle with a dry towel added — the paper sticks to the towel. Next time, check pockets before washing.',
+    // ===== Added: FAQ — branches & service =====
+    'สาขาเปิด-ปิดกี่โมง? วันหยุดเปิดไหม?': 'What are the opening hours? Open on holidays?',
+    'ทุกสาขาเปิด 24 ชั่วโมง ทุกวัน ไม่มีวันหยุด รวมทั้งวันหยุดนักขัตฤกษ์และเทศกาล เพราะเรารู้ว่าผ้าต้องซักได้ตลอด': 'Every branch is open 24 hours, every day, no closures — including public holidays and festivals, because laundry can\'t wait.',
+    'แม่บ้านอยู่ประจำทุกสาขาตลอดเวลาไหม?': 'Is an attendant on duty at every branch all the time?',
+    'แม่บ้านประจำสาขา 06:00–22:00 ทุกวัน นอกเวลานี้มีระบบ Call Center 24 ชม. โทร 02-123-4567 และมีสาขา Premium ที่เลี้ยงแม่บ้าน 24 ชม. (ดูเครื่องหมาย ⭐ ในรายชื่อสาขา)': 'Attendants are on-site 06:00–22:00 daily. Outside those hours our 24h call centre is on 02-123-4567, and Premium branches keep an attendant 24h (look for the ⭐ in the branch list).',
+    'ค่าจอดรถ คิดเงินไหม?': 'Is there a parking fee?',
+    'ฟรีค่ะ ทุกสาขามีที่จอดรถสำหรับลูกค้า 5–20 คันตามขนาดสาขา ในขณะใช้บริการเท่านั้น ไม่อนุญาตให้จอดข้ามคืนหรือฝากรถ': 'It\'s free. Every branch has 5–20 customer parking spaces depending on size, for use while you\'re here only — no overnight or left-car parking.',
+    'มีบริการรับ-ส่งผ้าถึงบ้านไหม?': 'Do you offer home pickup and delivery?',
+    'มีค่ะ บริการ "Nekoru Delivery" รับ-ส่งฟรีในรัศมี 3 กม. จากสาขาที่ร่วมรายการ ขั้นต่ำ 199 บาท จองผ่าน LINE @nekoru': 'Yes — "Nekoru Delivery" offers free pickup & drop-off within 3 km of participating branches, minimum ฿199. Book via LINE @nekoru.',
+    'ระบบสมาชิก สะสมแต้ม ส่วนลดอย่างไร?': 'How do membership, points and discounts work?',
+    'ลงทะเบียนผ่าน LINE @nekoru ใช้บริการ 10 บาท = 1 แต้ม 3 ระดับสมาชิก: Kitten / Cat / Maneki ดูรายละเอียดที่': 'Register via LINE @nekoru. Every ฿10 spent = 1 point. Three tiers: Kitten / Cat / Maneki. See details in the',
+    // ===== Added: careers salaries & benefits =====
+    '15,000–20,000 บาท': '฿15,000–20,000',
+    '25,000–35,000 บาท': '฿25,000–35,000',
+    '35,000–55,000 บาท': '฿35,000–55,000',
+    'ประกันสังคม + ประกันสุขภาพกลุ่ม': 'Social security + group health insurance',
+    'โบนัสประจำปี 1–3 เดือน': 'Annual bonus 1–3 months',
+    'ปรับเงินเดือนทุก 6 เดือน': 'Salary review every 6 months',
+    'วันหยุดประจำสัปดาห์ + ประเพณี': 'Weekly + public holidays',
+    'ฝึกอบรมก่อนเริ่มงาน 7 วัน': '7-day onboarding training',
+    // ===== Added: footer =====
+    'รับโปรมชั่นให': 'Get our promotions',
+    'บริษัท ปั่นเงินปั่นทองไม่ จำกัด · เลขที่ทะเบียน 0105563000000': 'Pan Ngern Pan Thong Mai Co., Ltd. · Reg. 0105563000000',
+    // ===== Added: theme tweak controls =====
+    'โทนสี': 'Colour tone',
+    'ฟ้า-ขาว': 'Blue-White',
+    'ส้มเด่น': 'Bold Orange',
+    'มืดดำ-ส้ม': 'Dark-Orange',
+    'ปุ่ม CTA หลัก': 'Primary CTA',
+    'ส้ม': 'Orange',
+    'ฟ้า': 'Blue',
+    'แดง': 'Red',
+    'เปิดอนิเมชัน mascot': 'Enable mascot animation',
+
+    // ===== Added: reverse pairs for English-authored nodes (so TH mode shows Thai) =====
+    '🧺 ซัก-อบ จบใน 60 นาที!': '🧺 Wash + Dry in 60 mins!',
+    '😺 มีแม่บ้านบริการพับฟรี (โฮม)': '😺 Free folding services',
+    'ร้านสะดวกซัก': 'Convenient laundry',
+    'ประหยัดเงิน !': 'save money !',
+    'ดรอปผ้า': 'Drop off',
+    'ดรอปผ้าไว้ แล้วไปทำงานได้เลย': 'Drop off you cloths, and go to work',
+    'สบายที่สุด! แวะมาดรอปตะกร้าผ้า ที่เหลือให้แม่บ้านดูแล — ก่อนทำงานมาดรอปผ้า เลิกงานแวะมารับ ไม่ต้องซักเอง บริการพับฟรี 08:00–18:00 (หยุดวันพุธ) ใช้บริการด้วยตนเองได้ตลอด 24 ชั่วโมง':
+      'The easiest way! Drop off your laundry basket, and we\'ll take care of the rest — drop it before work, pick up after. No need to wash by yourself. Folding service is free 08:00–18:00 (unavailable Wed), Self-service is available 24/7.',
+    'ดูแลความปลอดภัยด้วย CCTV 24 ชั่วโมง แวะมาเมื่อไหร่ก็อุ่นใจ': 'Security is provided by CCTV 24 hours Safe for stopping by',
+    'ซักเสร็จอบต่อทันที ผ้าแห้งหอมพร้อมใส่ (โฮม)': 'Dries automatically after wash process Dry, fresh, ready to wear.',
+    'พร้อมระบบอบโอโซน ทำลายเชื้อโรค แบคทีเรีย ลดการเกิดภูมิแพ้ (โฮม)': 'With ozone drying system Kills germs, bacteria — reduces allergies',
+    'ประหยัดเงิน': 'Save money',
+    'มีแม่บ้านบริการพับฟรี 08:00–18:00 หยุดทุกวันพุธ (โฮม)': 'Free folding services 08:00–18:00 except Wed',
+    'Wi-Fi ฟรี นั่งรอสบายๆ (โฮม)': 'Wi-Fi ฟรี นั่งรอสบายๆ (โฮม)',
+    'เหรียญ & สแกนจ่าย QR (โฮม)': 'เหรียญ & สแกนจ่าย QR (โฮม)',
+    'เพียง 4 ขั้นตอน ผ้าก็สะอาดแห้งหอม พร้อมใส่': 'Just 4 steps — clean, dry, ready-to-wear.',
+    'ฆ่าเชื้อโรคด้วยระบบอบโอโซนทุกการใช้งาน (โฮม)': 'Ozone sterilises every uasge',
+    'ใส่ผ้าปิดฝาให้สนิท (โฮม)': 'Load clothes, close lever handle',
+    'เลือกโปรแกรมการซัก-อบ': 'Choose wash/dry programme',
+    'หยอดเหรียญ / โอนผ่านโมบายแบงก์กิ้ง': 'Insert coins / transfer by mobile banking',
+    'บอกประเภทผ้าของคุณ เพื่อให้เราช่วยเลือกขนาดเครื่องและโปรแกรมที่เหมาะสม': 'Tell us more about the kind of clothes, so we can help you decide the size of the laundromat, programme that match for yours.',
+    'เลือกขนาดเครื่องและโปรแกรมให้เหมาะกับปริมาณผ้าของคุณ': 'Select the laundromat\'s size, and the programme that suits your quantity of clothes.',
+    'ตรวจสิ่งของที่อาจตกค้างอยู่ในเสื้อผ้าก่อนนำผ้าใส่เครื่อง': 'Check you belonging that could be left off inside your clothes before brinnging them in laundromat machine.',
+    'ไม่ต้องเตรียมผงซักหรือน้ำยาเอง และไม่อนุญาตให้เทน้ำยาเองในเครื่อง': 'Not allow customer bringing their own detergent, and pour it inside laundromat. No extras too.',
+    'ค่าบริการ': 'Service fees',
+    'ฟรีน้ำยาซัก ปรับผ้านุ่ม และบริการพับ': 'Free detergent, softener, folding services',
+    'ผ้าใส่ทั่วไป': 'daily clothes',
+    '✦ ล้างถังด้วยระบบอบโอโซนฆ่าเชื้อ ฟรีทุกรอบ (โฮม)': '✦ Free ozone drum-cleaning every usage',
+    'ต่างจังหวัด': 'Other provinces',
+    'ยิ่งซักเยอะ ยิ่งคุ้ม': 'The more, the better',
+    'สมัครสมาชิกผ่าน LINE OA ของเนโกะรุ วอชมาร์ท ทุกการใช้บริการ (เฉพาะโปรแกรมซัก-อบมาตรฐาน) = รับ 1 แต้ม สะสมแต้มเพื่อรับส่วนลดและดีลพิเศษ สำหรับสมาชิกเท่านั้น *':
+      'Sign up for the membership via Nekoru Washmart\'s Line OA Each time using our service (only wash and dry standard programme) = get 1 point. Collect points to get more discounts, special deals only available for our perks.*',
+    'สมาชิกเนโกะรุ': 'Nekoru member',
+    '😺 ระดับ Tiger': '😺 Tiger Tier',
+    'รหัสสมาชิก': 'Member ID',
+    'สมาชิก — แลกของรางวัลได้ โดยแสดงบัตรกับทีมงานทุกครั้ง *': 'Membership — To redeem rewards, show your card to our team everytime *',
+    'โปรกลางคืน': 'night promo',
+    '• ผู้จัดการ Premium 24 ชม.': '• Premium 24h Manager',
+    '"มาใช้ทุกอาทิตย์ ผ้าหอมมาก พี่แม่บ้านน่ารักสุดๆ"': '"I come every week — clothes smell great. The supporter is so kind!"',
+    'คุณนุช — สาขาบ้านกล้วย': 'K. Nutch — Ban Kluay Branch',
+    'เครื่องใหญ่ ราคาคุ้มค่า คุ้มที่จ่าย': 'Big laundromats, reasonable price. Worthy to pay',
+    'ไปตอนตี 2 กล้องวงจรปิดเยอะมาก รู้สึกปลอดภัย': 'Went there at 2 AM., So many 24/7 security cameras. Feel safe',
+    'ผ้าห่มตัวโปรดหอมมากกก ขอบคุณนะ': 'My fav blanket is now smell so goooood, thanks to you',
+    'ระบบอบโอโซนฆ่าเชื้อ 99% ดีมาก ลูกชายดูจะแพ้น้อยลง': '99% ozone sterization is so great. My son seems to have less allergic symtoms',
+    '🧺 การใช้งานเครื่อง (FAQ)': '🧺Machine usage',
+    'ซักและอบในเครื่องเดียวได้ไหม? ใช้เวลานานแค่ไหน?': 'Can we wash and dry clothes in the same machine? How long is the process?',
+    'ได้ครับ เครื่องของเนโกะรุเป็นแบบซัก-อบในตัวเดียว ใช้เวลาประมาณ 45-60 นาที ขึ้นอยู่กับโปรแกรมและปริมาณผ้า': 'Yes, you can. Nekoru\'s laundromats are all-in-one machines. It takes time for 45-60 minutes, depending on the selected programme and quantities.',
+    'ใส่ผ้าได้มากแค่ไหน? ต้องเตรียมน้ำยาซักเองไหม?': 'How many clothes before reaching the maximum? Do we have to bring the detegent?',
+    'จ่ายด้วยเหรียญได้ไหม หรือมีช่องทางชำระเงินอะไรบ้าง?': 'Can we pay coins or what payment method do you have?',
+    'เลือกอุณหภูมิการอบให้เหมาะกับผ้าอย่างไร?': 'How to select proper heat temperature for our clothes?',
+    'ซักท็อปเปอร์และชุดผ้าปูที่นอนได้ไหม?': 'Can I wash Topper and bed sheet sets?',
+    'ทีมงานจะติดต่อกลับให้เร็วที่สุด (ติดต่อ)': 'Our team will contact you as soon as possible',
+    'เนโกะรุ วอชมาร์ท - ร้านสะดวกซักแบบครบวงจร เปิด 24 ชม. ทุกวัน ผ้าหอมสะอาด พร้อมใส่ 🧺': 'Nekoru Washmart - All-in-one laundromat. Open 24/7 every day. Fresh clothes, ready to wear 🧺',
+    '© 2025 บริษัท ปั่นเงินปั่นทองไม่ จำกัด สงวนลิขสิทธิ์': '© 2025 Pun Nguen pun thong mai Co., Ltd. All rights reserved.',
+    'นโยบายคุกกี้': 'Cookie Policy',
+  };
+
+  const labels = { th: 'ไทย', en: 'EN' };
+
+  const langBtn   = document.getElementById('langBtn');
+  const langMenu  = document.getElementById('langMenu');
+  const langLabel = document.getElementById('langLabel');
+  const langOpts  = document.querySelectorAll('.lang-opt');
+
+  // Cache original text by node so we can switch languages both ways
+  const TEXT_CACHE = new WeakMap();
+  const THAI_RE = /[\u0E00-\u0E7F]/;
+  const norm = (s) => s.replace(/\s+/g, ' ').trim();
+  // Build whitespace-insensitive lookup maps once (TH→EN and the reverse EN→TH)
+  const TH2EN_N = {};
+  const EN2TH_N = {};
+  for (const k in TH2EN) {
+    TH2EN_N[norm(k)] = TH2EN[k];
+    const nv = norm(TH2EN[k]);
+    if (THAI_RE.test(k) && !(nv in EN2TH_N)) EN2TH_N[nv] = k;
+  }
+
+  function translateNode(root, lng) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(n) {
+        if (!n.parentNode) return NodeFilter.FILTER_REJECT;
+        const tag = n.parentNode.nodeName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+        // langSwitcher handles its own label; dynamic calculator/mascot outputs are excluded
+        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #bubbleBurst, #weightLabel, #recPrice, #recTime, #recMachine')) return NodeFilter.FILTER_REJECT;
+        if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    // Positional English list (frozen). Thai text in the page is the editable source of
+    // truth; English is read by node order so editing Thai never breaks the EN toggle.
+    const SEQ = window.NEKORU_EN_SEQ || [];
+    const aligned = SEQ.length === nodes.length;
+    for (let i = 0; i < nodes.length; i++) {
+      const n = nodes[i];
+      if (!TEXT_CACHE.has(n)) TEXT_CACHE.set(n, n.nodeValue);
+      const original = TEXT_CACHE.get(n); // Thai base (directly editable)
+      if (lng === 'th') { n.nodeValue = original; continue; }
+      // English mode
+      const leading = original.match(/^\s*/)[0];
+      const trailing = original.match(/\s*$/)[0];
+      let en;
+      if (aligned) {
+        en = SEQ[i];
+      } else {
+        // Fallback to the dictionary if the list ever drifts out of alignment
+        const key = norm(original);
+        en = (THAI_RE.test(original) && TH2EN_N[key] != null) ? TH2EN_N[key] : original.trim();
+      }
+      n.nodeValue = leading + en + trailing;
+    }
+  }
+
+  function applyLang(lng) {
+    document.documentElement.lang = lng === 'en' ? 'en' : 'th';
+    langLabel.textContent = labels[lng];
+    translateNode(document.body, lng);
+    if (window.__recalc) window.__recalc();
+    langOpts.forEach(o => {
+      const c = o.querySelector('.lang-check');
+      if (c) c.classList.toggle('hidden', o.dataset.langPick !== lng);
+    });
+    try { localStorage.setItem('nekoru.lang', lng); } catch(e){}
+  }
+  langBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = !langMenu.classList.contains('hidden');
+    langMenu.classList.toggle('hidden', open);
+    langBtn.setAttribute('aria-expanded', String(!open));
+  });
+  langOpts.forEach(o => o.addEventListener('click', () => {
+    applyLang(o.dataset.langPick);
+    langMenu.classList.add('hidden');
+    langBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('langSwitcher').contains(e.target)) {
+      langMenu.classList.add('hidden');
+      langBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  const saved = (() => { try { return localStorage.getItem('nekoru.lang'); } catch(e){ return null; } })();
+  applyLang(saved === 'en' ? 'en' : 'th');
+
+  // ============ FAQ tabs ============
+  const cats = document.querySelectorAll('.faq-cat');
+  const panes = document.querySelectorAll('.faq-pane');
+  cats.forEach(c => c.addEventListener('click', () => {
+    cats.forEach(x => { x.classList.remove('border-nblue','shadow-card'); x.classList.add('border-transparent'); });
+    c.classList.add('border-nblue','shadow-card'); c.classList.remove('border-transparent');
+    const k = c.dataset.cat;
+    panes.forEach(p => p.classList.toggle('hidden', p.dataset.pane !== k));
+  }));
+
+  // ============ Calculator ============
+  const segBtns = document.querySelectorAll('#segMode button');
+  const sizeBtns = document.querySelectorAll('#segSize button');
+  const tempBtns = document.querySelectorAll('#segTemp button');
+  const slider  = document.getElementById('weightSlider');
+  const wLabel  = document.getElementById('weightLabel');
+  const recM    = document.getElementById('recMachine');
+  const recP    = document.getElementById('recPrice');
+  const recT    = document.getElementById('recTime');
+  const optEx   = document.getElementById('optExtra');
+  let mode = 'washdry';
+  let size = 'M';
+  let temp = 70;
+
+  sizeBtns.forEach(b => b.addEventListener('click', () => {
+    sizeBtns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    size = b.dataset.size;
+    if (size === 'M' && +slider.value > 17) slider.value = 12;
+    if (size === 'L' && +slider.value < 16) slider.value = 22;
+    recalc();
+  }));
+  tempBtns.forEach(b => b.addEventListener('click', () => {
+    tempBtns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    temp = +b.dataset.temp;
+    recalc();
+  }));
+
+  segBtns.forEach(b => b.addEventListener('click', () => {
+    segBtns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    mode = b.dataset.mode;
+    updateModeUI();
+    recalc();
+  }));
+
+  function updateModeUI() {
+    const tempBlock = document.getElementById('tempBlock');
+    const w = document.getElementById('recWasher');
+    const d = document.getElementById('recDryer');
+    // Temperature block: hide when 'wash' only
+    if (tempBlock) tempBlock.style.display = (mode === 'wash') ? 'none' : '';
+    // Machine icons: show washer for wash/washdry, dryer for dry/washdry
+    if (w) w.style.display = (mode === 'dry')  ? 'none' : '';
+    if (d) d.style.display = (mode === 'wash') ? 'none' : '';
+  }
+  updateModeUI();
+
+  function recalc() {
+    const w = +slider.value;
+    const EN = document.documentElement.lang === 'en';
+    wLabel.textContent = w + (EN ? ' kg.' : ' กก.');
+    let mach, base, time;
+    if (size === 'M') { mach = EN ? 'Size M (17 kg.)' : 'เครื่องกลาง M (17 kg.)'; base={wash:70, washdry:110, dry:60}; time={wash:35, washdry:55, dry:30}; }
+    else              { mach = EN ? 'Size L (27 kg.)' : 'เครื่องใหญ่ L (27 kg.)'; base={wash:110,washdry:160, dry:90}; time={wash:40, washdry:65, dry:35}; }
+    void w;
+
+    let price = base[mode];
+    let t = time[mode];
+    if (optEx && optEx.checked) { price += 10; t += 8; }
+    if (mode !== 'wash') {
+      if (temp === 80) price += 15;
+      else if (temp === 50) price -= 5;
+    }
+    recM.textContent = mach;
+    recP.textContent = Math.max(price, 0);
+    recT.textContent = t;
+  }
+  slider.addEventListener('input', recalc);
+  optEx.addEventListener('change', recalc);
+  recalc();
+  window.__recalc = recalc;
+
+  // ============ Locate ============
+  document.getElementById('locateBtn').addEventListener('click', () => {
+    if (!navigator.geolocation) { alert('เบราว์เซอร์ไม่รองรับการหาตำแหน่ง'); return; }
+    navigator.geolocation.getCurrentPosition(
+      () => alert('กำลังค้นหาสาขาใกล้คุณ... (Demo)'),
+      () => alert('โปรดอนุญาตการเข้าถึงตำแหน่งเพื่อค้นหาสาขาใกล้คุณ')
+    );
+  });
+
+  // ============ Video play ============
+  document.getElementById('playBtn').addEventListener('click', () => {
+    alert('💡 Demo — ในเวอร์ชันจริงจะเปิดวิดีโอสอนการใช้งาน');
+  });
+
+  // ============ Tweaks ============
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "theme": "sky",
+    "cta": "orange",
+    "wiggle": true
+  }/*EDITMODE-END*/;
+
+  const tp = document.getElementById('tweaksPanel');
+  const showPanel = () => tp.classList.remove('hidden');
+  const hidePanel = () => tp.classList.add('hidden');
+  document.getElementById('tweaksClose').addEventListener('click', () => {
+    hidePanel();
+    window.parent.postMessage({type:'__edit_mode_dismissed'}, '*');
+  });
+
+  function applyTheme(t) {
+    document.body.setAttribute('data-theme', t);
+    document.querySelectorAll('#twTheme button').forEach(x => {
+      x.classList.toggle('border-nink', x.dataset.theme === t);
+      x.classList.toggle('border-transparent', x.dataset.theme !== t);
+    });
+  }
+  function applyCta(c) {
+    document.querySelectorAll('a.btn.btn-primary, button.btn.btn-primary').forEach(b => {
+      b.style.background = ''; b.style.boxShadow = '';
+      b.classList.remove('btn-primary','btn-blue');
+      if (c === 'orange') b.classList.add('btn-primary');
+      else if (c === 'blue') b.classList.add('btn-blue');
+      else if (c === 'red') {
+        b.style.background = '#e63946';
+        b.style.color = '#fff';
+        b.style.boxShadow = '0 14px 28px -14px rgba(230,57,70,.6)';
+      }
+    });
+    document.querySelectorAll('#twCta button').forEach(x => {
+      x.classList.toggle('border-nink', x.dataset.cta === c);
+      x.classList.toggle('border-transparent', x.dataset.cta !== c);
+    });
+  }
+  function applyWiggle(on) {
+    document.querySelectorAll('.wiggle, .bobble, .drum-spin, .marquee-track, .blink, .tail-sway, .bubblet').forEach(el => {
+      el.style.animationPlayState = on ? 'running' : 'paused';
+    });
+  }
+
+  applyTheme(TWEAKS.theme);
+  applyCta(TWEAKS.cta);
+  applyWiggle(TWEAKS.wiggle);
+  document.getElementById('twWiggle').checked = !!TWEAKS.wiggle;
+
+  document.querySelectorAll('#twTheme button').forEach(b => b.addEventListener('click', () => {
+    TWEAKS.theme = b.dataset.theme; applyTheme(TWEAKS.theme);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{theme:TWEAKS.theme}}, '*');
+  }));
+  document.querySelectorAll('#twCta button').forEach(b => b.addEventListener('click', () => {
+    TWEAKS.cta = b.dataset.cta; applyCta(TWEAKS.cta);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{cta:TWEAKS.cta}}, '*');
+  }));
+  document.getElementById('twWiggle').addEventListener('change', e => {
+    TWEAKS.wiggle = e.target.checked; applyWiggle(TWEAKS.wiggle);
+    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{wiggle:TWEAKS.wiggle}}, '*');
+  });
+
+  window.addEventListener('message', (ev) => {
+    const t = ev.data && ev.data.type;
+    if (t === '__activate_edit_mode') showPanel();
+    else if (t === '__deactivate_edit_mode') hidePanel();
+  });
+  window.parent.postMessage({type:'__edit_mode_available'}, '*');
+</script>
+</body>
+</html>
