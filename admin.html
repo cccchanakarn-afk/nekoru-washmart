@@ -460,16 +460,22 @@ async function saveRow(){
   for (const col of def.columns) {
     let v = fd.get(col.key);
     if (v === null) continue;
-    v = v.toString();
-    if (v === '' && !col.required) { payload[col.key] = null; continue; }
+    v = v.toString().trim();
     if (v === '' && col.required) { alert(col.label + ' ห้ามว่าง'); return; }
-    if (col.type === 'number') payload[col.key] = v === '' ? null : Number(v);
+    if (v === '') {
+      // On INSERT: skip empty optional fields so DB defaults apply (e.g. features={}, status='open').
+      // On UPDATE: send explicit null so the user can actually clear a field.
+      if (!editingRow) continue;
+      payload[col.key] = null;
+      continue;
+    }
+    if (col.type === 'number') payload[col.key] = Number(v);
     else if (col.type === 'bool') payload[col.key] = v === 'true';
     else if (col.type === 'json') {
       try { payload[col.key] = JSON.parse(v); }
       catch { alert(col.label + ': JSON ไม่ถูกต้อง'); return; }
     } else if (col.type === 'datetime') {
-      payload[col.key] = v ? new Date(v).toISOString() : null;
+      payload[col.key] = new Date(v).toISOString();
     } else {
       payload[col.key] = v;
     }
