@@ -47,9 +47,10 @@ export const handler = async (event) => {
   const subjectTh = SUBJECT_LABEL[r.subject] || r.subject || '—';
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to     = process.env.NOTIFY_TO_EMAIL;
+  const toRaw  = process.env.NOTIFY_TO_EMAIL || '';
   const from   = process.env.NOTIFY_FROM_EMAIL || 'onboarding@resend.dev';
-  if (!apiKey || !to) {
+  const to     = toRaw.split(',').map(s => s.trim()).filter(Boolean);
+  if (!apiKey || to.length === 0) {
     console.error('Missing RESEND_API_KEY or NOTIFY_TO_EMAIL');
     return { statusCode: 500, body: 'server not configured' };
   }
@@ -96,9 +97,8 @@ export const handler = async (event) => {
     },
     body: JSON.stringify({
       from,
-      to: [to],
+      to,
       subject: `[Nekoru] ${subjectTh}: ${r.name}`,
-      reply_to: undefined, // could be r.email if we collected one
       html, text,
     }),
   });
