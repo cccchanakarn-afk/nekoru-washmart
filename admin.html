@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Nekoru Admin</title>
+<link rel="icon" href="assets/nekoru-logo.png" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  window.NEKORU_SUPABASE = {
+    url: 'https://zjrvhrfxbvrquloboyob.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqcnZocmZ4YnZycXVsb2JveW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDI3NTAsImV4cCI6MjA5NTg3ODc1MH0.38dIKtuSMmYv-w5EEwllBDHcLvuqJgevW1JtDPQeLvI',
+  };
+  tailwind.config = { theme: { extend: { colors: {
+    nblue:'#31a7de', nsky:'#70cbff', northo:'#ff7300', nred:'#e63946',
+    ncream:'#fff8ee', npaper:'#f4fbff', nink:'#0e2c40',
+  }}}};
+</script>
+<style>
+  body { font-family: system-ui, 'Sarabun', sans-serif; }
+  .field { width:100%; padding:.6rem .85rem; border-radius:10px; border:1.5px solid #cfeaf7; background:#fff; color:#0e2c40; font-size:14px; }
+  .field:focus { outline:none; border-color:#31a7de; box-shadow:0 0 0 3px #d6eefb; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:.4rem; padding:.6rem 1rem; border-radius:10px; font-weight:600; font-size:14px; transition:transform .12s, background .12s; }
+  .btn:active { transform:translateY(1px); }
+  .btn-primary { background:#31a7de; color:#fff; }
+  .btn-primary:hover { background:#1f93cb; }
+  .btn-danger { background:#e63946; color:#fff; }
+  .btn-danger:hover { background:#c1303c; }
+  .btn-ghost { background:#fff; border:1.5px solid #cfeaf7; color:#0e2c40; }
+  .btn-ghost:hover { border-color:#70cbff; }
+  .tab { padding:.55rem 1rem; border-radius:9999px; font-weight:600; font-size:14px; cursor:pointer; }
+  .tab.active { background:#0e2c40; color:#fff; }
+  .tab:not(.active):hover { background:#f4fbff; }
+  table.adm { width:100%; border-collapse:collapse; font-size:14px; }
+  table.adm th, table.adm td { padding:.65rem .75rem; text-align:left; border-bottom:1px solid #eaf3f9; vertical-align:top; }
+  table.adm th { background:#f4fbff; font-weight:700; color:#0e2c40; }
+  table.adm tr:hover td { background:#fafdff; }
+  .badge { display:inline-block; padding:.15rem .55rem; border-radius:9999px; font-size:11px; font-weight:700; }
+</style>
+</head>
+<body class="bg-[#f4fbff] text-nink min-h-screen">
+
+<!-- ==== Auth screen ==== -->
+<div id="authScreen" class="min-h-screen grid place-items-center px-4">
+  <div class="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 border border-[#e6f3fa]">
+    <div class="flex items-center gap-3 mb-6">
+      <img src="assets/nekoru-logo.png" class="w-12 h-12 object-contain" alt="" />
+      <div>
+        <div class="text-xs text-nink/60 font-bold tracking-widest">NEKORU</div>
+        <div class="text-xl font-bold">Admin Console</div>
+      </div>
+    </div>
+    <div class="flex gap-2 mb-4 text-sm">
+      <button id="tabSignIn" class="tab active flex-1">เข้าสู่ระบบ</button>
+      <button id="tabSignUp" class="tab flex-1">สมัครแอดมินใหม่</button>
+    </div>
+    <form id="authForm" class="grid gap-3">
+      <label class="block">
+        <span class="block text-xs font-bold mb-1">อีเมล</span>
+        <input id="authEmail" type="email" class="field" required autocomplete="email" />
+      </label>
+      <label class="block">
+        <span class="block text-xs font-bold mb-1">รหัสผ่าน <span class="text-nink/50 font-normal">(อย่างน้อย 6 ตัว)</span></span>
+        <input id="authPass" type="password" class="field" required minlength="6" autocomplete="current-password" />
+      </label>
+      <button id="authSubmit" type="submit" class="btn btn-primary mt-2">เข้าสู่ระบบ</button>
+      <div id="authStatus" class="text-xs rounded-lg p-2 hidden"></div>
+    </form>
+    <p class="text-xs text-nink/60 mt-5 leading-relaxed">
+      หลังสมัครครั้งแรก ต้องเพิ่ม UID ของคุณเข้าตาราง <code>admin_users</code> ใน Supabase SQL Editor
+      (ดูคำสั่งท้ายไฟล์ <code>supabase/admin.sql</code>) จึงจะมีสิทธิ์แก้ข้อมูลได้
+    </p>
+  </div>
+</div>
+
+<!-- ==== Main admin (hidden until auth) ==== -->
+<div id="adminApp" class="hidden">
+  <header class="bg-white border-b border-[#e6f3fa] sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <img src="assets/nekoru-logo.png" class="w-9 h-9 object-contain" alt="" />
+        <div>
+          <div class="text-[10px] text-nink/60 font-bold tracking-widest">NEKORU</div>
+          <div class="text-sm font-bold">Admin Console</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 text-sm">
+        <span id="meEmail" class="hidden sm:inline text-nink/70"></span>
+        <span id="meRole" class="badge bg-[#ffe8eb] text-nred hidden">limited</span>
+        <a href="/" class="btn btn-ghost">หน้าเว็บ ↗</a>
+        <button id="signOut" class="btn btn-ghost">ออกจากระบบ</button>
+      </div>
+    </div>
+    <nav class="max-w-7xl mx-auto px-5 pb-3 flex flex-wrap gap-2">
+      <button class="tab active" data-tab="branches">🏬 สาขา</button>
+      <button class="tab" data-tab="articles">📝 บทความ</button>
+      <button class="tab" data-tab="news_events">📣 ข่าว/โปรโม</button>
+      <button class="tab" data-tab="faqs">❓ FAQ</button>
+      <button class="tab" data-tab="contacts">📥 ข้อความติดต่อ</button>
+      <button class="tab" data-tab="franchise_inquiries">🤝 แฟรนไชส์</button>
+      <button class="tab" data-tab="career_applications">💼 สมัครงาน</button>
+    </nav>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-5 py-6">
+    <div id="bannerNoAdmin" class="hidden mb-5 rounded-xl bg-[#fff1e3] border border-[#ffd6b3] text-[#7a3500] p-4 text-sm">
+      ⚠️ <b>คุณยังไม่ใช่แอดมิน</b> — ล็อกอินสำเร็จแล้ว แต่ยังไม่ได้สิทธิ์เขียนข้อมูล
+      เปิด Supabase → SQL Editor แล้วรัน:
+      <pre id="bootstrapSql" class="mt-2 p-2 bg-white rounded text-xs overflow-x-auto"></pre>
+      จากนั้นรีโหลดหน้านี้
+    </div>
+
+    <section id="pane" class="bg-white rounded-2xl shadow-sm border border-[#e6f3fa] p-5">
+      <div id="paneToolbar" class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <h2 id="paneTitle" class="text-xl font-bold">สาขา</h2>
+          <div id="paneCount" class="text-xs text-nink/60 mt-0.5"></div>
+        </div>
+        <div class="flex gap-2">
+          <button id="btnRefresh" class="btn btn-ghost">🔄 รีเฟรช</button>
+          <button id="btnAdd" class="btn btn-primary">+ เพิ่ม</button>
+        </div>
+      </div>
+      <div id="paneBody" class="overflow-x-auto"></div>
+    </section>
+  </main>
+</div>
+
+<!-- ==== Edit modal ==== -->
+<div id="modal" class="hidden fixed inset-0 z-50 bg-black/50 grid place-items-center p-4">
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+    <div class="flex items-center justify-between p-5 border-b border-[#e6f3fa] sticky top-0 bg-white">
+      <h3 id="modalTitle" class="text-lg font-bold">แก้ไข</h3>
+      <button id="modalClose" class="btn btn-ghost">✕</button>
+    </div>
+    <form id="modalForm" class="p-5 grid gap-3"></form>
+    <div class="p-5 border-t border-[#e6f3fa] flex items-center justify-end gap-2 sticky bottom-0 bg-white">
+      <button id="modalCancel" type="button" class="btn btn-ghost">ยกเลิก</button>
+      <button id="modalSave" type="button" class="btn btn-primary">บันทึก</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const sb = window.supabase.createClient(window.NEKORU_SUPABASE.url, window.NEKORU_SUPABASE.anonKey);
+
+// ============================================================
+// Auth
+// ============================================================
+const authScreen = document.getElementById('authScreen');
+const adminApp   = document.getElementById('adminApp');
+const authForm   = document.getElementById('authForm');
+const authEmail  = document.getElementById('authEmail');
+const authPass   = document.getElementById('authPass');
+const authBtn    = document.getElementById('authSubmit');
+const authStatus = document.getElementById('authStatus');
+const tabIn      = document.getElementById('tabSignIn');
+const tabUp      = document.getElementById('tabSignUp');
+let mode = 'signin';
+
+function setAuthStatus(kind, msg){
+  authStatus.className = 'text-xs rounded-lg p-2 ' +
+    (kind === 'ok' ? 'bg-[#e6f5fc] text-nblue' : 'bg-[#ffe8eb] text-nred');
+  authStatus.textContent = msg;
+  authStatus.classList.remove('hidden');
+}
+tabIn.addEventListener('click', () => { mode='signin'; tabIn.classList.add('active'); tabUp.classList.remove('active'); authBtn.textContent='เข้าสู่ระบบ'; });
+tabUp.addEventListener('click', () => { mode='signup'; tabUp.classList.add('active'); tabIn.classList.remove('active'); authBtn.textContent='สมัครแอดมินใหม่'; });
+
+authForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  authBtn.disabled = true;
+  const oldText = authBtn.textContent;
+  authBtn.textContent = '...';
+  const email = authEmail.value.trim();
+  const password = authPass.value;
+  const action = mode === 'signup' ? sb.auth.signUp({ email, password }) : sb.auth.signInWithPassword({ email, password });
+  const { error } = await action;
+  authBtn.disabled = false;
+  authBtn.textContent = oldText;
+  if (error) { setAuthStatus('err', '❌ ' + error.message); return; }
+  if (mode === 'signup') {
+    setAuthStatus('ok', '✅ สมัครสำเร็จ — ตรวจอีเมลเพื่อยืนยัน (หรือถ้า email confirmation ปิด ให้ล็อกอินได้เลย)');
+  } else {
+    enterAdmin();
+  }
+});
+
+document.getElementById('signOut').addEventListener('click', async () => {
+  await sb.auth.signOut();
+  location.reload();
+});
+
+async function enterAdmin(){
+  const { data: { user } } = await sb.auth.getUser();
+  if (!user) return;
+  authScreen.classList.add('hidden');
+  adminApp.classList.remove('hidden');
+  document.getElementById('meEmail').textContent = user.email;
+  // Check admin membership
+  const { data: adminRow } = await sb.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
+  const isAdmin = !!adminRow;
+  if (!isAdmin) {
+    document.getElementById('meRole').classList.remove('hidden');
+    document.getElementById('bannerNoAdmin').classList.remove('hidden');
+    document.getElementById('bootstrapSql').textContent =
+      `insert into public.admin_users (user_id, email)\nvalues ('${user.id}', '${user.email}')\non conflict do nothing;`;
+  }
+  loadTab('branches');
+}
+
+// On load: try auto-enter if session exists
+sb.auth.getSession().then(({ data: { session } }) => { if (session) enterAdmin(); });
+
+// ============================================================
+// Tab definitions — schema-driven
+// ============================================================
+const TABS = {
+  branches: {
+    title: 'สาขา', table: 'branches', orderBy: 'opened_at', ascending: true,
+    columns: [
+      { key: 'name_th', label: 'ชื่อ', list: true, type: 'text', required: true },
+      { key: 'slug', label: 'Slug', list: true, type: 'text', required: true, hint: 'ตัวพิมพ์เล็ก-ขีดกลาง ใช้ใน URL' },
+      { key: 'name_en', label: 'ชื่อ EN', type: 'text' },
+      { key: 'address_th', label: 'ที่อยู่', type: 'textarea' },
+      { key: 'province', label: 'จังหวัด', list: true, type: 'text' },
+      { key: 'district', label: 'อำเภอ/เขต', type: 'text' },
+      { key: 'status', label: 'สถานะ', list: true, type: 'enum', options: ['open','coming_soon','closed'] },
+      { key: 'open_hours', label: 'เวลาเปิด', type: 'text', placeholder: '24h หรือ 06:00–22:00' },
+      { key: 'attendant_hours', label: 'แม่บ้าน', type: 'text' },
+      { key: 'phone', label: 'เบอร์', type: 'text' },
+      { key: 'google_maps_url', label: 'Google Maps URL', type: 'text' },
+      { key: 'cover_image_url', label: 'รูปหน้าปก URL', type: 'text' },
+      { key: 'features', label: 'Features (JSON)', type: 'json', placeholder: '{"parking":true,"wifi":true,"cctv":true,"attendant":true}' },
+      { key: 'machines', label: 'Machines (JSON)', type: 'json', placeholder: '{"M_17kg":4,"L_27kg":2}' },
+      { key: 'opened_at', label: 'วันเปิด', type: 'date' },
+    ],
+  },
+  articles: {
+    title: 'บทความ', table: 'articles', orderBy: 'published_at', ascending: false,
+    columns: [
+      { key: 'title_th', label: 'หัวข้อ', list: true, type: 'text', required: true },
+      { key: 'slug', label: 'Slug', list: true, type: 'text', required: true },
+      { key: 'category', label: 'หมวด', list: true, type: 'enum', required: true, options: ['fabric_care','machine_usage','troubleshooting','tips','news'] },
+      { key: 'title_en', label: 'หัวข้อ EN', type: 'text' },
+      { key: 'excerpt_th', label: 'สรุป', type: 'textarea' },
+      { key: 'content_md_th', label: 'เนื้อหา (Markdown)', type: 'textarea', rows: 10 },
+      { key: 'cover_image_url', label: 'รูปหน้าปก URL', type: 'text' },
+      { key: 'read_minutes', label: 'อ่าน (นาที)', type: 'number' },
+      { key: 'author', label: 'ผู้เขียน', type: 'text' },
+      { key: 'published_at', label: 'เผยแพร่เมื่อ', list: true, type: 'datetime' },
+    ],
+  },
+  news_events: {
+    title: 'ข่าว / โปรโม', table: 'news_events', orderBy: 'start_date', ascending: false,
+    columns: [
+      { key: 'title_th', label: 'หัวข้อ', list: true, type: 'text', required: true },
+      { key: 'type', label: 'ประเภท', list: true, type: 'enum', options: ['promo','news','event','announcement'] },
+      { key: 'badge', label: 'Badge', type: 'text', placeholder: '🔥 ลดเฉพาะ, 🎉 สาขาใหม่' },
+      { key: 'body_th', label: 'รายละเอียด', type: 'textarea' },
+      { key: 'promo_code', label: 'โค้ดส่วนลด', list: true, type: 'text' },
+      { key: 'discount_label', label: 'Label ส่วนลด', type: 'text', placeholder: '30% off' },
+      { key: 'start_date', label: 'เริ่ม', list: true, type: 'date' },
+      { key: 'end_date', label: 'สิ้นสุด', type: 'date' },
+      { key: 'cover_image_url', label: 'รูป URL', type: 'text' },
+      { key: 'is_active', label: 'เปิดใช้', list: true, type: 'bool' },
+    ],
+  },
+  faqs: {
+    title: 'FAQ', table: 'faqs', orderBy: 'sort_order', ascending: true,
+    columns: [
+      { key: 'category', label: 'หมวด', list: true, type: 'enum', required: true, options: ['machine_usage','machine_problems','fabric_care','troubleshooting','branches'] },
+      { key: 'question_th', label: 'คำถาม', list: true, type: 'text', required: true },
+      { key: 'answer_th', label: 'คำตอบ', type: 'textarea', required: true },
+      { key: 'question_en', label: 'คำถาม EN', type: 'text' },
+      { key: 'answer_en', label: 'คำตอบ EN', type: 'textarea' },
+      { key: 'sort_order', label: 'ลำดับ', list: true, type: 'number' },
+      { key: 'is_active', label: 'เปิดใช้', list: true, type: 'bool' },
+    ],
+  },
+  contacts: {
+    title: 'ข้อความติดต่อ', table: 'contacts', readOnly: true,
+    orderBy: 'created_at', ascending: false,
+    columns: [
+      { key: 'created_at', label: 'เมื่อ', list: true, type: 'datetime' },
+      { key: 'name', label: 'ชื่อ', list: true, type: 'text' },
+      { key: 'phone', label: 'เบอร์/LINE', list: true, type: 'text' },
+      { key: 'subject', label: 'หัวข้อ', list: true, type: 'text' },
+      { key: 'message', label: 'ข้อความ', list: true, type: 'textarea' },
+      { key: 'handled_at', label: 'จัดการเมื่อ', list: true, type: 'datetime' },
+      { key: 'handled_note', label: 'หมายเหตุ', type: 'textarea' },
+    ],
+  },
+  franchise_inquiries: {
+    title: 'สอบถามแฟรนไชส์', table: 'franchise_inquiries', readOnly: true,
+    orderBy: 'created_at', ascending: false,
+    columns: [
+      { key: 'created_at', label: 'เมื่อ', list: true, type: 'datetime' },
+      { key: 'full_name', label: 'ชื่อ', list: true, type: 'text' },
+      { key: 'phone', label: 'เบอร์', list: true, type: 'text' },
+      { key: 'email', label: 'อีเมล', list: true, type: 'text' },
+      { key: 'province_interest', label: 'จังหวัด', list: true, type: 'text' },
+      { key: 'budget_thb', label: 'งบ (THB)', list: true, type: 'number' },
+      { key: 'message', label: 'ข้อความ', type: 'textarea' },
+      { key: 'status', label: 'สถานะ', list: true, type: 'text' },
+    ],
+  },
+  career_applications: {
+    title: 'ใบสมัครงาน', table: 'career_applications', readOnly: true,
+    orderBy: 'created_at', ascending: false,
+    columns: [
+      { key: 'created_at', label: 'เมื่อ', list: true, type: 'datetime' },
+      { key: 'full_name', label: 'ชื่อ', list: true, type: 'text' },
+      { key: 'phone', label: 'เบอร์', list: true, type: 'text' },
+      { key: 'position', label: 'ตำแหน่ง', list: true, type: 'text' },
+      { key: 'province', label: 'จังหวัด', list: true, type: 'text' },
+      { key: 'expected_salary', label: 'เงินเดือนคาดหวัง', list: true, type: 'number' },
+      { key: 'message', label: 'ข้อความ', type: 'textarea' },
+      { key: 'resume_url', label: 'Resume URL', type: 'text' },
+      { key: 'status', label: 'สถานะ', list: true, type: 'text' },
+    ],
+  },
+};
+
+let currentTab = 'branches';
+let currentRows = [];
+
+document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => loadTab(b.dataset.tab)));
+document.getElementById('btnRefresh').addEventListener('click', () => loadTab(currentTab));
+document.getElementById('btnAdd').addEventListener('click', () => openModal(null));
+
+async function loadTab(name){
+  currentTab = name;
+  document.querySelectorAll('[data-tab]').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  const def = TABS[name];
+  document.getElementById('paneTitle').textContent = def.title;
+  document.getElementById('btnAdd').style.display = def.readOnly ? 'none' : '';
+  document.getElementById('paneBody').innerHTML = '<div class="text-center py-12 text-nink/50 text-sm">กำลังโหลด...</div>';
+  const { data, error } = await sb.from(def.table).select('*').order(def.orderBy, { ascending: !!def.ascending });
+  if (error) {
+    document.getElementById('paneBody').innerHTML = `<div class="rounded-xl bg-[#ffe8eb] text-nred p-4 text-sm">โหลดไม่สำเร็จ: ${error.message}</div>`;
+    return;
+  }
+  currentRows = data || [];
+  document.getElementById('paneCount').textContent = `${currentRows.length} รายการ`;
+  renderList();
+}
+
+function fmtCell(v, type){
+  if (v === null || v === undefined) return '<span class="text-nink/30">—</span>';
+  if (type === 'bool') return v ? '<span class="badge bg-[#e6f5fc] text-nblue">✓</span>' : '<span class="badge bg-[#f4fbff] text-nink/50">✗</span>';
+  if (type === 'datetime' || type === 'date') {
+    const d = new Date(v);
+    if (isNaN(d)) return String(v);
+    return d.toLocaleString('th-TH', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  }
+  if (typeof v === 'object') return '<code class="text-xs">'+JSON.stringify(v).slice(0,40)+'</code>';
+  const s = String(v);
+  return s.length > 80 ? s.slice(0,80) + '…' : s;
+}
+
+function renderList(){
+  const def = TABS[currentTab];
+  const cols = def.columns.filter(c => c.list);
+  let html = '<table class="adm"><thead><tr>';
+  cols.forEach(c => html += `<th>${c.label}</th>`);
+  if (!def.readOnly) html += '<th class="w-32">—</th>';
+  html += '</tr></thead><tbody>';
+  if (currentRows.length === 0) html += `<tr><td colspan="${cols.length+1}" class="text-center text-nink/50 py-8">ยังไม่มีข้อมูล</td></tr>`;
+  currentRows.forEach((row, i) => {
+    html += '<tr>';
+    cols.forEach(c => html += `<td>${fmtCell(row[c.key], c.type)}</td>`);
+    if (!def.readOnly) {
+      html += `<td class="whitespace-nowrap">
+        <button data-act="edit" data-i="${i}" class="btn btn-ghost py-1 px-2 text-xs">แก้</button>
+        <button data-act="del" data-i="${i}" class="btn btn-danger py-1 px-2 text-xs">ลบ</button>
+      </td>`;
+    } else {
+      html += '';
+    }
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  const body = document.getElementById('paneBody');
+  body.innerHTML = html;
+  body.querySelectorAll('[data-act]').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.i;
+    if (b.dataset.act === 'edit') openModal(currentRows[i]);
+    else if (b.dataset.act === 'del') deleteRow(currentRows[i]);
+  }));
+}
+
+// ============================================================
+// Edit modal
+// ============================================================
+const modal = document.getElementById('modal');
+const modalForm = document.getElementById('modalForm');
+const modalTitle = document.getElementById('modalTitle');
+let editingRow = null;
+document.getElementById('modalClose').addEventListener('click', () => modal.classList.add('hidden'));
+document.getElementById('modalCancel').addEventListener('click', () => modal.classList.add('hidden'));
+document.getElementById('modalSave').addEventListener('click', saveRow);
+modal.addEventListener('click', e => { if (e.target === modal) modal.classList.add('hidden'); });
+
+function fieldHtml(col, val){
+  const v = val == null ? '' : (typeof val === 'object' ? JSON.stringify(val, null, 2) : String(val));
+  const req = col.required ? ' required' : '';
+  const ph = col.placeholder ? ` placeholder="${col.placeholder.replace(/"/g,'&quot;')}"` : '';
+  let input;
+  if (col.type === 'textarea' || col.type === 'json') {
+    const rows = col.rows || (col.type === 'json' ? 4 : 3);
+    input = `<textarea name="${col.key}" rows="${rows}" class="field"${req}${ph}>${v.replace(/</g,'&lt;')}</textarea>`;
+  } else if (col.type === 'enum') {
+    input = `<select name="${col.key}" class="field"${req}>` +
+      `<option value="">—</option>` +
+      col.options.map(o => `<option value="${o}"${o===v?' selected':''}>${o}</option>`).join('') + `</select>`;
+  } else if (col.type === 'bool') {
+    input = `<select name="${col.key}" class="field"><option value="true"${v==='true'||val===true?' selected':''}>เปิด</option><option value="false"${v==='false'||val===false?' selected':''}>ปิด</option></select>`;
+  } else if (col.type === 'date') {
+    input = `<input name="${col.key}" type="date" class="field" value="${v ? v.slice(0,10) : ''}"${req} />`;
+  } else if (col.type === 'datetime') {
+    input = `<input name="${col.key}" type="datetime-local" class="field" value="${v ? v.slice(0,16) : ''}" />`;
+  } else if (col.type === 'number') {
+    input = `<input name="${col.key}" type="number" class="field" value="${v}"${ph} />`;
+  } else {
+    input = `<input name="${col.key}" type="text" class="field" value="${v.replace(/"/g,'&quot;')}"${req}${ph} />`;
+  }
+  const hint = col.hint ? `<div class="text-[11px] text-nink/50 mt-1">${col.hint}</div>` : '';
+  return `<label class="block">
+    <span class="block text-xs font-bold mb-1">${col.label}${col.required?' *':''}</span>
+    ${input}${hint}
+  </label>`;
+}
+
+function openModal(row){
+  const def = TABS[currentTab];
+  editingRow = row;
+  modalTitle.textContent = (row ? 'แก้ไข ' : '+ เพิ่ม ') + def.title;
+  modalForm.innerHTML = def.columns.map(c => fieldHtml(c, row && row[c.key])).join('');
+  modal.classList.remove('hidden');
+}
+
+async function saveRow(){
+  const def = TABS[currentTab];
+  const fd = new FormData(modalForm);
+  const payload = {};
+  for (const col of def.columns) {
+    let v = fd.get(col.key);
+    if (v === null) continue;
+    v = v.toString();
+    if (v === '' && !col.required) { payload[col.key] = null; continue; }
+    if (v === '' && col.required) { alert(col.label + ' ห้ามว่าง'); return; }
+    if (col.type === 'number') payload[col.key] = v === '' ? null : Number(v);
+    else if (col.type === 'bool') payload[col.key] = v === 'true';
+    else if (col.type === 'json') {
+      try { payload[col.key] = JSON.parse(v); }
+      catch { alert(col.label + ': JSON ไม่ถูกต้อง'); return; }
+    } else if (col.type === 'datetime') {
+      payload[col.key] = v ? new Date(v).toISOString() : null;
+    } else {
+      payload[col.key] = v;
+    }
+  }
+  const saveBtn = document.getElementById('modalSave');
+  saveBtn.disabled = true; saveBtn.textContent = 'กำลังบันทึก...';
+  let res;
+  if (editingRow) {
+    res = await sb.from(def.table).update(payload).eq('id', editingRow.id);
+  } else {
+    res = await sb.from(def.table).insert(payload);
+  }
+  saveBtn.disabled = false; saveBtn.textContent = 'บันทึก';
+  if (res.error) { alert('บันทึกไม่สำเร็จ: ' + res.error.message); return; }
+  modal.classList.add('hidden');
+  loadTab(currentTab);
+}
+
+async function deleteRow(row){
+  if (!confirm('ลบรายการนี้?\n\n' + (row.name_th || row.title_th || row.question_th || row.id))) return;
+  const def = TABS[currentTab];
+  const { error } = await sb.from(def.table).delete().eq('id', row.id);
+  if (error) { alert('ลบไม่สำเร็จ: ' + error.message); return; }
+  loadTab(currentTab);
+}
+</script>
+</body>
+</html>

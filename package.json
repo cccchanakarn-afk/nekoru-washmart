@@ -1,0 +1,7 @@
+{
+  "name": "nekoru-washmart",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nekoru Washmart landing page + admin",
+  "type": "module"
+}

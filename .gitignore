@@ -20,3 +20,6 @@ npm-debug.log*
 
 # Netlify
 .netlify/
+
+# Local Claude settings
+.claude/

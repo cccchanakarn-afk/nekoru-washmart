@@ -859,8 +859,8 @@
         </div>
       </div>
 
-      <!-- Branch list -->
-      <div class="lg:col-span-5 grid gap-4">
+      <!-- Branch list (rendered from Supabase by JS) -->
+      <div id="branchList" class="lg:col-span-5 grid gap-4">
         <article class="rounded-2xl bg-white text-nink p-5 flex gap-4 items-start">
           <span class="shrink-0 w-12 h-12 rounded-xl bg-northo grid place-items-center text-white">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
@@ -2476,13 +2476,70 @@
   });
   window.parent.postMessage({type:'__edit_mode_available'}, '*');
 
+  // ============ Supabase singleton ============
+  const NEKORU_SB = (window.NEKORU_SUPABASE && window.supabase)
+    ? window.supabase.createClient(window.NEKORU_SUPABASE.url, window.NEKORU_SUPABASE.anonKey)
+    : null;
+
+  // ============ Branches → from Supabase ============
+  (function loadBranches(){
+    const host = document.getElementById('branchList');
+    if (!host || !NEKORU_SB) return;
+    const FEATURE_LABELS = {
+      parking: '🚗 ที่จอดรถ', attendant: '😺 มีแม่บ้าน', wifi: '📶 Wi-Fi',
+      cctv: '📹 CCTV', drop_off: '🧺 Drop-off', ozone: '💨 ระบบโอโซน',
+      free_detergent: '🫧 ฟรีน้ำยา',
+    };
+    const STATUS_LABEL = { open: 'เปิดอยู่', coming_soon: 'เร็วๆนี้', closed: 'ปิดชั่วคราว' };
+    const STATUS_PILL = { open: 'pill-orange', coming_soon: 'pill-blue', closed: 'pill-red' };
+    NEKORU_SB.from('branches')
+      .select('slug,name_th,address_th,district,province,status,open_hours,attendant_hours,features,google_maps_url')
+      .in('status', ['open', 'coming_soon'])
+      .order('status', { ascending: true })
+      .then(({ data, error }) => {
+        if (error || !data) { console.warn('branches:', error); return; }
+        const html = data.map(b => {
+          const features = b.features && typeof b.features === 'object' ? b.features : {};
+          const chips = Object.entries(FEATURE_LABELS)
+            .filter(([k]) => features[k])
+            .map(([, v]) => `<span>${v}</span>`).join('');
+          const mapsBtn = b.google_maps_url ? `
+            <a href="${b.google_maps_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-3 text-sm font-bold text-nblue hover:text-northo">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              เปิดแผนที่ Google Maps →
+            </a>` : '';
+          const lines = [b.address_th, b.open_hours ? `เปิด ${b.open_hours}` : '', b.attendant_hours ? `แม่บ้าน ${b.attendant_hours}` : '']
+            .filter(Boolean).join(' · ');
+          return `
+            <article class="rounded-2xl bg-white text-nink p-5 flex gap-4 items-start">
+              <span class="shrink-0 w-12 h-12 rounded-xl bg-northo grid place-items-center text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="th-display text-lg">${b.name_th}</h3>
+                  <span class="pill ${STATUS_PILL[b.status] || 'pill-blue'} text-[10px] py-1 px-2">${STATUS_LABEL[b.status] || b.status}</span>
+                </div>
+                <p class="text-sm text-nink/60 mt-1">${lines}</p>
+                <div class="flex flex-wrap items-center gap-3 mt-2 text-xs text-nink/70">${chips}</div>
+                ${mapsBtn}
+              </div>
+            </article>`;
+        }).join('');
+        const footer = `<a href="#franchise" class="block text-center py-4 rounded-2xl border border-dashed border-white/20 hover:bg-white/5 th-display text-white/80">เร็วๆนี้ — สาขาเพิ่มเติม ✦ เปิดรับแฟรนไชส์</a>`;
+        host.innerHTML = html + footer;
+        const count = data.filter(b => b.status === 'open').length;
+        const counter = document.querySelector('#branches .text-xs.text-nink\\/60.ml-auto');
+        if (counter) counter.textContent = `📍 ${count} สาขาที่เปิดให้บริการ`;
+      });
+  })();
+
   // ============ Contact form → Supabase ============
   (function wireContactForm(){
-    const cfg = window.NEKORU_SUPABASE;
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('contactStatus');
-    if (!cfg || !form || !window.supabase) return;
-    const sb = window.supabase.createClient(cfg.url, cfg.anonKey);
+    if (!form || !NEKORU_SB) return;
+    const sb = NEKORU_SB;
     const subjectMap = {
       'สอบถามทั่วไป': 'general',
       'ปัญหาการใช้งานเครื่อง': 'machine_issue',
