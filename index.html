@@ -2245,34 +2245,28 @@
         if (!n.parentNode) return NodeFilter.FILTER_REJECT;
         const tag = n.parentNode.nodeName;
         if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
-        // langSwitcher handles its own label; dynamic calculator/mascot outputs are excluded
-        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #bubbleBurst, #weightLabel, #recPrice, #recTime, #recMachine')) return NodeFilter.FILTER_REJECT;
+        // langSwitcher handles its own label; dynamic/generated content areas are excluded
+        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #bubbleBurst, #weightLabel, #recPrice, #recTime, #recMachine, #contactStatus, #branchList, #tweaksPanel')) return NodeFilter.FILTER_REJECT;
         if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
-    // Positional English list (frozen). Thai text in the page is the editable source of
-    // truth; English is read by node order so editing Thai never breaks the EN toggle.
-    const SEQ = window.NEKORU_EN_SEQ || [];
-    const aligned = SEQ.length === nodes.length;
+    // Always use dictionary lookup — never positional index.
+    // Positional matching breaks whenever HTML is edited (nodes added/removed),
+    // causing wrong English strings to map to wrong positions ("alien language" bug).
+    // Dictionary lookup is O(1) per node and robust to any DOM change.
     for (let i = 0; i < nodes.length; i++) {
       const n = nodes[i];
       if (!TEXT_CACHE.has(n)) TEXT_CACHE.set(n, n.nodeValue);
-      const original = TEXT_CACHE.get(n); // Thai base (directly editable)
+      const original = TEXT_CACHE.get(n); // Thai base
       if (lng === 'th') { n.nodeValue = original; continue; }
-      // English mode
+      // English: look up in dictionary; non-Thai text passes through unchanged
       const leading = original.match(/^\s*/)[0];
       const trailing = original.match(/\s*$/)[0];
-      let en;
-      if (aligned) {
-        en = SEQ[i];
-      } else {
-        // Fallback to the dictionary if the list ever drifts out of alignment
-        const key = norm(original);
-        en = (THAI_RE.test(original) && TH2EN_N[key] != null) ? TH2EN_N[key] : original.trim();
-      }
+      const key = norm(original);
+      const en = (THAI_RE.test(original) && TH2EN_N[key] != null) ? TH2EN_N[key] : original.trim();
       n.nodeValue = leading + en + trailing;
     }
   }
