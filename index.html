@@ -89,6 +89,15 @@
   ::-webkit-scrollbar-thumb { background:#b9e2f3; border-radius:999px; }
   ::-webkit-scrollbar-thumb:hover { background:#70cbff; }
 
+  /* iOS Safari: filter:blur() on absolutely-positioned children creates a new
+     stacking context that iOS composites incorrectly, causing section content to
+     render behind the decorative blobs (shows as large gray/blurred blocks).
+     isolation:isolate forces each section into its own stacking context so
+     z-index:-10 backgrounds are always composited beneath the section's content. */
+  section[id] { isolation: isolate; }
+  /* Also force-promote blur elements to their own GPU layer to prevent bleeding */
+  .blur-3xl, .blur-2xl { -webkit-transform: translateZ(0); transform: translateZ(0); }
+
   .dots {
     background-image: radial-gradient(rgba(49,167,222,.22) 1.2px, transparent 1.2px);
     background-size: 18px 18px;
