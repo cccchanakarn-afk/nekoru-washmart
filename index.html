@@ -97,6 +97,11 @@
   section[id] { isolation: isolate; }
   /* Also force-promote blur elements to their own GPU layer to prevent bleeding */
   .blur-3xl, .blur-2xl { -webkit-transform: translateZ(0); transform: translateZ(0); }
+  /* backdrop-filter (Tailwind's backdrop-blur) on a sticky header + isolated
+     sections is a known WebKit bug: iOS paints a huge gray/blurred rectangle
+     over the page instead of the blur. Removed all backdrop-blur usages
+     (header, video badges, map info bar) and used solid/near-opaque
+     backgrounds instead. */
 
   .dots {
     background-image: radial-gradient(rgba(49,167,222,.22) 1.2px, transparent 1.2px);
@@ -224,7 +229,7 @@
 </div>
 
 <!-- ============ NAVBAR ============ -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[#e6f3fa]">
+<header class="sticky top-0 z-50 bg-white/95 border-b border-[#e6f3fa]">
   <nav class="max-w-7xl mx-auto px-5 h-[76px] flex items-center justify-between">
     <a href="#home" class="flex items-center gap-2.5">
       <img src="assets/nekoru-logo.png" alt="Nekoru Washmart" class="h-16 w-16 md:h-[72px] md:w-[72px] object-contain shrink-0"/>
@@ -654,8 +659,8 @@
                 <div class="font-display font-bold text-lg">วิธีใช้เครื่องซัก-อบ Nekoru</div>
               </div>
               <div class="flex gap-2">
-                <span class="text-[10px] bg-white/20 backdrop-blur text-white px-2 py-1 rounded-full font-bold">HD</span>
-                <span class="text-[10px] bg-white/20 backdrop-blur text-white px-2 py-1 rounded-full font-bold">CC ไทย</span>
+                <span class="text-[10px] bg-black/40 text-white px-2 py-1 rounded-full font-bold">HD</span>
+                <span class="text-[10px] bg-black/40 text-white px-2 py-1 rounded-full font-bold">CC ไทย</span>
               </div>
             </div>
           </div>
@@ -860,7 +865,7 @@
           <input type="text" placeholder="ค้นหาสาขา / ถนน / เขต" class="field py-2 px-3 text-sm flex-1 max-w-md text-nink"/>
           <button class="btn btn-primary py-2 px-4 text-sm">ค้นหา</button>
         </div>
-        <div class="absolute bottom-4 left-4 right-4 bg-white/95 text-nink rounded-2xl p-4 flex flex-wrap items-center gap-4 backdrop-blur">
+        <div class="absolute bottom-4 left-4 right-4 bg-white/95 text-nink rounded-2xl p-4 flex flex-wrap items-center gap-4">
           <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-northo"></span>โคราช</div>
           <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-nred"></span>จอหอ </div>
           <div class="flex items-center gap-2 text-sm"><span class="w-3 h-3 rounded-full bg-nblue"></span>ต่างจังหวัด</div>
