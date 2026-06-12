@@ -143,27 +143,6 @@
   @keyframes float-bub { 0%{transform:translateY(0); opacity:0} 30%{opacity:1} 100%{transform:translateY(-60px); opacity:0} }
   .bubblet { animation: float-bub 3.5s ease-in infinite; }
 
-  /* Bubble burst overlay on page load */
-  #bubbleBurst{ position:fixed; inset:0; z-index:90; pointer-events:none; overflow:hidden; }
-  #bubbleBurst.done{ display:none; }
-  .burst-b{
-    position:absolute; bottom:-80px; border-radius:9999px;
-    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.95) 0 14%, rgba(255,255,255,.45) 20%, rgba(112,203,255,.55) 55%, rgba(49,167,222,.55) 100%);
-    border:1.5px solid rgba(255,255,255,.85);
-    box-shadow: inset 0 0 6px rgba(255,255,255,.6), 0 6px 20px rgba(49,167,222,.18);
-    opacity:0;
-    animation: burst-rise var(--d, 4s) cubic-bezier(.2,.65,.4,1) forwards;
-    animation-delay: var(--delay, 0s);
-  }
-  @keyframes burst-rise{
-    0%   { transform: translateY(0) translateX(0) scale(.4); opacity:0; }
-    8%   { opacity:.9; }
-    60%  { opacity:.9; }
-    85%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1); opacity:.9; }
-    92%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.35); opacity:.6; }
-    100% { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.6); opacity:0; }
-  }
-
   .marquee { overflow:hidden; }
   .marquee-track { display:flex; gap:3rem; width:max-content; animation: scrolly 28s linear infinite; }
   @keyframes scrolly { from{transform:translateX(0)} to{transform:translateX(-50%)} }
@@ -294,29 +273,6 @@
     </ul>
   </div>
 </header>
-
-<!-- ============ Bubble burst on landing ============ -->
-<div id="bubbleBurst" aria-hidden="true"></div>
-<script>
-  (function(){
-    const layer = document.getElementById('bubbleBurst');
-    if (!layer) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layer.classList.add('done'); return; }
-    const N = 38;
-    let html = '';
-    for (let i = 0; i < N; i++) {
-      const size = 14 + Math.random() * 70;
-      const left = Math.random() * 100;
-      const drift = (Math.random() * 220 - 110).toFixed(0);
-      const rise = (80 + Math.random() * 30).toFixed(0);
-      const dur = (3.2 + Math.random() * 2.6).toFixed(2);
-      const delay = (Math.random() * 1.2).toFixed(2);
-      html += `<div class="burst-b" style="left:${left}%;width:${size}px;height:${size}px;--drift:${drift}px;--rise:${rise}vh;--d:${dur}s;--delay:${delay}s"></div>`;
-    }
-    layer.innerHTML = html;
-    setTimeout(() => layer.classList.add('done'), 6500);
-  })();
-</script>
 
 <!-- ============ HERO ============ -->
 <section id="home" class="relative overflow-hidden">
@@ -2308,7 +2264,7 @@
         const tag = n.parentNode.nodeName;
         if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
         // langSwitcher handles its own label; dynamic/generated content areas are excluded
-        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #bubbleBurst, #weightLabel, #recPrice, #recTime, #recMachine, #contactStatus, #branchList, #tweaksPanel')) return NodeFilter.FILTER_REJECT;
+        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #weightLabel, #recPrice, #recTime, #recMachine, #contactStatus, #branchList, #tweaksPanel')) return NodeFilter.FILTER_REJECT;
         if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
