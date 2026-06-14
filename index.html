@@ -89,14 +89,12 @@
   ::-webkit-scrollbar-thumb { background:#b9e2f3; border-radius:999px; }
   ::-webkit-scrollbar-thumb:hover { background:#70cbff; }
 
-  /* iOS Safari: filter:blur() on absolutely-positioned children creates a new
-     stacking context that iOS composites incorrectly, causing section content to
-     render behind the decorative blobs (shows as large gray/blurred blocks).
-     isolation:isolate forces each section into its own stacking context so
-     z-index:-10 backgrounds are always composited beneath the section's content. */
+  /* iOS Safari: filter:blur() on absolutely-positioned, negative-z-index
+     decorative elements composites incorrectly and paints as a large
+     translucent/gray block over the section's own content. Fixed by
+     replacing all blur-3xl/blur-2xl glow blobs with radial-gradient
+     backgrounds (soft edge via gradient fade instead of filter:blur). */
   section[id] { isolation: isolate; }
-  /* Also force-promote blur elements to their own GPU layer to prevent bleeding */
-  .blur-3xl, .blur-2xl { -webkit-transform: translateZ(0); transform: translateZ(0); }
   /* backdrop-filter (Tailwind's backdrop-blur) on a sticky header + isolated
      sections is a known WebKit bug: iOS paints a huge gray/blurred rectangle
      over the page instead of the blur. Removed all backdrop-blur usages
@@ -142,6 +140,27 @@
   .tail-sway { animation: tail-sway 3s ease-in-out infinite; transform-origin: 30% 90%; transform-box:fill-box; }
   @keyframes float-bub { 0%{transform:translateY(0); opacity:0} 30%{opacity:1} 100%{transform:translateY(-60px); opacity:0} }
   .bubblet { animation: float-bub 3.5s ease-in infinite; }
+
+  /* Bubble burst overlay on page load */
+  #bubbleBurst{ position:fixed; inset:0; z-index:90; pointer-events:none; overflow:hidden; }
+  #bubbleBurst.done{ display:none; }
+  .burst-b{
+    position:absolute; bottom:-80px; border-radius:9999px;
+    background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.95) 0 14%, rgba(255,255,255,.45) 20%, rgba(112,203,255,.55) 55%, rgba(49,167,222,.55) 100%);
+    border:1.5px solid rgba(255,255,255,.85);
+    box-shadow: inset 0 0 6px rgba(255,255,255,.6), 0 6px 20px rgba(49,167,222,.18);
+    opacity:0;
+    animation: burst-rise var(--d, 4s) cubic-bezier(.2,.65,.4,1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+  @keyframes burst-rise{
+    0%   { transform: translateY(0) translateX(0) scale(.4); opacity:0; }
+    8%   { opacity:.9; }
+    60%  { opacity:.9; }
+    85%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1); opacity:.9; }
+    92%  { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.35); opacity:.6; }
+    100% { transform: translateY(calc(-1 * var(--rise, 90vh))) translateX(var(--drift, 0px)) scale(1.6); opacity:0; }
+  }
 
   .marquee { overflow:hidden; }
   .marquee-track { display:flex; gap:3rem; width:max-content; animation: scrolly 28s linear infinite; }
@@ -274,12 +293,35 @@
   </div>
 </header>
 
+<!-- ============ Bubble burst on landing ============ -->
+<div id="bubbleBurst" aria-hidden="true"></div>
+<script>
+  (function(){
+    const layer = document.getElementById('bubbleBurst');
+    if (!layer) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { layer.classList.add('done'); return; }
+    const N = 38;
+    let html = '';
+    for (let i = 0; i < N; i++) {
+      const size = 14 + Math.random() * 70;
+      const left = Math.random() * 100;
+      const drift = (Math.random() * 220 - 110).toFixed(0);
+      const rise = (80 + Math.random() * 30).toFixed(0);
+      const dur = (3.2 + Math.random() * 2.6).toFixed(2);
+      const delay = (Math.random() * 1.2).toFixed(2);
+      html += `<div class="burst-b" style="left:${left}%;width:${size}px;height:${size}px;--drift:${drift}px;--rise:${rise}vh;--d:${dur}s;--delay:${delay}s"></div>`;
+    }
+    layer.innerHTML = html;
+    setTimeout(() => { layer.classList.add('done'); layer.remove(); }, 6500);
+  })();
+</script>
+
 <!-- ============ HERO ============ -->
 <section id="home" class="relative overflow-hidden">
   <div class="hero-grad absolute inset-0 -z-10" style="background:linear-gradient(180deg,#e6f5fc 0%,#f4fbff 50%,#fff 100%)"></div>
   <div class="absolute inset-0 -z-10">
-    <div class="absolute -top-24 -left-24 w-[420px] h-[420px] rounded-full bg-nsky/30 blur-3xl"></div>
-    <div class="absolute top-40 right-[-120px] w-[460px] h-[460px] rounded-full bg-northo/10 blur-3xl"></div>
+    <div class="absolute -top-24 -left-24 w-[420px] h-[420px]" style="background:radial-gradient(circle, rgba(112,203,255,.35) 0%, rgba(112,203,255,0) 70%)"></div>
+    <div class="absolute top-40 right-[-120px] w-[460px] h-[460px]" style="background:radial-gradient(circle, rgba(255,115,0,.15) 0%, rgba(255,115,0,0) 70%)"></div>
     <div class="absolute inset-0 dots opacity-40"></div>
   </div>
 
@@ -790,8 +832,8 @@
 
 <!-- ============ BRANCHES + Maps ============ -->
 <section id="branches" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden">
-  <div class="absolute -top-20 -left-20 w-[360px] h-[360px] rounded-full bg-nblue/30 blur-3xl"></div>
-  <div class="absolute -bottom-40 -right-20 w-[420px] h-[420px] rounded-full bg-northo/20 blur-3xl"></div>
+  <div class="absolute -top-20 -left-20 w-[360px] h-[360px]" style="background:radial-gradient(circle, rgba(49,167,222,.35) 0%, rgba(49,167,222,0) 70%)"></div>
+  <div class="absolute -bottom-40 -right-20 w-[420px] h-[420px]" style="background:radial-gradient(circle, rgba(255,115,0,.25) 0%, rgba(255,115,0,0) 70%)"></div>
 
   <div class="max-w-7xl mx-auto px-5 relative">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
@@ -908,8 +950,8 @@
         <!-- Member card mock -->
         <div class="lg:col-span-5">
           <div class="aspect-[1.6/1] rounded-3xl bg-nink relative overflow-hidden shadow-2xl rotate-1">
-            <div class="absolute -top-12 -right-12 w-44 h-44 rounded-full bg-northo/30 blur-2xl"></div>
-            <div class="absolute -bottom-12 -left-12 w-44 h-44 rounded-full bg-nblue/30 blur-2xl"></div>
+            <div class="absolute -top-12 -right-12 w-44 h-44" style="background:radial-gradient(circle, rgba(255,115,0,.35) 0%, rgba(255,115,0,0) 70%)"></div>
+            <div class="absolute -bottom-12 -left-12 w-44 h-44" style="background:radial-gradient(circle, rgba(49,167,222,.35) 0%, rgba(49,167,222,0) 70%)"></div>
             <div class="relative p-6 h-full flex flex-col justify-between text-white">
               <div class="flex items-start justify-between">
                 <div>
@@ -1068,7 +1110,7 @@
 
 <!-- ============ FRANCHISE ============ -->
 <section id="franchise" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden">
-  <div class="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-northo/15 blur-3xl"></div>
+  <div class="absolute -top-32 right-0 w-[500px] h-[500px]" style="background:radial-gradient(circle, rgba(255,115,0,.20) 0%, rgba(255,115,0,0) 70%)"></div>
   <div class="max-w-7xl mx-auto px-5 relative grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-6">
       <span class="pill pill-orange" style="font-size: 15px">แฟรนไชส์</span>
@@ -1590,7 +1632,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="bg-nink text-white pt-16 pb-8 relative overflow-hidden">
-  <div class="absolute -top-20 left-1/3 w-[600px] h-[600px] rounded-full bg-nblue/20 blur-3xl"></div>
+  <div class="absolute -top-20 left-1/3 w-[600px] h-[600px]" style="background:radial-gradient(circle, rgba(49,167,222,.25) 0%, rgba(49,167,222,0) 70%)"></div>
   <div class="max-w-7xl mx-auto px-5 relative" style="font-size: 1px">
     <div class="grid md:grid-cols-12 gap-10 pb-10 border-b border-white/10">
       <div class="md:col-span-4">
@@ -2264,7 +2306,7 @@
         const tag = n.parentNode.nodeName;
         if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
         // langSwitcher handles its own label; dynamic/generated content areas are excluded
-        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #weightLabel, #recPrice, #recTime, #recMachine, #contactStatus, #branchList, #tweaksPanel')) return NodeFilter.FILTER_REJECT;
+        if (n.parentNode.closest && n.parentNode.closest('#langSwitcher, #bubbleBurst, #weightLabel, #recPrice, #recTime, #recMachine, #contactStatus, #branchList, #tweaksPanel')) return NodeFilter.FILTER_REJECT;
         if (!n.nodeValue || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
