@@ -142,9 +142,13 @@
   @keyframes float-bub { 0%{transform:translateY(0); opacity:0} 30%{opacity:1} 100%{transform:translateY(-60px); opacity:0} }
   .bubblet { animation: float-bub 3.5s ease-in infinite; }
 
-  /* Bubble burst overlay on page load */
-  #bubbleBurst{ position:fixed; inset:0; z-index:90; pointer-events:none; overflow:hidden; }
+  /* Bubble burst overlay on page load. iOS Safari can fail to run the JS
+     cleanup (setTimeout) if the tab is backgrounded during load (e.g. while
+     screen-recording), leaving a translucent overlay stuck on screen. This
+     CSS-only animation forces it hidden after 7.5s regardless of JS. */
+  #bubbleBurst{ position:fixed; inset:0; z-index:90; pointer-events:none; overflow:hidden; animation: bubble-hide .01s linear 7.5s forwards; }
   #bubbleBurst.done{ display:none; }
+  @keyframes bubble-hide{ to { opacity:0; visibility:hidden; } }
   .burst-b{
     position:absolute; bottom:-80px; border-radius:9999px;
     background: radial-gradient(circle at 32% 30%, rgba(255,255,255,.95) 0 14%, rgba(255,255,255,.45) 20%, rgba(112,203,255,.55) 55%, rgba(49,167,222,.55) 100%);
