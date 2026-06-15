@@ -93,8 +93,9 @@
      decorative elements composites incorrectly and paints as a large
      translucent/gray block over the section's own content. Fixed by
      replacing all blur-3xl/blur-2xl glow blobs with radial-gradient
-     backgrounds (soft edge via gradient fade instead of filter:blur). */
-  section[id] { isolation: isolate; }
+     backgrounds (soft edge via gradient fade instead of filter:blur),
+     and dropping isolation/negative-z-index on sections (decorative
+     backgrounds are plain absolute, painted in DOM order before content). */
   /* backdrop-filter (Tailwind's backdrop-blur) on a sticky header + isolated
      sections is a known WebKit bug: iOS paints a huge gray/blurred rectangle
      over the page instead of the blur. Removed all backdrop-blur usages
@@ -318,14 +319,14 @@
 
 <!-- ============ HERO ============ -->
 <section id="home" class="relative overflow-hidden">
-  <div class="hero-grad absolute inset-0 -z-10" style="background:linear-gradient(180deg,#e6f5fc 0%,#f4fbff 50%,#fff 100%)"></div>
-  <div class="absolute inset-0 -z-10">
+  <div class="hero-grad absolute inset-0" style="background:linear-gradient(180deg,#e6f5fc 0%,#f4fbff 50%,#fff 100%)"></div>
+  <div class="absolute inset-0">
     <div class="absolute -top-24 -left-24 w-[420px] h-[420px]" style="background:radial-gradient(circle, rgba(112,203,255,.35) 0%, rgba(112,203,255,0) 70%)"></div>
     <div class="absolute top-40 right-[-120px] w-[460px] h-[460px]" style="background:radial-gradient(circle, rgba(255,115,0,.15) 0%, rgba(255,115,0,0) 70%)"></div>
     <div class="absolute inset-0 dots opacity-40"></div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-5 pt-12 md:pt-16 pb-20 md:pb-24 grid lg:grid-cols-12 gap-10 items-center">
+  <div class="relative max-w-7xl mx-auto px-5 pt-12 md:pt-16 pb-20 md:pb-24 grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-7">
       <div class="flex flex-wrap gap-2 mb-5">
         <span class="pill pill-orange">⏰ เปิด 24 ชั่วโมง</span>
