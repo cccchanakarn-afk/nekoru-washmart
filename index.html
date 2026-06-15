@@ -181,7 +181,12 @@
            transition:border .15s ease, box-shadow .15s ease; }
   .field:focus { outline:none; border-color:#31a7de; box-shadow: 0 0 0 4px #d6eefb; }
 
-  .mobile-menu { transition: transform .3s ease, opacity .3s ease; }
+  /* Closed mobile menu must not add to <header>'s box height: it's
+     display:block + opacity:0 (for the slide/fade transition), so without
+     position:absolute its ~390px height gets included in the sticky
+     header's box, painting a near-opaque white rectangle over ~half the
+     viewport on top of every section underneath. */
+  .mobile-menu { position:absolute; left:0; right:0; top:100%; transition: transform .3s ease, opacity .3s ease; }
   .mobile-menu.hidden-m { transform: translateY(-8px); opacity:0; pointer-events:none; }
 
   .price-row:nth-child(odd){ background:#f4fbff; }
