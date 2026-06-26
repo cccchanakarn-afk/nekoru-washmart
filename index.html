@@ -228,9 +228,9 @@
     </div>
     <div class="flex items-center gap-4">
       <a href="tel:021234567" class="hover:text-nsky">โทร 097-565-9556</a>
-      <span class="opacity-70">|</span>
-      <a href="#careers" class="hover:text-nsky">
-</a>
+      <!-- hidden: careers link (content not ready) -->
+      <!--<span class="opacity-70">|</span>
+      <a href="#careers" class="hover:text-nsky"></a>-->
       <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="hover:text-nsky">LINE @453izcgt</a>
     </div>
   </div>
@@ -253,9 +253,10 @@
       <li><a href="#home" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.home">หน้าหลัก</a></li>
       <li><a href="#branches" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.services">บริการของเรา</a></li>
       <li><a href="#articles" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.articles">บทความ</a></li>
-      <li><a href="#news" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>
-      <li><a href="#franchise" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>
-      <li><a href="#careers" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.careers">ร่วมงาน</a></li>
+      <!-- hidden: news, franchise, careers (content not ready) -->
+      <!--<li><a href="#news" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>-->
+      <!--<li><a href="#franchise" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>-->
+      <!--<li><a href="#careers" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.careers">ร่วมงาน</a></li>-->
       <li><a href="#contact" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.contactnav">ติดต่อ</a></li>
       <li><a href="#faq" class="px-3 py-2 rounded-full hover:bg-npaper" data-i18n="nav.faq">FAQ</a></li>
     </ul>
@@ -294,9 +295,10 @@
       <li><a href="#home"     class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.home">หน้าหลัก</a></li>
       <li><a href="#branches" class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.branches">สาขา</a></li>
       <li><a href="#articles" class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.articles">บทความ</a></li>
-      <li><a href="#news"     class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>
-      <li><a href="#franchise"class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>
-      <li><a href="#careers"  class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.careersfull">ร่วมงานกับเรา</a></li>
+      <!-- hidden: news, franchise, careers (content not ready) -->
+      <!--<li><a href="#news"     class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.news">ข่าวสาร &amp; กิจกรรม</a></li>-->
+      <!--<li><a href="#franchise"class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.franchise">แฟรนไชส์</a></li>-->
+      <!--<li><a href="#careers"  class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.careersfull">ร่วมงานกับเรา</a></li>-->
       <li><a href="#contact"  class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.contactfull">ติดต่อเรา</a></li>
       <li><a href="#faq"      class="block px-3 py-2.5 rounded-xl hover:bg-npaper" data-i18n="nav.faq">FAQ</a></li>
     </ul>
@@ -1053,7 +1055,7 @@
 </section>
 
 <!-- ============ NEWS / EVENTS ============ -->
-<section id="news" class="py-20 md:py-28">
+<section id="news" class="py-20 md:py-28" hidden>
   <div class="max-w-7xl mx-auto px-5">
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
       <div class="max-w-2xl">
@@ -1119,7 +1121,7 @@
 </section>
 
 <!-- ============ FRANCHISE ============ -->
-<section id="franchise" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden">
+<section id="franchise" class="py-20 md:py-28 bg-nink text-white relative overflow-hidden" hidden>
   <div class="absolute -top-32 right-0 w-[500px] h-[500px]" style="background:radial-gradient(circle, rgba(255,115,0,.20) 0%, rgba(255,115,0,0) 70%)"></div>
   <div class="max-w-7xl mx-auto px-5 relative grid lg:grid-cols-12 gap-10 items-center">
     <div class="lg:col-span-6">
@@ -1502,7 +1504,7 @@
 </section>
 
 <!-- ============ CAREERS ============ -->
-<section id="careers" class="py-20 md:py-28">
+<section id="careers" class="py-20 md:py-28" hidden>
   <div class="max-w-7xl mx-auto px-5">
     <div class="card-light rounded-[36px] overflow-hidden border border-[#e6f3fa] bg-npaper grid lg:grid-cols-12">
       <div class="lg:col-span-7 p-8 md:p-14">
@@ -1668,7 +1670,7 @@
           <li><a href="#home" class="hover:text-white">หน้าหลัก</a></li>
           <li><a href="#branches" class="hover:text-white">สาขา</a></li>
           <li><a href="#articles" class="hover:text-white">บทความ</a></li>
-          <li><a href="#news" class="hover:text-white">ข่าวสาร &amp; กิจกรรม</a></li>
+          <!--<li><a href="#news" class="hover:text-white">ข่าวสาร &amp; กิจกรรม</a></li>-->
         </ul>
       </div>
       <div class="md:col-span-2">
@@ -1676,8 +1678,8 @@
         <ul class="space-y-2 text-sm text-white/70">
           <li><a href="#faq" class="hover:text-white">FAQ</a></li>
           <li><a href="#contact" class="hover:text-white">ติดต่อเรา</a></li>
-          <li><a href="#careers" class="hover:text-white">ร่วมงาน</a></li>
-          <li><a href="#franchise" class="hover:text-white">แฟรนไชส์</a></li>
+          <!--<li><a href="#careers" class="hover:text-white">ร่วมงาน</a></li>-->
+          <!--<li><a href="#franchise" class="hover:text-white">แฟรนไชส์</a></li>-->
         </ul>
       </div>
       <div class="md:col-span-4">
@@ -2590,7 +2592,7 @@
               </div>
             </article>`;
         }).join('');
-        const footer = `<a href="#franchise" class="block text-center py-4 rounded-2xl border border-dashed border-white/20 hover:bg-white/5 th-display text-white/80">เร็วๆนี้ — สาขาเพิ่มเติม ✦ เปิดรับแฟรนไชส์</a>`;
+        const footer = `<div class="block text-center py-4 rounded-2xl border border-dashed border-white/20 th-display text-white/80">เร็วๆนี้ — สาขาเพิ่มเติม</div>`;
         host.innerHTML = html + footer;
         const count = data.filter(b => b.status === 'open').length;
         const counter = document.querySelector('#branches .text-xs.text-nink\\/60.ml-auto');
