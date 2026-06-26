@@ -1250,256 +1250,100 @@
     </div>
 
     <div class="grid lg:grid-cols-12 gap-6">
+
       <aside class="lg:col-span-4">
         <div class="lg:sticky lg:top-[88px] grid gap-2" id="faqCats">
-          <button data-cat="usage" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-nblue shadow-card flex items-center gap-3">
-            <span class="w-11 h-11 rounded-xl bg-nblue/15 grid place-items-center text-nblue text-lg">🧺</span>
-            <span class="flex-1">
-              <span class="block th-display">การใช้งานเครื่อง</span>
-              <span class="block text-xs text-nink/60">วิธีหยอดเหรียญ เลือกโปรแกรม</span>
-            </span>
-            <span class="text-xs text-nink/50">5</span>
-          </button>
-          <button data-cat="problems" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
-            <span class="w-11 h-11 rounded-xl bg-nred/15 grid place-items-center text-nred text-lg">⚠️</span>
-            <span class="flex-1">
-              <span class="block th-display">ปัญหาเครื่องซักอบ</span>
-              <span class="block text-xs text-nink/60">เครื่องไม่ทำงาน เหรียญติด</span>
-            </span>
-            <span class="text-xs text-nink/50">5</span>
-          </button>
-          <button data-cat="fabric" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
-            <span class="w-11 h-11 rounded-xl bg-northo/15 grid place-items-center text-northo text-lg">👕</span>
-            <span class="flex-1">
-              <span class="block th-display">การดูแลผ้า</span>
-              <span class="block text-xs text-nink/60">แยกผ้า อุณหภูมิ การอบ</span>
-            </span>
-            <span class="text-xs text-nink/50">5</span>
-          </button>
-          <button data-cat="trouble" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
-            <span class="w-11 h-11 rounded-xl bg-nink/15 grid place-items-center text-nink text-lg">🔧</span>
-            <span class="flex-1">
-              <span class="block th-display">การแก้ปัญหาเบื้องต้น</span>
-              <span class="block text-xs text-nink/60">คราบฝังลึก ผ้าตก ผ้าหด</span>
-            </span>
-            <span class="text-xs text-nink/50">5</span>
-          </button>
-          <button data-cat="branch" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 border-transparent hover:border-[#cfeaf7] flex items-center gap-3">
-            <span class="w-11 h-11 rounded-xl bg-nsky/30 grid place-items-center text-nblue text-lg">📍</span>
-            <span class="flex-1">
-              <span class="block th-display">สาขาและบริการ</span>
-              <span class="block text-xs text-nink/60">เวลาเปิด แม่บ้าน ที่จอดรถ</span>
-            </span>
-            <span class="text-xs text-nink/50">5</span>
-          </button>
-
-          <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="mt-3 p-5 rounded-2xl bg-nink text-white">
-            <div class="th-display">ไม่เจอคำตอบ?</div>
-            <div class="text-sm text-white/70 mt-1">ทักเราใน LINE ได้ทันที</div>
-            <div class="mt-3 inline-flex items-center gap-2 font-bold text-nsky">@453izcgt →</div>
-          </a>
+          <div class="text-center py-8 text-nink/50 text-sm">กำลังโหลด...</div>
         </div>
       </aside>
 
-      <div class="lg:col-span-8">
-        <div data-pane="usage" class="faq-pane grid gap-3">
-          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">🧺 การใช้งานเครื่อง (FAQ)
-
-</h3>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ซักและอบในเครื่องเดียวได้ไหม? ใช้เวลานานแค่ไหน?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ได้ครับ เครื่องของเนโกะรุเป็นแบบซัก-อบในตัวเดียว ใช้เวลาประมาณ 45-60 นาที ขึ้นอยู่กับโปรแกรมและปริมาณผ้า</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ใส่ผ้าได้มากแค่ไหน? ต้องเตรียมน้ำยาซักเองไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ใส่ได้ตามขนาดเครื่อง 8–28 กก. ดูเส้น MAX ที่ฝาเครื่อง <b>ไม่ต้องเตรียมผงซักหรือน้ำยาเอง</b> เพราะเนโกะรุแถมฟรีในทุกรอบ ระบบจะจ่ายให้อัตโนมัติตามน้ำหนักผ้า</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">จ่ายด้วยเหรียญได้ไหม หรือมีช่องทางชำระเงินอะไรบ้าง?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">รับเหรียญ 5 และ 10 บาท หรือสแกน QR PromptPay / TrueMoney Wallet ก็ได้ ถ้าไม่มีเหรียญ ติดต่อแม่บ้านหรือใช้ตู้แลกเหรียญหน้าร้านได้</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">เลือกอุณหภูมิการอบให้เหมาะกับผ้าอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">น้ำเย็น (30°C) สำหรับผ้าสี ผ้ายีนส์ / น้ำอุ่น (40–60°C) สำหรับผ้าใส่ทั่วไป / น้ำร้อน (60–95°C) สำหรับผ้าขาว ผ้าเด็ก ผ้าปูที่นอน เพื่อฆ่าเชื้อ</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ซักท็อปเปอร์และชุดผ้าปูที่นอนได้ไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ซักได้สบาย ขนาด 3.5 ฟุต ซักเครื่อง 17 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด<br/>ขนาด 5–6 ฟุต ซักเครื่อง 27 Kg. / ท็อปเปอร์ 1 ผืน / ชุดผ้าปู 1 ชุด<br/><span class="text-nink/60">**อย่างไรก็ตาม แม่บ้านจะช่วยประเมินขนาด และความหนาของท็อปเปอร์ที่หน้าร้านอีกครั้ง**</span></div>
-          </details>
-        </div>
-
-        <div data-pane="problems" class="faq-pane grid gap-3 hidden">
-          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">⚠️ ปัญหาเครื่องซักอบ</h3>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">หยอดเหรียญแล้วเครื่องไม่เริ่มทำงาน ทำอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">1) ลองปิดฝาเครื่องให้สนิท 2) กดปุ่ม Start ค้าง 2 วินาที 3) ถ้าไม่หาย ติดต่อแม่บ้านหน้าร้าน หรือโทร 02-123-4567 ตลอด 24 ชม. เราจะคืนเงินเต็มจำนวน</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">เหรียญติดในตู้ เครื่องไม่นับเหรียญ?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">อย่าใช้แรงงัด ถ่ายรูปเครื่องและเหรียญที่ติด แจ้งทาง LINE @nekoru ทีมงานจะคืนเงินผ่าน PromptPay ภายใน 1 ชม. ในเวลาทำการ</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">เครื่องอบแล้วผ้ายังไม่แห้งสนิท?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ส่วนใหญ่เกิดจากใส่ผ้าเกินความจุ หรือผ้าหนา (ผ้าห่ม กางเกงยีนส์) เลือก "อบเพิ่ม 10 นาที" 10 บาทได้เลย หรือใช้เครื่องขนาดใหญ่ขึ้น 1 ระดับ</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ฝาเครื่องเปิดไม่ออก รอบซักเสร็จแล้ว?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">เครื่องมีระบบนิรภัย ต้องรอ 1–2 นาทีหลังหยุดหมุน ถังจะคลายล็อกอัตโนมัติ ถ้าเกิน 5 นาทียังล็อก กดปุ่ม Reset หน้าเครื่อง หรือเรียกแม่บ้านได้เลย</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">น้ำรั่ว มีกลิ่นไหม้ ทำอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nred/15 text-nred grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">กดปุ่มฉุกเฉินสีแดงที่ผนังเพื่อตัดไฟ และโทร 02-123-4567 ทันที อย่าพยายามเปิดฝาหรือสัมผัสเครื่อง ทีมช่างจะถึงสาขาภายใน 30 นาที</div>
-          </details>
-        </div>
-
-        <div data-pane="fabric" class="faq-pane grid gap-3 hidden">
-          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">👕 การดูแลผ้า</h3>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">แยกผ้าก่อนซักจำเป็นแค่ไหน?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">จำเป็นมาก! แยก 3 กอง: ผ้าขาว, ผ้าสีอ่อน, ผ้าสีเข้ม/ยีนส์ใหม่ ป้องกันสีตก และแยกผ้าหนา (ผ้าห่ม) ออกจากผ้าบาง เพื่อให้แห้งทั่วถึงเท่ากัน</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้าทอ ผ้าไหม ผ้าขนสัตว์ ซักได้ไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ซักได้ครับ ใช้โปรแกรม "Delicate" + น้ำเย็น 30°C + ใส่ถุงตาข่ายซักผ้า งดอบด้วยความร้อน ใช้โหมดอบลมเย็น (Air Dry) แทน เพื่อคงรูปทรงและความนุ่ม</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้าเด็กทารก ซักรวมกับผ้าผู้ใหญ่ได้ไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ไม่แนะนำค่ะ ควรซักแยก ใช้น้ำร้อน 60°C ขึ้นไป + เลือกโปรแกรม "Baby Care" + อบโอโซน เพื่อฆ่าเชื้อโรค ไรฝุ่น ปลอดภัยกับผิวบอบบาง</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้าห่มนวม หมอน ใส่เครื่องไหน?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ผ้าห่มนวม Queen/King ใช้เครื่อง L (27 กก.) สำหรับผ้าห่มผืนใหญ่ / Single ใช้เครื่อง M (22 กก.) หมอนยัดขนเป็ดควรซักทีละ 1–2 ใบเท่านั้น ใช้น้ำอุ่นและอบลมเย็นนานหน่อย</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้ามีสัญลักษณ์ "Dry Clean Only" ซักที่นี่ได้ไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-northo/15 text-northo grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ไม่แนะนำให้ซักด้วยน้ำค่ะ ควรนำไปซักแห้งกับร้านที่เชี่ยวชาญ สาขาบางเขน, ทองหล่อ, ลาดพร้าว มีบริการ "Drop-off ซักแห้ง" คิดราคาตามชิ้น</div>
-          </details>
-        </div>
-
-        <div data-pane="trouble" class="faq-pane grid gap-3 hidden">
-          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">🔧 การแก้ปัญหาเบื้องต้น</h3>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">คราบฝังลึก คราบกาแฟ น้ำมัน ทำอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">แช่น้ำสบู่อ่อนๆ 15–20 นาทีก่อน แล้วค่อยลงเครื่อง เลือกโปรแกรม "Heavy Wash" + น้ำอุ่น 60°C ถ้าเป็นคราบสด จะออกง่ายกว่าคราบแห้ง</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้าหด ผ้าเสียทรงหลังอบ ป้องกันได้ไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">อ่านป้ายผ้า ผ้าฝ้าย 100% และผ้าขนสัตว์ มีโอกาสหด ควรเลือกโหมดอบลมเย็น หรือลดอุณหภูมิอบลง ใส่ถุงซักรักษารูปทรง สำหรับเสื้อยืดและบรา</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้าสีตก ทำให้ผ้าขาวเปื้อน แก้ยังไง?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ห้ามอบทันที! ความร้อนจะทำให้สีติดถาวร แช่ผ้าขาวกับน้ำยาดึงสี 30 นาที แล้วซักซ้ำด้วยน้ำเย็น พี่แม่บ้านมีน้ำยาดึงสีฉุกเฉินให้ยืม</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ผ้ามีกลิ่นอับหลังอบ จัดการอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">เกิดจากใส่ผ้ามากเกินไป อบไม่ทั่ว แนะนำให้แบ่งซักเป็น 2 รอบ + เลือกโปรแกรม "Anti-Bacteria" หรือใช้บริการอบโอโซนที่เนโกะรุมีฟรีในทุกรอบ</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ลืมเก็บกระดาษในกระเป๋า ผ้าเป็นเศษเล็กๆทั้งตัว?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nink/15 text-nink grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ใช้ผ้าขนหนูเปียกเช็ดเก็บเศษทิชชู่ออก แล้วใส่เครื่องอบรอบเพิ่ม โดยใส่ผ้าขนหนูแห้งร่วมด้วย เศษกระดาษจะติดที่ผ้าขนหนู ครั้งหน้าเช็กกระเป๋าก่อนซักนะคะ</div>
-          </details>
-        </div>
-
-        <div data-pane="branch" class="faq-pane grid gap-3 hidden">
-          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">📍 สาขาและบริการ</h3>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5" open>
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">สาขาเปิด-ปิดกี่โมง? วันหยุดเปิดไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ทุกสาขาเปิด 24 ชั่วโมง ทุกวัน ไม่มีวันหยุด รวมทั้งวันหยุดนักขัตฤกษ์และเทศกาล เพราะเรารู้ว่าผ้าต้องซักได้ตลอด</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">แม่บ้านอยู่ประจำทุกสาขาตลอดเวลาไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">แม่บ้านประจำสาขา 06:00–22:00 ทุกวัน นอกเวลานี้มีระบบ Call Center 24 ชม. โทร 02-123-4567 และมีสาขา Premium ที่เลี้ยงแม่บ้าน 24 ชม. (ดูเครื่องหมาย ⭐ ในรายชื่อสาขา)</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ค่าจอดรถ คิดเงินไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ฟรีค่ะ ทุกสาขามีที่จอดรถสำหรับลูกค้า 5–20 คันตามขนาดสาขา ในขณะใช้บริการเท่านั้น ไม่อนุญาตให้จอดข้ามคืนหรือฝากรถ</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">มีบริการรับ-ส่งผ้าถึงบ้านไหม?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">มีค่ะ บริการ "Nekoru Delivery" รับ-ส่งฟรีในรัศมี 3 กม. จากสาขาที่ร่วมรายการ ขั้นต่ำ 199 บาท จองผ่าน LINE @nekoru</div>
-          </details>
-          <details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5">
-            <summary class="flex items-start justify-between gap-4">
-              <span class="th-display text-lg pr-4">ระบบสมาชิก สะสมแต้ม ส่วนลดอย่างไร?</span>
-              <span class="chev shrink-0 w-8 h-8 rounded-full bg-nblue/15 text-nblue grid place-items-center text-xl leading-none">+</span>
-            </summary>
-            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed">ลงทะเบียนผ่าน LINE @nekoru ใช้บริการ 10 บาท = 1 แต้ม 3 ระดับสมาชิก: Kitten / Cat / Maneki ดูรายละเอียดที่ <a href="#loyalty" class="text-nblue underline">ส่วน Member Club</a></div>
-          </details>
-        </div>
+      <div class="lg:col-span-8" id="faqPanes">
+        <div class="text-center py-12 text-nink/50 text-sm">กำลังโหลด...</div>
       </div>
+
     </div>
+
+    <script>
+    (async function loadFAQ() {
+      const SB = NEKORU_SB;
+      if (!SB) return;
+
+      const [catRes, faqRes] = await Promise.all([
+        SB.from('faq_categories').select('*').order('sort_order'),
+        SB.from('faqs').select('*').order('sort_order'),
+      ]);
+
+      const cats = catRes.data || [];
+      const faqs = faqRes.data || [];
+      if (!cats.length) return;
+
+      const faqsByCat = {};
+      faqs.forEach(f => {
+        if (!faqsByCat[f.category_key]) faqsByCat[f.category_key] = [];
+        faqsByCat[f.category_key].push(f);
+      });
+
+      const colorMap = {
+        nblue: { bg: 'bg-nblue/15', text: 'text-nblue' },
+        nred:  { bg: 'bg-nred/15',  text: 'text-nred'  },
+        northo:{ bg: 'bg-northo/15',text: 'text-northo'},
+        nink:  { bg: 'bg-nink/15',  text: 'text-nink'  },
+        nsky:  { bg: 'bg-nsky/30',  text: 'text-nblue' },
+      };
+
+      const catsEl = document.getElementById('faqCats');
+      const panesEl = document.getElementById('faqPanes');
+
+      catsEl.innerHTML = cats.map((c, i) => {
+        const cm = colorMap[c.color] || colorMap.nblue;
+        const count = (faqsByCat[c.key] || []).length;
+        const active = i === 0;
+        return `<button data-cat="${c.key}" class="card-light faq-cat text-left p-4 rounded-2xl bg-white border-2 ${active ? 'border-nblue shadow-card' : 'border-transparent hover:border-[#cfeaf7]'} flex items-center gap-3">
+          <span class="w-11 h-11 rounded-xl ${cm.bg} grid place-items-center ${cm.text} text-lg">${c.icon}</span>
+          <span class="flex-1">
+            <span class="block th-display">${c.title}</span>
+            <span class="block text-xs text-nink/60">${c.subtitle}</span>
+          </span>
+          <span class="text-xs text-nink/50">${count}</span>
+        </button>`;
+      }).join('') + `
+        <a href="https://line.me/R/ti/p/@453izcgt" target="_blank" rel="noopener" class="mt-3 p-5 rounded-2xl bg-nink text-white">
+          <div class="th-display">ไม่เจอคำตอบ?</div>
+          <div class="text-sm text-white/70 mt-1">ทักเราใน LINE ได้ทันที</div>
+          <div class="mt-3 inline-flex items-center gap-2 font-bold text-nsky">@453izcgt →</div>
+        </a>`;
+
+      panesEl.innerHTML = cats.map((c, i) => {
+        const cm = colorMap[c.color] || colorMap.nblue;
+        const items = faqsByCat[c.key] || [];
+        const hidden = i === 0 ? '' : 'hidden';
+        return `<div data-pane="${c.key}" class="faq-pane grid gap-3 ${hidden}">
+          <h3 class="th-display text-2xl flex items-center gap-2 mb-1">${c.icon} ${c.title}</h3>
+          ${items.map((q, qi) => `<details class="faq card-light bg-white rounded-2xl border border-[#e6f3fa] p-5"${qi === 0 ? ' open' : ''}>
+            <summary class="flex items-start justify-between gap-4">
+              <span class="th-display text-lg pr-4">${q.question}</span>
+              <span class="chev shrink-0 w-8 h-8 rounded-full ${cm.bg} ${cm.text} grid place-items-center text-xl leading-none">+</span>
+            </summary>
+            <div class="mt-3 text-nink/75 text-[15px] leading-relaxed" style="white-space:pre-line">${q.answer}</div>
+          </details>`).join('\n')}
+        </div>`;
+      }).join('\n');
+
+      catsEl.querySelectorAll('.faq-cat').forEach(btn => {
+        btn.addEventListener('click', () => {
+          catsEl.querySelectorAll('.faq-cat').forEach(b => {
+            b.classList.remove('border-nblue','shadow-card');
+            b.classList.add('border-transparent');
+          });
+          btn.classList.add('border-nblue','shadow-card');
+          btn.classList.remove('border-transparent');
+          panesEl.querySelectorAll('.faq-pane').forEach(p => p.classList.add('hidden'));
+          const target = panesEl.querySelector(`[data-pane="${btn.dataset.cat}"]`);
+          if (target) target.classList.remove('hidden');
+        });
+      });
+    })();
+    </script>
   </div>
 </section>
 

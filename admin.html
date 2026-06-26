@@ -97,7 +97,8 @@
       <button class="tab active" data-tab="branches">🏬 สาขา</button>
       <button class="tab" data-tab="articles">📝 บทความ</button>
       <button class="tab" data-tab="news_events">📣 ข่าว/โปรโม</button>
-      <button class="tab" data-tab="faqs">❓ FAQ</button>
+      <button class="tab" data-tab="faq_categories">📂 FAQ หมวด</button>
+      <button class="tab" data-tab="faqs">❓ FAQ คำถาม</button>
       <button class="tab" data-tab="contacts">📥 ข้อความติดต่อ</button>
       <button class="tab" data-tab="franchise_inquiries">🤝 แฟรนไชส์</button>
       <button class="tab" data-tab="career_applications">💼 สมัครงาน</button>
@@ -280,16 +281,24 @@ const TABS = {
       { key: 'is_active', label: 'เปิดใช้', list: true, type: 'bool' },
     ],
   },
-  faqs: {
-    title: 'FAQ', table: 'faqs', orderBy: 'sort_order', ascending: true,
+  faq_categories: {
+    title: 'FAQ หมวดหมู่', table: 'faq_categories', orderBy: 'sort_order', ascending: true,
     columns: [
-      { key: 'category', label: 'หมวด', list: true, type: 'enum', required: true, options: ['machine_usage','machine_problems','fabric_care','troubleshooting','branches'] },
-      { key: 'question_th', label: 'คำถาม', list: true, type: 'text', required: true },
-      { key: 'answer_th', label: 'คำตอบ', type: 'textarea', required: true },
-      { key: 'question_en', label: 'คำถาม EN', type: 'text' },
-      { key: 'answer_en', label: 'คำตอบ EN', type: 'textarea' },
+      { key: 'icon', label: 'ไอคอน', list: true, type: 'text', required: true, hint: 'emoji เช่น 🧺 ⚠️ 👕' },
+      { key: 'key', label: 'Key', list: true, type: 'text', required: true, hint: 'ภาษาอังกฤษ เช่น usage, problems' },
+      { key: 'title', label: 'ชื่อหมวด', list: true, type: 'text', required: true },
+      { key: 'subtitle', label: 'คำอธิบายย่อ', list: true, type: 'text' },
+      { key: 'color', label: 'สี', list: true, type: 'enum', options: ['nblue','nred','northo','nink','nsky'] },
       { key: 'sort_order', label: 'ลำดับ', list: true, type: 'number' },
-      { key: 'is_active', label: 'เปิดใช้', list: true, type: 'bool' },
+    ],
+  },
+  faqs: {
+    title: 'FAQ คำถาม-คำตอบ', table: 'faqs', orderBy: 'sort_order', ascending: true,
+    columns: [
+      { key: 'category_key', label: 'หมวด', list: true, type: 'enum', required: true, options: ['usage','problems','fabric','trouble','branch'] },
+      { key: 'question', label: 'คำถาม', list: true, type: 'text', required: true },
+      { key: 'answer', label: 'คำตอบ', type: 'textarea', required: true, rows: 5 },
+      { key: 'sort_order', label: 'ลำดับ', list: true, type: 'number' },
     ],
   },
   contacts: {
