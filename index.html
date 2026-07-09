@@ -1265,8 +1265,9 @@
 
     <script>
     (async function loadFAQ() {
-      const SB = NEKORU_SB;
-      if (!SB) return;
+      const cfg = window.NEKORU_SUPABASE;
+      if (!cfg || !window.supabase) return;
+      const SB = window.supabase.createClient(cfg.url, cfg.anonKey);
 
       const [catRes, faqRes] = await Promise.all([
         SB.from('faq_categories').select('*').order('sort_order'),
