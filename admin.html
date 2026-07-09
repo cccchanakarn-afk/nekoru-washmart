@@ -66,6 +66,7 @@
         <input id="authPass" type="password" class="field" required minlength="6" autocomplete="current-password" />
       </label>
       <button id="authSubmit" type="submit" class="btn btn-primary mt-2">เข้าสู่ระบบ</button>
+      <button id="forgotBtn" type="button" class="text-xs text-nblue/70 hover:text-nblue hover:underline mt-1 text-center w-full hidden">ลืมรหัสผ่าน? ส่งลิงก์รีเซ็ตทางอีเมล</button>
       <div id="authStatus" class="text-xs rounded-lg p-2 hidden"></div>
     </form>
     <p class="text-xs text-nink/60 mt-5 leading-relaxed">
@@ -160,6 +161,7 @@ const authBtn    = document.getElementById('authSubmit');
 const authStatus = document.getElementById('authStatus');
 const tabIn      = document.getElementById('tabSignIn');
 const tabUp      = document.getElementById('tabSignUp');
+const forgotBtn  = document.getElementById('forgotBtn');
 let mode = 'signin';
 
 function setAuthStatus(kind, msg){
@@ -168,8 +170,33 @@ function setAuthStatus(kind, msg){
   authStatus.textContent = msg;
   authStatus.classList.remove('hidden');
 }
-tabIn.addEventListener('click', () => { mode='signin'; tabIn.classList.add('active'); tabUp.classList.remove('active'); authBtn.textContent='เข้าสู่ระบบ'; });
-tabUp.addEventListener('click', () => { mode='signup'; tabUp.classList.add('active'); tabIn.classList.remove('active'); authBtn.textContent='สมัครแอดมินใหม่'; });
+tabIn.addEventListener('click', () => {
+  mode='signin';
+  tabIn.classList.add('active'); tabUp.classList.remove('active');
+  authBtn.textContent='เข้าสู่ระบบ';
+  forgotBtn.classList.remove('hidden');
+});
+tabUp.addEventListener('click', () => {
+  mode='signup';
+  tabUp.classList.add('active'); tabIn.classList.remove('active');
+  authBtn.textContent='สมัครแอดมินใหม่';
+  forgotBtn.classList.add('hidden');
+});
+forgotBtn.classList.remove('hidden');
+
+forgotBtn.addEventListener('click', async () => {
+  const email = authEmail.value.trim();
+  if (!email) { setAuthStatus('err', '❌ กรอกอีเมลก่อนแล้วกดลืมรหัสผ่าน'); return; }
+  forgotBtn.disabled = true;
+  forgotBtn.textContent = 'กำลังส่ง...';
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: location.origin + location.pathname,
+  });
+  forgotBtn.disabled = false;
+  forgotBtn.textContent = 'ลืมรหัสผ่าน? ส่งลิงก์รีเซ็ตทางอีเมล';
+  if (error) { setAuthStatus('err', '❌ ' + error.message); }
+  else { setAuthStatus('ok', '✅ ส่งลิงก์รีเซ็ตไปที่ ' + email + ' แล้ว — ตรวจอีเมล (รวมถึงโฟลเดอร์ spam)'); }
+});
 
 authForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -224,8 +251,67 @@ async function enterAdmin(){
   loadTab('branches');
 }
 
-// On load: try auto-enter if session exists
-sb.auth.getSession().then(({ data: { session } }) => { if (session) enterAdmin(); });
+// On load: try auto-enter if session exists, or handle password-recovery redirect
+sb.auth.getSession().then(({ data: { session } }) => {
+  if (!session) return;
+  if (session.user?.recovery_sent_at && location.hash.includes('type=recovery')) {
+    showResetForm();
+  } else {
+    enterAdmin();
+  }
+});
+
+sb.auth.onAuthStateChange((event, session) => {
+  if (event === 'PASSWORD_RECOVERY') showResetForm();
+});
+
+function showResetForm() {
+  authScreen.classList.remove('hidden');
+  adminApp.classList.add('hidden');
+  authForm.classList.add('hidden');
+  document.getElementById('tabSignIn').closest('.flex').classList.add('hidden');
+  const resetDiv = document.getElementById('resetPasswordForm');
+  resetDiv.classList.remove('hidden');
+}
+
+const resetPasswordHTML = `
+  <div id="resetPasswordForm" class="grid gap-3">
+    <div class="text-sm font-bold mb-1">🔑 ตั้งรหัสผ่านใหม่</div>
+    <label class="block">
+      <span class="block text-xs font-bold mb-1">รหัสผ่านใหม่ <span class="text-nink/50 font-normal">(อย่างน้อย 6 ตัว)</span></span>
+      <input id="newPass" type="password" class="field" minlength="6" required />
+    </label>
+    <label class="block">
+      <span class="block text-xs font-bold mb-1">ยืนยันรหัสผ่าน</span>
+      <input id="newPassConfirm" type="password" class="field" minlength="6" required />
+    </label>
+    <button id="resetSubmit" type="button" class="btn btn-primary mt-2">บันทึกรหัสผ่านใหม่</button>
+    <div id="resetStatus" class="text-xs rounded-lg p-2 hidden"></div>
+  </div>`;
+
+// Inject reset form into auth card
+document.getElementById('authForm').insertAdjacentHTML('afterend', resetPasswordHTML);
+document.getElementById('resetPasswordForm').classList.add('hidden');
+
+document.getElementById('resetSubmit').addEventListener('click', async () => {
+  const newPass = document.getElementById('newPass').value;
+  const confirm = document.getElementById('newPassConfirm').value;
+  const statusEl = document.getElementById('resetStatus');
+  function setResetStatus(kind, msg) {
+    statusEl.className = 'text-xs rounded-lg p-2 ' + (kind === 'ok' ? 'bg-[#e6f5fc] text-nblue' : 'bg-[#ffe8eb] text-nred');
+    statusEl.textContent = msg;
+    statusEl.classList.remove('hidden');
+  }
+  if (newPass.length < 6) { setResetStatus('err', '❌ รหัสผ่านต้องอย่างน้อย 6 ตัว'); return; }
+  if (newPass !== confirm) { setResetStatus('err', '❌ รหัสผ่านไม่ตรงกัน'); return; }
+  const btn = document.getElementById('resetSubmit');
+  btn.disabled = true; btn.textContent = 'กำลังบันทึก...';
+  const { error } = await sb.auth.updateUser({ password: newPass });
+  btn.disabled = false; btn.textContent = 'บันทึกรหัสผ่านใหม่';
+  if (error) { setResetStatus('err', '❌ ' + error.message); return; }
+  setResetStatus('ok', '✅ เปลี่ยนรหัสผ่านสำเร็จ! กำลังเข้าสู่ระบบ...');
+  setTimeout(() => enterAdmin(), 1500);
+});
 
 // ============================================================
 // Tab definitions — schema-driven
