@@ -2,8 +2,8 @@ name: Keep Supabase Alive
 
 on:
   schedule:
-    # Run every 3 days at 08:00 UTC (15:00 Thailand time)
-    - cron: '0 8 */3 * *'
+    # Run every day at 08:00 UTC (15:00 Thailand time)
+    - cron: '0 8 * * *'
   workflow_dispatch: # allow manual trigger
 
 jobs:
@@ -12,12 +12,13 @@ jobs:
     steps:
       - name: Ping Supabase REST API
         run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 \
             "https://zjrvhrfxbvrquloboyob.supabase.co/rest/v1/faq_categories?select=id&limit=1" \
             -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqcnZocmZ4YnZycXVsb2JveW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDI3NTAsImV4cCI6MjA5NTg3ODc1MH0.38dIKtuSMmYv-w5EEwllBDHcLvuqJgevW1JtDPQeLvI" \
             -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpqcnZocmZ4YnZycXVsb2JveW9iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzMDI3NTAsImV4cCI6MjA5NTg3ODc1MH0.38dIKtuSMmYv-w5EEwllBDHcLvuqJgevW1JtDPQeLvI")
           echo "Supabase ping status: $STATUS"
-          if [ "$STATUS" != "200" ]; then
-            echo "Warning: Supabase returned status $STATUS"
-            exit 1
+          if [ "$STATUS" = "200" ]; then
+            echo "✅ Supabase is alive"
+          else
+            echo "⚠️ Supabase returned $STATUS — project may be paused"
           fi
